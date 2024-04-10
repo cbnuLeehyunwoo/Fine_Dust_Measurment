@@ -9,9 +9,13 @@ def scrape_dust():
 
     soup=BeautifulSoup(res.text, "lxml") # html 문서를 lxml을 통해서 BeautifulSoup 객체로 만들어준다.
 
-    dust=soup.find("div", attrs={"class":"tb_scroll"}).find("tbody")
-
+    dust=soup.find("div", attrs={"class":"tb_scroll"}).find("tbody").find("tr") # 도 별 정보
+    place=dust.find("th") # 도 이름
+    value=dust.find("span") # 미세먼지 값
+    
     print(dust.get_text())
+    print(place.get_text())
+    print(value.get_text())
 
 
 if __name__ == "__main__":
