@@ -17,19 +17,26 @@ def scrape_naver():
     print(place.get_text())
     print(value.get_text())
 
-def scrape_naver_gang():
-    print("[네이버 강원도 미세먼지 지수]")
-    url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EA%B0%95%EC%9B%90%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
+def scrape_naver_chungbuk():
+    print("[네이버 충청도 미세먼지 지수]")
+    url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
     res=requests.get(url)
     res.raise_for_status()
     soup=BeautifulSoup(res.text, "lxml")  
 
-    dust=soup.find("div", attrs={"class":"map_area ct01"})
-    place=dust.find("span", attrs={"class":"cityname"})
-    value=dust.find("span", attrs={"class":"value"}).find("em")
-    print(place.get_text()) # 시 이름
-    print(value.get_text()) # 미세먼지 값
+    dust=soup.find("div", attrs={"class":"map_area ct16"})
+    place=dust.find_all("span", attrs={"class":"cityname"})
+    value=dust.find_all("span", attrs={"class":"value"}) #.find("em")
+
+    x=0
+    search=input("도시 이름 : ") # 도시 찾기
+    for i in range(0, len(place)):
+        if search in place[i]:
+            x=i
+
+    print(place[x].get_text()) # 도시 이름
+    print(value[x].get_text()) # 미세먼지 값
 
 
 if __name__ == "__main__":
-    scrape_naver_gang()
+    scrape_naver_chungbuk()
