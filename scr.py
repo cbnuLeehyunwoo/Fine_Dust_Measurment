@@ -18,7 +18,7 @@ def scrape_naver():
     print(value.get_text())
 
 def scrape_naver_chungbuk():
-    print("[네이버 충청도 미세먼지 지수]")
+    print("[네이버 충청북도 미세먼지 지수]")
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
     res=requests.get(url)
     res.raise_for_status()
@@ -38,5 +38,22 @@ def scrape_naver_chungbuk():
     print(value[x].get_text()) # 미세먼지 값
 
 
+def scrape_weatheri_chungbuk():
+    print("[웨더아이 충청북도 미세먼지 지수]")
+    url="https://www.weatheri.co.kr/special/special05_1.php?a=6"
+    headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebkit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
+             ,"Accept-Language":"ko-KR,ko"}
+    res=requests.get(url, headers=headers)
+    res.raise_for_status()
+    soup=BeautifulSoup(res.text, "lxml")
+
+    dust=soup.find("table", attrs={"width":"100%", "border":"0", "cellpadding":"1", "cellspacing":"1", "bgcolor":"#D2D4D4"})
+    place=dust.find_all("td", attrs={"align":"center"})
+    print(place[0].get_text())
+
+    value=dust.find_all("td", attrs={"width":"7%", "align":"right"})[0] #.find("em")
+    print(value.get_text()) # 미세먼지 값
+
+
 if __name__ == "__main__":
-    scrape_naver_chungbuk()
+    scrape_weatheri_chungbuk()
