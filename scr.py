@@ -35,7 +35,27 @@ def scrape_naver_chungbuk():
             x=i
 
     print(place[x].get_text()) # 도시 이름
-    print(value[x].get_text()) # 미세먼지 값
+    print("미세먼지 :", value[x].get_text()) # 미세먼지 값
+
+def scrape_naver_25():
+    print("[네이버 충청북도 초미세먼지 지수]")
+    url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EC%B6%A9%EB%B6%81%EC%B4%88%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
+    res=requests.get(url)
+    res.raise_for_status()
+    soup=BeautifulSoup(res.text, "lxml")
+
+    dust=soup.find("div", attrs={"class":"map_area ct16"})
+    place=dust.find_all("span", attrs={"class":"cityname"})
+    value=dust.find_all("span", attrs={"class":"value"}) #.find("em")
+
+    x=0
+    search=input("도시 이름 : ") # 도시 찾기
+    for i in range(0, len(place)):
+        if search in place[i]:
+            x=i
+
+    print(place[x].get_text()) # 도시 이름
+    print("초미세먼지 :", value[x].get_text()) # 초미세먼지 값
 
 
 def scrape_weatheri_chungbuk():
@@ -51,9 +71,11 @@ def scrape_weatheri_chungbuk():
     for n in range(1, len(dust)): #1부터 시작
         place=dust[n].find("td", attrs={"align":"center"}).get_text() #도시 이름
         value=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[0].get_text() #미세먼지 값
+        value2=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[1].get_text() #초미세먼지 값
         if search in place:
             print(place)
-            print(value)
+            print("미세먼지 :", value)
+            print("초미세먼지 :", value2)
 
 def scrape_health():
     print("[충청북도 보건소 미세먼지 지수]")
@@ -68,10 +90,11 @@ def scrape_health():
     for n in range(1, len(dust)): #1부터 시작
         place=dust[n].find("td", attrs={"class":"bd_left"}).get_text() #도시 이름
         value=dust[n].find_all("td")[2].get_text().strip() #미세먼지 값
+        value2=dust[n].find_all("td")[3].get_text().strip() #초미세먼지
         if search in place:
             print(place)
-            print(value)
-
+            print("미세먼지 :", value)
+            print("초미세먼지 :", value2)
 
 if __name__ == "__main__":
-    scrape_weatheri_chungbuk()
+    scrape_health()
