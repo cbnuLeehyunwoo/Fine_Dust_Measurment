@@ -36,6 +36,14 @@ def scrape_naver_chungbuk():
 
     print(place[x].get_text()) # 도시 이름
     print("미세먼지 :", value[x].get_text()) # 미세먼지 값
+    if int(value[x].get_text()) <= 30:
+        print("좋음")
+    elif int(value[x].get_text()) <= 80:
+        print("보통")
+    elif int(value[x].get_text()) <= 150:
+        print("나쁨")
+    elif int(value[x].get_text()) >= 151:
+        print("매우나쁨")
 
 def scrape_naver_25():
     print("[네이버 충청북도 초미세먼지 지수]")
@@ -46,7 +54,7 @@ def scrape_naver_25():
 
     dust=soup.find("div", attrs={"class":"map_area ct16"})
     place=dust.find_all("span", attrs={"class":"cityname"})
-    value=dust.find_all("span", attrs={"class":"value"}) #.find("em")
+    value=dust.find_all("span", attrs={"class":"value"})
 
     x=0
     search=input("도시 이름 : ") # 도시 찾기
@@ -56,6 +64,14 @@ def scrape_naver_25():
 
     print(place[x].get_text()) # 도시 이름
     print("초미세먼지 :", value[x].get_text()) # 초미세먼지 값
+    if int(value[x].get_text()) <= 15:
+        print("좋음")
+    elif int(value[x].get_text()) <= 35:
+        print("보통")
+    elif int(value[x].get_text()) <= 75:
+        print("나쁨")
+    elif int(value[x].get_text()) >= 76:
+        print("매우나쁨")
 
 
 def scrape_weatheri_chungbuk():
@@ -75,7 +91,23 @@ def scrape_weatheri_chungbuk():
         if search in place:
             print(place)
             print("미세먼지 :", value)
+            if int(value) <= 30:
+                print("좋음")
+            elif int(value) <= 80:
+                print("보통")
+            elif int(value) <= 150:
+                print("나쁨")
+            elif int(value) >= 151:
+                print("매우나쁨")
             print("초미세먼지 :", value2)
+            if int(value2) <= 15:
+                print("좋음")
+            elif int(value2) <= 35:
+                print("보통")
+            elif int(value2) <= 75:
+                print("나쁨")
+            elif int(value2) >= 76:
+                print("매우나쁨")
 
 def scrape_health():
     print("[충청북도 보건소 미세먼지 지수]")
@@ -93,8 +125,11 @@ def scrape_health():
         value2=dust[n].find_all("td")[3].get_text().strip() #초미세먼지
         if search in place:
             print(place)
-            print("미세먼지 :", value)
-            print("초미세먼지 :", value2)
+            print("미세먼지 :", value.replace("㎍/㎥", ""))
+            #print("초미세먼지 :", value2)
 
 if __name__ == "__main__":
+    #scrape_naver_chungbuk()
+    #scrape_naver_25()
+    #scrape_weatheri_chungbuk()
     scrape_health()
