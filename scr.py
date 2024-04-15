@@ -74,40 +74,88 @@ def scrape_naver_25():
         print("매우나쁨")
 
 
-def scrape_weatheri_chungbuk():
-    print("[웨더아이 충청북도 미세먼지 지수]")
+def weatheri(n):
     url="https://www.weatheri.co.kr/special/special05_1.php?a=6"
     res=requests.get(url)
     res.raise_for_status()
     soup=BeautifulSoup(res.content.decode('utf-8','replace'), "lxml") # 글자 깨짐 해결
 
     dust=soup.find("table", attrs={"width":"100%", "border":"0", "cellpadding":"1", "cellspacing":"1", "bgcolor":"#D2D4D4"}).find_all("tr", attrs={"valign":"top", "bgcolor":"#FFFFFF", "height":"19"})
-    
+
+    place=dust[n].find("td", attrs={"align":"center"}).get_text() #도시 이름
+    value=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[0].get_text() #미세먼지 값
+    value2=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[1].get_text() #초미세먼지 값
+    print(place)
+    print("미세먼지 :", value)
+    if int(value) <= 30:
+        print("좋음")
+    elif int(value) <= 80:
+        print("보통")
+    elif int(value) <= 150:
+            print("나쁨")
+    elif int(value) >= 151:
+        print("매우나쁨")
+    if "-" not in value2:
+        print("초미세먼지 :", value2)
+        if int(value2) <= 15:
+            print("좋음")
+        elif int(value2) <= 35:
+            print("보통")
+        elif int(value2) <= 75:
+            print("나쁨")
+        elif int(value2) >= 76:
+            print("매우나쁨")
+
+def scrape_weatheri_chungbuk():
     search=input("도시 이름 : ")
-    for n in range(1, len(dust)): #1부터 시작
-        place=dust[n].find("td", attrs={"align":"center"}).get_text() #도시 이름
-        value=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[0].get_text() #미세먼지 값
-        value2=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[1].get_text() #초미세먼지 값
-        if search in place:
-            print(place)
-            print("미세먼지 :", value)
-            if int(value) <= 30:
-                print("좋음")
-            elif int(value) <= 80:
-                print("보통")
-            elif int(value) <= 150:
-                print("나쁨")
-            elif int(value) >= 151:
-                print("매우나쁨")
-            print("초미세먼지 :", value2)
-            if int(value2) <= 15:
-                print("좋음")
-            elif int(value2) <= 35:
-                print("보통")
-            elif int(value2) <= 75:
-                print("나쁨")
-            elif int(value2) >= 76:
-                print("매우나쁨")
+    if "청주" in search:
+        weatheri(1)
+        weatheri(11)
+        weatheri(12)
+        weatheri(13)
+        weatheri(14)
+        weatheri(19)
+        weatheri(20)
+        weatheri(22)
+        weatheri(23)
+    elif "괴산" in search:
+        weatheri(2)
+        weatheri(3)
+        weatheri(29)
+    elif "음성" in search:
+        weatheri(4)
+        weatheri(16)
+        weatheri(24)
+    elif "단양" in search:
+        weatheri(5)
+        weatheri(6)
+        weatheri(9)
+    elif "진천" in search:
+        weatheri(7)
+        weatheri(28)
+    elif "증평" in search:
+        weatheri(8)
+        weatheri(27)
+    elif "보은" in search:
+        weatheri(10)
+    elif "충주" in search:
+        weatheri(15)
+        weatheri(16)
+        weatheri(31)
+        weatheri(32)
+    elif "영동" in search:
+        weatheri(17)
+        weatheri(33)
+    elif "화성" in search:
+        weatheri(18)
+    elif "옥천" in search:
+        weatheri(21)
+    elif "제천" in search:
+        weatheri(25)
+        weatheri(30)
+    elif "진천" in search:
+        weatheri(28)
+
 
 def scrape_health():
     print("[충청북도 보건소 미세먼지 지수]")
@@ -153,5 +201,5 @@ def scrape_health():
 if __name__ == "__main__":
     #scrape_naver_chungbuk()
     #scrape_naver_25()
-    #scrape_weatheri_chungbuk()
-    scrape_health()
+    scrape_weatheri_chungbuk()
+    #scrape_health()
