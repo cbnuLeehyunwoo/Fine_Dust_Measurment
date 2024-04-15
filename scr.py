@@ -119,14 +119,36 @@ def scrape_health():
     dust=soup.find("table", attrs={"class":"table tr_over"}).find_all("tr")
     
     search=input("도시 이름 : ")
+    count=0
     for n in range(1, len(dust)): #1부터 시작
         place=dust[n].find("td", attrs={"class":"bd_left"}).get_text() #도시 이름
-        value=dust[n].find_all("td")[2].get_text().strip() #미세먼지 값
-        value2=dust[n].find_all("td")[3].get_text().strip() #초미세먼지
+        
         if search in place:
+            value=dust[n].find_all("td")[2].get_text().strip().replace(".0㎍/㎥", "") #미세먼지 값
+            value2=dust[n].find_all("td")[3].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
+            if count > 0:
+                value=dust[n].find_all("td")[1].get_text().strip().replace(".0㎍/㎥", "") #미세먼지 값
+                value2=dust[n].find_all("td")[2].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
             print(place)
-            print("미세먼지 :", value.replace("㎍/㎥", ""))
-            #print("초미세먼지 :", value2)
+            
+            if int(value) <= 30:
+                print("미세먼지 :", value, " - ", "좋음")
+            elif int(value) <= 80:
+                print("미세먼지 :", value, " - ", "보통")
+            elif int(value) <= 150:
+                print("미세먼지 :", value, " - ", "나쁨")
+            elif int(value) >= 151:
+                print("미세먼지 :", value, " - ", "매우나쁨")
+            
+            if int(value2) <= 15:
+                print("초미세먼지 :", value2, " - ", "좋음")
+            elif int(value2) <= 35:
+                print("초미세먼지 :", value2, " - ", "보통")
+            elif int(value2) <= 75:
+                print("초미세먼지 :", value2, " - ", "나쁨")
+            elif int(value2) >= 76:
+                print("초미세먼지 :", value2, " - ", "매우나쁨")
+            count+=1
 
 if __name__ == "__main__":
     #scrape_naver_chungbuk()
