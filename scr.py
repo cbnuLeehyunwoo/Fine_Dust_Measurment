@@ -90,79 +90,93 @@ def weatheri(n):
 
     dust=soup.find("table", attrs={"width":"100%", "border":"0", "cellpadding":"1", "cellspacing":"1", "bgcolor":"#D2D4D4"}).find_all("tr", attrs={"valign":"top", "bgcolor":"#FFFFFF", "height":"19"})
 
-    place=dust[n].find("td", attrs={"align":"center"}).get_text() #도시 이름
+    #place=dust[n].find("td", attrs={"align":"center"}).get_text() #도시 이름
     value=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[0].get_text() #미세먼지 값
-    value2=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[1].get_text() #초미세먼지 값
-    print(place)
-    print("미세먼지 :", value)
-    if int(value) <= 30:
-        print("좋음")
-    elif int(value) <= 80:
-        print("보통")
-    elif int(value) <= 150:
-            print("나쁨")
-    elif int(value) >= 151:
-        print("매우나쁨")
-    if "-" not in value2:
-        print("초미세먼지 :", value2)
-        if int(value2) <= 15:
-            print("좋음")
-        elif int(value2) <= 35:
-            print("보통")
-        elif int(value2) <= 75:
-            print("나쁨")
-        elif int(value2) >= 76:
-            print("매우나쁨")
+    #value2=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[1].get_text() #초미세먼지 값
+    #print(place)
+
+    return int(value)
+    #print("미세먼지 :", value)
+
+    # if int(value) <= 30:
+    #     print("좋음")
+    # elif int(value) <= 80:
+    #     print("보통")
+    # elif int(value) <= 150:
+    #         print("나쁨")
+    # elif int(value) >= 151:
+    #     print("매우나쁨")
+    # if "-" not in value2:
+    #     print("초미세먼지 :", value2)
+    #     if int(value2) <= 15:
+    #         print("좋음")
+    #     elif int(value2) <= 35:
+    #         print("보통")
+    #     elif int(value2) <= 75:
+    #         print("나쁨")
+    #     elif int(value2) >= 76:
+    #         print("매우나쁨")
 
 def scrape_weatheri_chungbuk():
     search=input("도시 이름 : ")
+    a=0
     if "청주" in search:
-        weatheri(1)
-        weatheri(11)
-        weatheri(12)
-        weatheri(13)
-        weatheri(14)
-        weatheri(19)
-        weatheri(20)
-        weatheri(22)
-        weatheri(23)
+        a+=weatheri(1)
+        a+=weatheri(11)
+        a+=weatheri(12)
+        a+=weatheri(13)
+        a+=weatheri(14)
+        a+=weatheri(19)
+        a+=weatheri(20)
+        a+=weatheri(22)
+        a+=weatheri(23)
+        return int(a/9)
     elif "괴산" in search:
-        weatheri(2)
-        weatheri(3)
-        weatheri(29)
+        a+=weatheri(2)
+        a+=weatheri(3)
+        a+=weatheri(29)
+        return int(a/3)
     elif "음성" in search:
-        weatheri(4)
-        weatheri(16)
-        weatheri(24)
+        a+=weatheri(4)
+        a+=weatheri(16)
+        a+=weatheri(24)
+        return int(a/3)
     elif "단양" in search:
-        weatheri(5)
-        weatheri(6)
-        weatheri(9)
+        a+=weatheri(5)
+        a+=weatheri(6)
+        a+=weatheri(9)
+        return int(a/3)
     elif "진천" in search:
-        weatheri(7)
-        weatheri(28)
+        a+=weatheri(7)
+        a+=weatheri(28)
+        return int(a/2)
     elif "증평" in search:
-        weatheri(8)
-        weatheri(27)
+        a+=weatheri(8)
+        a+=weatheri(27)
+        return int(a/9)
     elif "보은" in search:
-        weatheri(10)
+        a+=weatheri(10)
+        return a
     elif "충주" in search:
-        weatheri(15)
-        weatheri(16)
-        weatheri(31)
-        weatheri(32)
+        a+=weatheri(15)
+        a+=weatheri(16)
+        a+=weatheri(31)
+        a+=weatheri(32)
+        return int(a/4)
     elif "영동" in search:
-        weatheri(17)
-        weatheri(33)
+        a+=weatheri(17)
+        a+=weatheri(33)
+        return int(a/2)
     elif "화성" in search:
-        weatheri(18)
+        a+=weatheri(18)
+        return a
     elif "옥천" in search:
-        weatheri(21)
+        a+=weatheri(21)
+        return a
     elif "제천" in search:
-        weatheri(25)
-        weatheri(30)
-    elif "진천" in search:
-        weatheri(28)
+        a+=weatheri(25)
+        a+=weatheri(30)
+        return int(a/2)
 
 
 def scrape_health():
@@ -209,15 +223,15 @@ def scrape_health():
 if __name__ == "__main__":
     #scrape_naver_chungbuk()
     #scrape_naver_25()
-    #scrape_weatheri_chungbuk()
+    print(scrape_weatheri_chungbuk())
     #scrape_health()
 
-    app = Flask(__name__)
+    # app = Flask(__name__)
 
-    @app.route('/')
-    def index():
-        result=scrape_naver_25()
-        return render_template('mygoogle.html', result=result)
+    # @app.route('/')
+    # def index():
+    #     result=scrape_naver_25()
+    #     return render_template('mygoogle.html', result=result)
 
-    if __name__ == '__main__':
-        app.run(debug=True)
+    # if __name__ == '__main__':
+    #     app.run(debug=True)
