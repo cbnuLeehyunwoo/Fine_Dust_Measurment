@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from flask import Flask, render_template
 
 def scrape_naver():
     print("[네이버 미세먼지 지수]")
@@ -201,5 +202,14 @@ def scrape_health():
 if __name__ == "__main__":
     #scrape_naver_chungbuk()
     #scrape_naver_25()
-    scrape_weatheri_chungbuk()
+    #scrape_weatheri_chungbuk()
     #scrape_health()
+
+    app = Flask(__name__)
+
+    @app.route('/')
+    def index():
+        return render_template('mygoogle.html')
+
+    if __name__ == '__main__':
+        app.run(debug=True)
