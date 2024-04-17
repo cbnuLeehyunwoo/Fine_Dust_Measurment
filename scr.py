@@ -66,13 +66,20 @@ def scrape_naver_25():
     print(place[x].get_text()) # 도시 이름
     print("초미세먼지 :", value[x].get_text()) # 초미세먼지 값
     if int(value[x].get_text()) <= 15:
-        print("좋음")
+        state = "좋음"
     elif int(value[x].get_text()) <= 35:
-        print("보통")
+        state = "보통"
     elif int(value[x].get_text()) <= 75:
-        print("나쁨")
+        state = "나쁨"
     elif int(value[x].get_text()) >= 76:
-        print("매우나쁨")
+        state = "매우나쁨"
+
+    message = [
+        place[x].get_text(),
+        value[x].get_text(),
+        state
+    ]
+    return '<br>'.join(message)
 
 
 def weatheri(n):
@@ -209,7 +216,8 @@ if __name__ == "__main__":
 
     @app.route('/')
     def index():
-        return render_template('mygoogle.html')
+        result=scrape_naver_25()
+        return render_template('mygoogle.html', result=result)
 
     if __name__ == '__main__':
         app.run(debug=True)
