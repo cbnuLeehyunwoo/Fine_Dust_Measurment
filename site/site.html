@@ -74,6 +74,66 @@
     top: 54px; /* 현재 위치에서 위쪽으로의 이동 거리 */
   left: 87px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
   }
+  #dotButton_a {
+    width: 20px; /* 버튼의 크기 조정 */
+    height: 20px; /* 버튼의 크기 조정 */
+    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+    background-color: #3498db; /* 버튼의 배경색 */
+    border: none; /* 테두리 없애기 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+    position: relative;
+    top: 78px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -8px;
+  }
+  #dotButton_b {
+    width: 20px; /* 버튼의 크기 조정 */
+    height: 20px; /* 버튼의 크기 조정 */
+    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+    background-color: #3498db; /* 버튼의 배경색 */
+    border: none; /* 테두리 없애기 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+    position: relative;
+    top: 105px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -70px;
+  }
+  #dotButton_c {
+    width: 20px; /* 버튼의 크기 조정 */
+    height: 20px; /* 버튼의 크기 조정 */
+    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+    background-color: #3498db; /* 버튼의 배경색 */
+    border: none; /* 테두리 없애기 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+    position: relative;
+    top: 133px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: 3px;
+  }
+  #dotButton_d {
+    width: 20px; /* 버튼의 크기 조정 */
+    height: 20px; /* 버튼의 크기 조정 */
+    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+    background-color: #3498db; /* 버튼의 배경색 */
+    border: none; /* 테두리 없애기 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+    position: relative;
+    top: 126px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -75px;
+  }
+  #dotButton_e {
+    width: 20px; /* 버튼의 크기 조정 */
+    height: 20px; /* 버튼의 크기 조정 */
+    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+    background-color: #3498db; /* 버튼의 배경색 */
+    border: none; /* 테두리 없애기 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+    position: relative;
+    top: 222px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -68px;
+  }
   #dotButton4 {
     width: 20px; /* 버튼의 크기 조정 */
     height: 20px; /* 버튼의 크기 조정 */
@@ -82,10 +142,11 @@
     border: none; /* 테두리 없애기 */
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 187px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -30px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
+    position: absolute;
+    top: 188px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: 47px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
   }
+
 </style>
 </head>
 <body>
@@ -99,16 +160,34 @@
 </ol>
 
 <div class ="backG">
+ 
   <button id="dotButton1" onclick="alert('현재 단양군의 미세먼지 농도는 68㎍/㎥입니다.')">
 </button>
     <button id="dotButton2" onclick="alert('현재 제천시의 미세먼지 농도는 69㎍/㎥입니다.')">
   </button>
   <button id="dotButton3" onclick="alert('현재 충주시의 미세먼지 농도는 135㎍/㎥입니다.')">
   </button>
+  <button id="dotButton_a">
+  </button> 
+  <button id="dotButton_b">
+  </button> 
+  <button id="dotButton_c">
+  </button>
+  <button id="dotButton_d">
+  </button>
+  <button id="dotButton_e">
+  </button>
+  
   <a href="Cheongju.html">
     <button id="dotButton4">
     </button>
   </a>
+  
+   
+  
+  
+
+
 <script src="script.js"></script>
  
 </div>
