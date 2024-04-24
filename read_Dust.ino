@@ -1,4 +1,10 @@
 
+#define PIN_DUST_LED 11 // 센서 LED 핀
+#define PIN_DUST_OUT A0 // 데이터 출력 핀
+
+#include <LiquidCrystal.h>
+//LiquidCrystal lcd();
+
 
 void setup() {
   // pinMode 및 Serial 초기화
@@ -16,12 +22,29 @@ float read_dust() {
   delayMicroseconds(40);
   digitalWrite(PIN_DUST_LED, HIGH); // (데이터 샘플링 종료, 센서 끔?)
   delayMicroseconds(9680);
-  return dustval
+  return dustval;
 }
 
 void print_Serial_LCD() {
-  float dust= read_dust();                  // 미세먼지 데이터 수집
+  float dust = read_dust();                  // 미세먼지 데이터 수집
   
+  Serial.print(" Dust: ");
+  Serial.print(dust);
+  Serial.println(" ug");
+
+  // lcd.clear();  
+  // lcd.setCursor(0, 0);
+  // lcd.print("Dust: ");
+  // lcd.print(dust);
+  // lcd.print("ug");
+
+}
+
+void loop() {
+  read_dust();
+  print_Serial_LCD();
+  delay(3000);
+}  
   Serial.print(" Dust: ");
   Serial.print(dust);
   Serial.println(" ug");
