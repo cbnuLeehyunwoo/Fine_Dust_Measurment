@@ -27,20 +27,20 @@ void setup() {
   Serial.begin(9600);
   pinMode(PIN_DUST_LED, OUTPUT);
 
-  digitalWrite(PIN_DUST_LED, HIGH);  // 미세먼지 센서 적외선 LED 초기값 설정(HIGH -> 센서 끔?)
+  digitalWrite(PIN_DUST_LED, HIGH);  // 미세먼지 센서 적외선 LED 초기값 설정(HIGH -> 센서 끔)
  
- 
+  analogWrite(PIN_LCD_V0, 100); // LCD 콘트라스트 조절
   lcd.begin(16, 2);
 }
 
 float read_dust() {
-  digitalWrite(PIN_DUST_LED, LOW); // (LOW-> 센서 킴?, 데이터 샘플링 시작)
-  delayMicroseconds(280);
-  int dustval = analogRead(PIN_DUST_OUT);
-  delayMicroseconds(40);
-  digitalWrite(PIN_DUST_LED, HIGH); // (데이터 샘플링 종료, 센서 끔?)
-  delayMicroseconds(9680);
-  return dustval;
+  digitalWrite(PIN_DUST_LED, LOW); // LOW-> 센서 킴, 데이터 샘플링 시작
+  delayMicroseconds(280);   // 0.28ms 동안 데이터 수집
+  int dust_analog = analogRead(PIN_DUST_OUT);
+  delayMicroseconds(40); // 0.32의 펄스를 유지해야해서 0.04 ms동안 대기
+  digitalWrite(PIN_DUST_LED, HIGH); // 데이터 샘플링 종료, 센서 끔
+  delayMicroseconds(9680); // 센서 안정화
+  return dust_analog;
 }
 
 void print_Serial_LCD() {
@@ -54,8 +54,8 @@ void print_Serial_LCD() {
   lcd.setCursor(0, 0);
   lcd.print("Dust: ");
   lcd.print(dust);
-  lcd.print("ug");
-
+ // lcd.print("ug");
+ // dust값을 실제 미세먼지 값으로 바꾸는 작업 필요
 }
 
 void loop() {
