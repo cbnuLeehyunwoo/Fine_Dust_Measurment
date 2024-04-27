@@ -6,7 +6,6 @@
 //LiquidCrystal lcd();
 
 
-void setup() {
 #define PIN_LCD_V0 6
 #define PIN_LCD_RS 13
 #define PIN_LCD_EN 12
@@ -37,10 +36,12 @@ float read_dust() {
   digitalWrite(PIN_DUST_LED, LOW); // LOW-> 센서 킴, 데이터 샘플링 시작
   delayMicroseconds(280);   // 0.28ms 동안 데이터 수집
   int dust_analog = analogRead(PIN_DUST_OUT);
+  float defautV = 0.3;
   delayMicroseconds(40); // 0.32의 펄스를 유지해야해서 0.04 ms동안 대기
   digitalWrite(PIN_DUST_LED, HIGH); // 데이터 샘플링 종료, 센서 끔
   delayMicroseconds(9680); // 센서 안정화
-  return dust_analog;
+  float dustval = (dust_analog - defautV)/0.005 // 미세먼지 변수 기본값 측정 필요(기본 전압 일단 0.3으로 해둠)
+  return dustval;
 }
 
 void print_Serial_LCD() {
@@ -48,14 +49,13 @@ void print_Serial_LCD() {
   
   Serial.print(" Dust: ");
   Serial.print(dust);
-  Serial.println(" ug");
+  Serial.println(" ug");       
 
   lcd.clear();  
   lcd.setCursor(0, 0);
   lcd.print("Dust: ");
   lcd.print(dust);
- // lcd.print("ug");
- // dust값을 실제 미세먼지 값으로 바꾸는 작업 필요
+  lcd.print("ug");
 }
 
 void loop() {
