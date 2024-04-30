@@ -38,13 +38,20 @@ def scrape_naver_chungbuk():
     print(place[x].get_text()) # 도시 이름
     print("미세먼지 :", value[x].get_text()) # 미세먼지 값
     if int(value[x].get_text()) <= 30:
-        print("좋음")
+        state = "좋음"
     elif int(value[x].get_text()) <= 80:
-        print("보통")
+        state = "보통"
     elif int(value[x].get_text()) <= 150:
-        print("나쁨")
+        state = "나쁨"
     elif int(value[x].get_text()) >= 151:
-        print("매우나쁨")
+        state = "매우나쁨"
+
+    message = [
+        place[x].get_text(),
+        value[x].get_text(),
+        state
+    ]
+    return message
 
 def scrape_naver_25():
     print("[네이버 충청북도 초미세먼지 지수]")
@@ -229,15 +236,19 @@ if __name__ == "__main__":
     #scrape_naver_chungbuk()
     #scrape_naver_25()
     #print(scrape_weatheri_chungbuk())
-    print(scrape_health())
+    #print(scrape_health())
     #scrape_health()
 
-    # app = Flask(__name__)
+    app = Flask(__name__)
 
-    # @app.route('/')
-    # def index():
-    #     result=scrape_naver_25()
-    #     return render_template('mygoogle.html', result=result)
+    @app.route('/')
+    def first():
+        return render_template('site.html')
+    
+    @app.route('/apply')
+    def asdf():
+        result=scrape_naver_chungbuk()
+        return render_template('Cheongju.html', result=result)
 
-    # if __name__ == '__main__':
-    #     app.run(debug=True)
+    if __name__ == '__main__':
+        app.run(debug=True)
