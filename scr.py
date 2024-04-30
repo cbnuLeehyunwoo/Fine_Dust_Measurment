@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 def scrape_naver():
     print("[네이버 미세먼지 지수]")
@@ -18,7 +18,7 @@ def scrape_naver():
     print(place.get_text())
     print(value.get_text())
 
-def scrape_naver_chungbuk():
+def scrape_naver_chungbuk(location):
     print("[네이버 충청북도 미세먼지 지수]")
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
     res=requests.get(url)
@@ -30,7 +30,8 @@ def scrape_naver_chungbuk():
     value=dust.find_all("span", attrs={"class":"value"}) #.find("em")
 
     x=0
-    search=input("도시 이름 : ") # 도시 찾기
+    search = location
+    #search=input("도시 이름 : ") # 도시 찾기
     for i in range(0, len(place)):
         if search in place[i]:
             x=i
@@ -249,9 +250,9 @@ if __name__ == "__main__":
         back = f"img/Cheongju.png"
         return render_template('site.html', photo1=photo1, photo2=photo2, photo3=photo3, back=back)
     
-    @app.route('/apply')
+    @app.route("/apply")
     def asdf():
-        result=scrape_naver_chungbuk()
+        result=scrape_naver_chungbuk("청주")
         return render_template('Cheongju.html', result=result)
 
     if __name__ == '__main__':
