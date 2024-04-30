@@ -243,7 +243,11 @@ if __name__ == "__main__":
 
     @app.route('/')
     def first():
-        return render_template('site.html')
+        photo1 = f"img/Whetheri.jpg"
+        photo2 = f"img/AirKorea.png"
+        photo3 = f"img/NaverWhether.png"
+        back = f"img/Cheongju.png"
+        return render_template('site.html', photo1=photo1, photo2=photo2, photo3=photo3, back=back)
     
     @app.route('/apply')
     def asdf():
