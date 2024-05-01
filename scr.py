@@ -165,40 +165,44 @@ def scrape_weatheri(location):
     return message
 
 
-def scrape_health():
-    print("[충청북도 보건소 미세먼지 지수]")
+def scrape_health(location): # 충청북도 보건환경연구원
     url="https://www.chungbuk.go.kr/here/srmmr/list.do?key=1858"
     res=requests.get(url)
     res.raise_for_status()
     soup=BeautifulSoup(res.text, "lxml")  
 
     dust=soup.find("table", attrs={"class":"table tr_over"}).find_all("tr")
-    
-    search=input("도시 이름 : ")
     count=0
     result=0
     for n in range(1, len(dust)): #1부터 시작
         place=dust[n].find("td", attrs={"class":"bd_left"}).get_text() #도시 이름
         
-        if search in place:
+        if location in place:
             if count==0:
                 value=dust[n].find_all("td")[2].get_text().strip().replace(".0㎍/㎥", "") #미세먼지 값
+                count+=1
+                if(value in "점검중"):
+                    value=0
+                    count-=1
                 result+=int(value)
                 #value2=dust[n].find_all("td")[3].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
             else:
                 value=dust[n].find_all("td")[1].get_text().strip().replace(".0㎍/㎥", "") #미세먼지 값
+                count+=1
+                if(value in "점검중"):
+                    value=0
+                    count-=1
                 result+=int(value)
                 #value2=dust[n].find_all("td")[2].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
-            # print(place)
             
-            # if int(value) <= 30:
-            #     print("미세먼지 :", value, " - ", "좋음")
-            # elif int(value) <= 80:
-            #     print("미세먼지 :", value, " - ", "보통")
-            # elif int(value) <= 150:
-            #     print("미세먼지 :", value, " - ", "나쁨")
-            # elif int(value) >= 151:
-            #     print("미세먼지 :", value, " - ", "매우나쁨")
+            if int(value) <= 30:
+                state = "좋음"
+            elif int(value) <= 80:
+                state = "보통"
+            elif int(value) <= 150:
+                state = "나쁨"
+            elif int(value) >= 151:
+                state = "매우나쁨"
             
             # if int(value2) <= 15:
             #     print("초미세먼지 :", value2, " - ", "좋음")
@@ -208,8 +212,13 @@ def scrape_health():
             #     print("초미세먼지 :", value2, " - ", "나쁨")
             # elif int(value2) >= 76:
             #     print("초미세먼지 :", value2, " - ", "매우나쁨")
-            count+=1
-    return int(result/count)
+    #return int(result/count)
+    message = [
+        location,
+        int(result/count),
+        state
+    ]
+    return message
 
 if __name__ == "__main__":
     app = Flask(__name__)
@@ -225,7 +234,8 @@ if __name__ == "__main__":
     @app.route("/cheongju")
     def asdf():
         #result=scrape_naver("청주")
-        result=scrape_weatheri("청주")
+        #result=scrape_weatheri("청주")
+        result=scrape_health("청주")
         return render_template('Cheongju.html', result=result)
 
     if __name__ == '__main__':
