@@ -224,11 +224,74 @@ if __name__ == "__main__":
         return render_template('site2.html', photo1=photo1, photo2=photo2, photo3=photo3)
     
     @app.route("/Cheongju")
-    def asdf():
+    def cheongju():
         result1=scrape_naver("청주")
         result2=scrape_weatheri("청주")
         result3=scrape_health("청주")
         return render_template('Cheongju.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Yeongdong")
+    def yeongdong():
+        result1=scrape_naver("영동")
+        result2=scrape_weatheri("영동")
+        result3=scrape_health("영동")
+        return render_template('Yeongdong.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Okcheon")
+    def okcheon():
+        result1=scrape_naver("옥천")
+        result2=scrape_weatheri("옥천")
+        result3=scrape_health("옥천")
+        return render_template('Okcheon.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Boeun")
+    def boeun():
+        result1=scrape_naver("보은")
+        result2=scrape_weatheri("보은")
+        result3=scrape_health("보은")
+        return render_template('Boeun.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Goesan")
+    def Goesan():
+        result1=scrape_naver("괴산")
+        result2=scrape_weatheri("괴산")
+        result3=scrape_health("괴산")
+        return render_template('Goesan.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Jincheon")
+    def Jincheon():
+        result1=scrape_naver("진천")
+        result2=scrape_weatheri("진천")
+        result3=scrape_health("진천")
+        return render_template('Jincheon.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Eumseong")
+    def Eumseong():
+        result1=scrape_naver("음성")
+        result2=scrape_weatheri("음성")
+        result3=scrape_health("음성")
+        return render_template('Eumseong.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Chungju")
+    def Chungju():
+        result1=scrape_naver("충주")
+        result2=scrape_weatheri("충주")
+        result3=scrape_health("충주")
+        return render_template('Chungju.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Jecheon")
+    def Jecheon():
+        result1=scrape_naver("제천")
+        result2=scrape_weatheri("제천")
+        result3=scrape_health("제천")
+        return render_template('Jecheon.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Danyang")
+    def Danyang():
+        result1=scrape_naver("단양")
+        result2=scrape_weatheri("단양")
+        result3=scrape_health("단양")
+        return render_template('Danyang.html', result1=result1, result2=result2, result3=result3)
 
     if __name__ == '__main__':
         app.run(debug=True)
