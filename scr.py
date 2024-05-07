@@ -179,7 +179,8 @@ def scrape_health(location): # 충청북도 보건환경연구원
         
         if location in place:
             if count==0:
-                value=dust[n].find_all("td")[2].get_text().strip().replace(".0㎍/㎥", "") #미세먼지 값
+                value=dust[n].find_all("td")[2].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
+                value=value.replace(".0㎍/㎥", "")
                 count+=1
                 if(value in "점검중"): # 점검 중인 지역 제외 처리
                     value=0
@@ -187,7 +188,8 @@ def scrape_health(location): # 충청북도 보건환경연구원
                 result+=int(value)
                 #value2=dust[n].find_all("td")[3].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
             else:
-                value=dust[n].find_all("td")[1].get_text().strip().replace(".0㎍/㎥", "") #미세먼지 값
+                value=dust[n].find_all("td")[1].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
+                value=value.replace(".0㎍/㎥", "")
                 count+=1
                 if(value in "점검중"): #점검 중인 지역 제외 처리
                     value=0
@@ -203,7 +205,7 @@ def scrape_health(location): # 충청북도 보건환경연구원
                 state = "나쁨"
             elif int(value) >= 151:
                 state = "매우나쁨"
-                
+
     message = [
         location,
         int(result/count),
@@ -217,11 +219,11 @@ if __name__ == "__main__":
     @app.route('/')
     def first():
         photo1 = f"img/Whetheri.jpg"
-        photo2 = f"img/AirKorea.png"
-        photo3 = f"img/NaverWhether.png"
-        return render_template('site.html', photo1=photo1, photo2=photo2, photo3=photo3)
+        photo2 = f"img/NaverWhether.png"
+        photo3 = f"img/AirKorea.png"
+        return render_template('site2.html', photo1=photo1, photo2=photo2, photo3=photo3)
     
-    @app.route("/cheongju")
+    @app.route("/Cheongju")
     def asdf():
         result1=scrape_naver("청주")
         result2=scrape_weatheri("청주")
