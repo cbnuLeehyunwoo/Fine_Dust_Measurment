@@ -292,6 +292,13 @@ if __name__ == "__main__":
         result2=scrape_weatheri("단양")
         result3=scrape_health("단양")
         return render_template('Danyang.html', result1=result1, result2=result2, result3=result3)
-
+   
+    @app.route("/Jeungpyeong")
+    def jeungpyeong():
+        result1=scrape_naver("증평")
+        result2=scrape_weatheri("증평")
+        result3=scrape_health("증평")
+        return render_template('Jeungpyeong.html', result1=result1, result2=result2, result3=result3)
+    
     if __name__ == '__main__':
         app.run(debug=True)
