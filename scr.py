@@ -179,7 +179,8 @@ def scrape_health(location): # 충청북도 보건환경연구원
         
         if location in place:
             if count==0:
-                value=dust[n].find_all("td")[2].get_text().strip().replace(".0㎍/㎥", "") #미세먼지 값
+                value=dust[n].find_all("td")[2].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
+                value=value.replace(".0㎍/㎥", "")
                 count+=1
                 if(value in "점검중"): # 점검 중인 지역 제외 처리
                     value=0
@@ -187,7 +188,8 @@ def scrape_health(location): # 충청북도 보건환경연구원
                 result+=int(value)
                 #value2=dust[n].find_all("td")[3].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
             else:
-                value=dust[n].find_all("td")[1].get_text().strip().replace(".0㎍/㎥", "") #미세먼지 값
+                value=dust[n].find_all("td")[1].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
+                value=value.replace(".0㎍/㎥", "")
                 count+=1
                 if(value in "점검중"): #점검 중인 지역 제외 처리
                     value=0
@@ -203,7 +205,7 @@ def scrape_health(location): # 충청북도 보건환경연구원
                 state = "나쁨"
             elif int(value) >= 151:
                 state = "매우나쁨"
-                
+
     message = [
         location,
         int(result/count),
@@ -217,16 +219,79 @@ if __name__ == "__main__":
     @app.route('/')
     def first():
         photo1 = f"img/Whetheri.jpg"
-        photo2 = f"img/AirKorea.png"
-        photo3 = f"img/NaverWhether.png"
-        return render_template('site.html', photo1=photo1, photo2=photo2, photo3=photo3)
+        photo2 = f"img/NaverWhether.png"
+        photo3 = f"img/AirKorea.png"
+        return render_template('site2.html', photo1=photo1, photo2=photo2, photo3=photo3)
     
-    @app.route("/cheongju")
-    def asdf():
+    @app.route("/Cheongju")
+    def cheongju():
         result1=scrape_naver("청주")
         result2=scrape_weatheri("청주")
         result3=scrape_health("청주")
         return render_template('Cheongju.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Yeongdong")
+    def yeongdong():
+        result1=scrape_naver("영동")
+        result2=scrape_weatheri("영동")
+        result3=scrape_health("영동")
+        return render_template('Yeongdong.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Okcheon")
+    def okcheon():
+        result1=scrape_naver("옥천")
+        result2=scrape_weatheri("옥천")
+        result3=scrape_health("옥천")
+        return render_template('Okcheon.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Boeun")
+    def boeun():
+        result1=scrape_naver("보은")
+        result2=scrape_weatheri("보은")
+        result3=scrape_health("보은")
+        return render_template('Boeun.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Goesan")
+    def Goesan():
+        result1=scrape_naver("괴산")
+        result2=scrape_weatheri("괴산")
+        result3=scrape_health("괴산")
+        return render_template('Goesan.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Jincheon")
+    def Jincheon():
+        result1=scrape_naver("진천")
+        result2=scrape_weatheri("진천")
+        result3=scrape_health("진천")
+        return render_template('Jincheon.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Eumseong")
+    def Eumseong():
+        result1=scrape_naver("음성")
+        result2=scrape_weatheri("음성")
+        result3=scrape_health("음성")
+        return render_template('Eumseong.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Chungju")
+    def Chungju():
+        result1=scrape_naver("충주")
+        result2=scrape_weatheri("충주")
+        result3=scrape_health("충주")
+        return render_template('Chungju.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Jecheon")
+    def Jecheon():
+        result1=scrape_naver("제천")
+        result2=scrape_weatheri("제천")
+        result3=scrape_health("제천")
+        return render_template('Jecheon.html', result1=result1, result2=result2, result3=result3)
+    
+    @app.route("/Danyang")
+    def Danyang():
+        result1=scrape_naver("단양")
+        result2=scrape_weatheri("단양")
+        result3=scrape_health("단양")
+        return render_template('Danyang.html', result1=result1, result2=result2, result3=result3)
 
     if __name__ == '__main__':
         app.run(debug=True)
