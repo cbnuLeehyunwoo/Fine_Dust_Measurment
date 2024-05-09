@@ -39,11 +39,15 @@
 <h1>미세먼지 측정기</h1>
 <div id ="grid">
 <ol>
-<div><img src="{{url_for('static', filename='img/Whetheri.jpg')}}"></div>
-<div><img src="{{url_for('static', filename='img/NaverWhether.png')}}"></div>
-<div><img src="{{url_for('static', filename='img/AirKorea.png')}}"></div>
+<div><img src="Whetheri.jpg"></div>
+<div><img src="NaverWhether.png"></div>
+<div><img src="AirKorea.png"></div>
 </ol>
-
+<p>
+  네이버 미세먼지: {{ result1 }}
+  웨더아이 미세먼지: {{ result2 }}
+  충청북도 보건 미세먼지: {{ result3 }}
+</p>
 <div>
    <h2>음성</h2>
 
