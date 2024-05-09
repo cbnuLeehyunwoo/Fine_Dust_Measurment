@@ -179,11 +179,11 @@
 <div id ="grid">
 <ol>  
   <h3><a href=https://www.weatheri.co.kr>웨더아이</a></h3>
-  <div><img src="Whetheri.jpg"></div>
+  <div><img src={{url_for("static", filename = photo1)}}></div>
   <h3><a href=https://weather.naver.com>네이버날씨</a></h3>
-  <div><img src="NaverWhether.png"></div>
+  <div><img src={{url_for("static", filename = photo2)}}></div>
   <h3><a href=https://m.airkorea.or.kr>에어코리아</a></h3>
-  <div><img src="AirKorea.png"></div>
+  <div><img src={{url_for("static", filename = photo3)}}></div>
 </ol>
 
 <div class ="BackGround">
@@ -255,4 +255,3 @@
 
 </body>
 </html>
-
