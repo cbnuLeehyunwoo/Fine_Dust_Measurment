@@ -28,7 +28,7 @@
     .BackGround{
       width: 800px;
       height: 400px;
-      background-image: url("{{ url_for('static', filename='img/Cheongju.png') }}");
+      background-image: url("Cheongju.png");
       background-repeat: no-repeat;
       background-size: contain;
       position: relative;
@@ -177,69 +177,68 @@
 
 <h1>미세먼지 측정기</h1>
 <div id ="grid">
-<ol>
-  
+<ol>  
   <h3><a href=https://www.weatheri.co.kr>웨더아이</a></h3>
-<div><img src="{{url_for('static', filename='img/Whetheri.jpg')}}"></div>
-<h3><a href=https://weather.naver.com>네이버날씨</a></h3>
-<div><img src="{{url_for('static', filename='img/NaverWhether.png')}}"></div>
-<h3><a href=https://m.airkorea.or.kr>에어코리아</a></h3>
-<div><img src="{{url_for('static', filename='img/AirKorea.png')}}"></div>
+  <div><img src="Whetheri.jpg"></div>
+  <h3><a href=https://weather.naver.com>네이버날씨</a></h3>
+  <div><img src="NaverWhether.png"></div>
+  <h3><a href=https://m.airkorea.or.kr>에어코리아</a></h3>
+  <div><img src="AirKorea.png"></div>
 </ol>
 
 <div class ="BackGround">
 
-  <a href="{{ url_for('danyang') }}">
+  <a href="/Danyang">
   <button id="dotButton_Danyang">
 </button>
   </a>
 
-  <a href="{{ url_for('jecheon') }}">
+  <a href="/Jecheon">
     <button id="dotButton_Jecheon">
   </button>
 </a>
 
-<a href="{{ url_for('chungju') }}">
+<a href="/Chungju">
   <button id="dotButton_Chungju">
   </button>
 </a>
 
-<a href="{{ url_for('eumseong') }}">
+<a href="/Eumseong">
   <button id="dotButton_Eumseong">
   </button> 
   </a>
 
-  <a href="{{ url_for('jincheon') }}">
+  <a href="/Jincheon">
   <button id="dotButton_Jincheon">
   </button> 
 </a>
 
-<a href = "{{ url_for('goesan') }}">
+<a href = "/Goesan">
   <button id="dotButton_Goesan">
   </button>
 </a>
 
-<a href = "{{ url_for('jeungpyeong') }}">
+<a href = "/Jeungpyeong">
   <button id="dotButton_Jeungpyeong">
   </button>
 </a>
 
-<a href="{{ url_for('boeun') }}">
+<a href="/Boeun">
   <button id="dotButton_Boeun">
   </button>
 </a>
 
-<a href="{{ url_for('okcheon') }}">
+<a href="/Okcheon">
   <button id="dotButton_Okcheon">
   </button>
 </a>
 
-<a href="{{ url_for('yeongdong') }}"> 
+<a href="/Yeongdong"> 
   <button id="dotButton_Yeongdong">
   </button>
 </a>
   
-  <a href="{{ url_for('cheongju') }}">
+  <a href="/Cheongju">
     <button id="dotButton_Cheongju">
     </button>
   </a>
@@ -256,3 +255,4 @@
 
 </body>
 </html>
+
