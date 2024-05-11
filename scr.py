@@ -42,7 +42,7 @@ ser = serial.Serial(PORT, BaudRate)  # 포트번호 확인 완료, 추후에 다
 
 def read_arduino():
      if ser.in_waiting:
-        data = ser.readline().decode('utf-8').strip()
+        data = ser.readline().decode('utf-8').strip()  # 문자 변환 및 공백 제거
         print("미세먼지 농도:", data) 
         return data
          
@@ -255,7 +255,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("옥천")
         result3=scrape_health("옥천")
         result4=read_arduino()
-        return render_template('Okcheon.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Okcheon.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Boeun")
     def boeun():
@@ -263,7 +263,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("보은")
         result3=scrape_health("보은")
         result4=read_arduino()
-        return render_template('Boeun.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Boeun.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Goesan")
     def goesan():
@@ -271,7 +271,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("괴산")
         result3=scrape_health("괴산")
         result4=read_arduino()
-        return render_template('Goesan.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Goesan.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Jincheon")
     def jincheon():
@@ -279,7 +279,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("진천")
         result3=scrape_health("진천")
         result4=read_arduino()
-        return render_template('Jincheon.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Jincheon.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Eumseong")
     def eumseong():
@@ -287,7 +287,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("음성")
         result3=scrape_health("음성")
         result4=read_arduino()
-        return render_template('Eumseong.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Eumseong.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Chungju")
     def chungju():
@@ -295,7 +295,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("충주")
         result3=scrape_health("충주")
         result4=read_arduino()
-        return render_template('Chungju.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Chungju.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Jecheon")
     def jecheon():
@@ -303,7 +303,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("제천")
         result3=scrape_health("제천")
         result4=read_arduino()
-        return render_template('Jecheon.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Jecheon.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Danyang")
     def danyang():
@@ -311,7 +311,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("단양")
         result3=scrape_health("단양")
         result4=read_arduino()
-        return render_template('Danyang.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Danyang.html', result1=result1, result2=result2, result3=result3, result4=result4)
    
     @app.route("/Jeungpyeong")
     def jeungpyeong():
@@ -319,7 +319,7 @@ if __name__ == "__main__":
         result2=scrape_weatheri("증평")
         result3=scrape_health("증평")
         result4=read_arduino()
-        return render_template('Jeungpyeong.html', result1=result1, result2=result2, result3=result3)
+        return render_template('Jeungpyeong.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     if __name__ == '__main__':
-        app.run(debug=True)
+        app.run(debug=False)  #디버그 모드 임시 비활성화
