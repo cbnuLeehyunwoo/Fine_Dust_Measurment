@@ -1,7 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template
+import serial
 
+PORT = 'COM3'
+BaudRate = 9600
+ser = serial.Serial(PORT, BaudRate)  # 포트번호 확인 완료, 추후에 다른 컴퓨터에서 동작 시 재확인 필요
 # def scrape_naver_25(): # 네이버 초미세먼지
 #     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EC%B6%A9%EB%B6%81%EC%B4%88%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
 #     res=requests.get(url)
