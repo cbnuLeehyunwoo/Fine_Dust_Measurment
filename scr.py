@@ -238,20 +238,23 @@ if __name__ == "__main__":
         result1=scrape_naver("청주")
         result2=scrape_weatheri("청주")
         result3=scrape_health("청주")
-        return render_template('Cheongju.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Cheongju.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Yeongdong")
     def yeongdong():
         result1=scrape_naver("영동")
         result2=scrape_weatheri("영동")
         result3=scrape_health("영동")
-        return render_template('Yeongdong.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Yeongdong.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Okcheon")
     def okcheon():
         result1=scrape_naver("옥천")
         result2=scrape_weatheri("옥천")
         result3=scrape_health("옥천")
+        result4=read_arduino()
         return render_template('Okcheon.html', result1=result1, result2=result2, result3=result3)
     
     @app.route("/Boeun")
@@ -259,6 +262,7 @@ if __name__ == "__main__":
         result1=scrape_naver("보은")
         result2=scrape_weatheri("보은")
         result3=scrape_health("보은")
+        result4=read_arduino()
         return render_template('Boeun.html', result1=result1, result2=result2, result3=result3)
     
     @app.route("/Goesan")
@@ -266,6 +270,7 @@ if __name__ == "__main__":
         result1=scrape_naver("괴산")
         result2=scrape_weatheri("괴산")
         result3=scrape_health("괴산")
+        result4=read_arduino()
         return render_template('Goesan.html', result1=result1, result2=result2, result3=result3)
     
     @app.route("/Jincheon")
@@ -273,6 +278,7 @@ if __name__ == "__main__":
         result1=scrape_naver("진천")
         result2=scrape_weatheri("진천")
         result3=scrape_health("진천")
+        result4=read_arduino()
         return render_template('Jincheon.html', result1=result1, result2=result2, result3=result3)
     
     @app.route("/Eumseong")
@@ -280,6 +286,7 @@ if __name__ == "__main__":
         result1=scrape_naver("음성")
         result2=scrape_weatheri("음성")
         result3=scrape_health("음성")
+        result4=read_arduino()
         return render_template('Eumseong.html', result1=result1, result2=result2, result3=result3)
     
     @app.route("/Chungju")
@@ -287,6 +294,7 @@ if __name__ == "__main__":
         result1=scrape_naver("충주")
         result2=scrape_weatheri("충주")
         result3=scrape_health("충주")
+        result4=read_arduino()
         return render_template('Chungju.html', result1=result1, result2=result2, result3=result3)
     
     @app.route("/Jecheon")
@@ -294,6 +302,7 @@ if __name__ == "__main__":
         result1=scrape_naver("제천")
         result2=scrape_weatheri("제천")
         result3=scrape_health("제천")
+        result4=read_arduino()
         return render_template('Jecheon.html', result1=result1, result2=result2, result3=result3)
     
     @app.route("/Danyang")
@@ -301,6 +310,7 @@ if __name__ == "__main__":
         result1=scrape_naver("단양")
         result2=scrape_weatheri("단양")
         result3=scrape_health("단양")
+        result4=read_arduino()
         return render_template('Danyang.html', result1=result1, result2=result2, result3=result3)
    
     @app.route("/Jeungpyeong")
@@ -308,6 +318,7 @@ if __name__ == "__main__":
         result1=scrape_naver("증평")
         result2=scrape_weatheri("증평")
         result3=scrape_health("증평")
+        result4=read_arduino()
         return render_template('Jeungpyeong.html', result1=result1, result2=result2, result3=result3)
     
     if __name__ == '__main__':
