@@ -40,6 +40,12 @@ ser = serial.Serial(PORT, BaudRate)  # 포트번호 확인 완료, 추후에 다
 #     ]
 #     return '<br>'.join(message)
 
+def read_arduino():
+     if ser.in_waiting:
+        data = ser.readline().decode('utf-8').strip()
+        print("미세먼지 농도:", data) 
+        return data
+         
 def scrape_naver(location): # 네이버 미세먼지
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
     # 스크랩 해올 주소
