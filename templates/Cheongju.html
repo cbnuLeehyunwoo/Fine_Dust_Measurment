@@ -3,62 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>미세먼지 측정기</title>
-<style>
-  body{
-    margin:0;
-  }
-  a {
-    color:black;
-    text-decoration: none;
-  }
-  h1 {
-    font-size:45px;
-    text-align: center;
-    border-bottom:1px solid gray;
-    margin:0;
-    padding:20px;
-  }
-  ol{
-    border-right:1px solid gray;
-    width:100px;
-    margin:0;
-    padding-right: 120px;
-    }
-    .backG{
-      width: 800px;
-      height: 400px;
-      background-image: url("Cheongju_map.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: relative;
-    }
-    
-  #grid{
-    display: grid;
-    grid-template-columns: 300px 1fr;
-  }
-  
-</style>
+<title>청주 미세먼지</title>
 </head>
+
 <body>
-
-<h1>미세먼지 측정기</h1>
-
+<h2>청주 미세먼지</h2>
 <div id ="grid">
 <ol>
-<div><img src="Whetheri.jpg"></div>
-<div><img src="NaverWhether.png"></div>
-<div><img src="AirKorea.png"></div>
-<div><img src={{url_for("static", filename = photo1)}}></div>
-<div><img src={{url_for("static", filename = photo2)}}></div>
-<div><img src={{url_for("static", filename = photo3)}}></div>
+  <div><img src={{url_for("static", filename = photo1)}}></div>
+  <div><img src={{url_for("static", filename = photo2)}}></div>
+  <div><img src={{url_for("static", filename = photo3)}}></div>
 </ol>
-<p>
-  네이버 미세먼지: {{ result1 }}
-  웨더아이 미세먼지: {{ result2 }}
-  충청북도 보건 미세먼지: {{ result3 }}
-</p>
+<p><font color = "green">네이버 : {{ result1 }}</font></p>
+<p><font color = "blue">웨더아이 : {{ result2 }}</font></p>
+<p><font color = "purple">충청북도 보건환경연구원 : {{ result3 }}</font></p>
 <div class ="backG">
    
 
