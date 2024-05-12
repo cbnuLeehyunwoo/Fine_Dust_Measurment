@@ -327,6 +327,12 @@ if __name__ == "__main__":
         result3=scrape_health("증평")
         result4=read_arduino()
         return render_template('Jeungpyeong.html', result1=result1, result2=result2, result3=result3, result4=result4)
+        
+   @app.teardown_appcontext             
+    def close_connection(exception=None):
+        if hasattr(g, 'arduino'):
+           g.arduino.close()
+           print("아두이노 포트 닫힘")
     
     if __name__ == '__main__':
         app.run(debug=False)  #디버그 모드 임시 비활성화
