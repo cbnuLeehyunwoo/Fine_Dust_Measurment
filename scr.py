@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from flask import Flask, render_template
+from flask import Flask, render_template, g
 import serial
 
 
@@ -330,9 +330,9 @@ if __name__ == "__main__":
         
    @app.teardown_appcontext             
     def close_connection(exception=None):
-        if hasattr(g, 'arduino'):
+         if 'arduino' in g and g.arduino is not None:
            g.arduino.close()
            print("아두이노 포트 닫힘")
     
     if __name__ == '__main__':
-        app.run(debug=False)  #디버그 모드 임시 비활성화
+        app.run(debug=True)  #디버그 모드 임시 활성화
