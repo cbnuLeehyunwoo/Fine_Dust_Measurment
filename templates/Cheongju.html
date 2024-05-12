@@ -3,20 +3,37 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title>청주 미세먼지</title>
 </head>
 
 <body>
-<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA2MjlfMTM1%2FMDAxNjU2NDk3NzMwMjI2.an59JdXdAGl3qvygb6GwdvyQN5Jk8VRRRtZgV_0wXsgg.2hqtOQq9hGuNxLBo2jMfTfHbEKlZaJfO_BDGt_5mLTQg.JPEG.sms1217k%2F%25C3%25BB%25C1%25D6%25B7%25CE%25B0%25ED.jpg&type=l340_165" style="max-width:10%; height:10%;">
-<span>청주 미세먼지</span>
-<div>
-<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340" style="max-width:10%; height:10%;">
-<span><font color = "green">네이버 : {{ result1 }}</font></span>
-<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2F1BNsSebKDyYn-UJMgvXrCqLpRRr5Z8qLJFK0NqtvTtMkFHiDvu70-K9F0FTg5jb6vDp4&type=a340" style="max-width:10%; height:10%;">
-<span><font color = "blue">웨더아이 : {{ result2 }}</font></span>
-<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FMoRF2pQlfg0bQwSd0c7lALLaW2C31liTuP-AqeLYOQyAEHCRcFaJaIDe0GBJRifuDd9JHSSJQulAXPUPmz3LTg.webp&type=a340" style="max-width:10%; height:10%;">
-<span><font color = "purple">충청북도 보건환경연구원 : {{ result3 }}</font></span>
+
+<div class="header">
+<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA2MjlfMTM1%2FMDAxNjU2NDk3NzMwMjI2.an59JdXdAGl3qvygb6GwdvyQN5Jk8VRRRtZgV_0wXsgg.2hqtOQq9hGuNxLBo2jMfTfHbEKlZaJfO_BDGt_5mLTQg.JPEG.sms1217k%2F%25C3%25BB%25C1%25D6%25B7%25CE%25B0%25ED.jpg&type=l340_165" width=10%>
+<h2>청주 미세먼지</h2>
+</div>
+
+<div class="body">
+<ol>
+<br>
+<li>
+<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340" width=4%>
+<span><font color = "green"><b>네이버</b> {{ result1 }}</font></span>
+</li>
+
+<li>
+<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2F1BNsSebKDyYn-UJMgvXrCqLpRRr5Z8qLJFK0NqtvTtMkFHiDvu70-K9F0FTg5jb6vDp4&type=a340" width=4%>
+<span><font color = "blue"><b>웨더아이</b> {{ result2 }}</font></span>
+</li>
+
+<li>
+<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FMoRF2pQlfg0bQwSd0c7lALLaW2C31liTuP-AqeLYOQyAEHCRcFaJaIDe0GBJRifuDd9JHSSJQulAXPUPmz3LTg.webp&type=a340" width=5%>
+<span><font color = "purple"><b>충청북도 보건환경연구원</b> {{ result3 }}</font></span>
+</li>
+
+</ol>
 </div>
 </body>
 
