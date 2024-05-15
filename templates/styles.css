@@ -68,8 +68,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 51px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 188px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
+    top: 71px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: 263px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
   }
   #dotButton_Chungju {
     width: 30px; /* 버튼의 크기 조정 */
@@ -80,8 +80,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 54px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 87px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
+    top: 74px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: 119px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
   }
   #dotButton_Eumseong {
     width: 30px; /* 버튼의 크기 조정 */
@@ -92,8 +92,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 78px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -8px;
+    top: 108px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -11px;
   }
   #dotButton_Jincheon {
     width: 30px; /* 버튼의 크기 조정 */
@@ -104,8 +104,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 105px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -70px;
+    top: 145px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -98px;
   }
   #dotButton_Goesan {
     width: 30px; /* 버튼의 크기 조정 */
@@ -116,8 +116,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 133px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 3px;
+    top: 185px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: 5px;
   }
   #dotButton_Jeungpyeong {
     width: 30px; /* 버튼의 크기 조정 */
@@ -128,8 +128,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 126px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -75px;
+    top: 176px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -105px;
   }
   #dotButton_Boeun {
     width: 30px; /* 버튼의 크기 조정 */
@@ -140,8 +140,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 222px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -68px;
+    top: 310px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -94px;
   }
   #dotButton_Okcheon {
     width: 30px; /* 버튼의 크기 조정 */
@@ -152,8 +152,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 275px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -110px;
+    top: 385px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -153px;
   }
   #dotButton_Yeongdong {
     width: 30px; /* 버튼의 크기 조정 */
@@ -164,8 +164,8 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: relative;
-    top: 327px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -93px;
+    top: 457px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: -127px;
   }
   #dotButton_Cheongju {
     width: 30px; /* 버튼의 크기 조정 */
@@ -176,7 +176,7 @@
     cursor: pointer; /* 마우스 커서를 포인터로 변경 */
     outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
     position: absolute;
-    top: 188px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 47px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
+    top: 261px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  left: 65px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
   }
 
