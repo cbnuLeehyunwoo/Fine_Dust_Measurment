@@ -1,40 +1,21 @@
 import requests
 from bs4 import BeautifulSoup
-from flask import Flask, render_template
+from flask import Flask, render_template, g
+import serial
 
-# def scrape_naver_25(): # 네이버 초미세먼지
-#     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EC%B6%A9%EB%B6%81%EC%B4%88%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
-#     res=requests.get(url)
-#     res.raise_for_status()
-#     soup=BeautifulSoup(res.text, "lxml")
-
-#     dust=soup.find("div", attrs={"class":"map_area ct16"})
-#     place=dust.find_all("span", attrs={"class":"cityname"})
-#     value=dust.find_all("span", attrs={"class":"value"})
-
-#     x=0
-#     search=input("도시 이름 : ") # 도시 찾기
-#     for i in range(0, len(place)):
-#         if search in place[i]:
-#             x=i
-
-#     print(place[x].get_text()) # 도시 이름
-#     print("초미세먼지 :", value[x].get_text()) # 초미세먼지 값
-#     if int(value[x].get_text()) <= 15:
-#         state = "좋음"
-#     elif int(value[x].get_text()) <= 35:
-#         state = "보통"
-#     elif int(value[x].get_text()) <= 75:
-#         state = "나쁨"
-#     elif int(value[x].get_text()) >= 76:
-#         state = "매우나쁨"
-
-#     message = [
-#         place[x].get_text(),
-#         value[x].get_text(),
-#         state
-#     ]
-#     return '<br>'.join(message)
+def read_arduino():
+    try:
+        PORT = 'COM3'
+        BaudRate = 9600
+        ser = serial.Serial(PORT, BaudRate)  # 포트번호 확인 완료, 추후에 다른 컴퓨터에서 동작 시 재확인 필요
+        if ser.in_waiting:
+            data = ser.readline().decode('utf-8').strip()
+            print("미세먼지 농도:", data) # 추후 출력을 다른 파일로 변경 필요   
+            return data
+    except serial.SerialException:
+        print("아두이노 포트 미연결상태")
+        data = "아두이노 포트 미연결"
+        return data
 
 def scrape_naver(location): # 네이버 미세먼지
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
@@ -150,13 +131,13 @@ def scrape_weatheri(location):
 
     dust="농도 : " + str(value)
     state = "상태 : "
-    if(value<15):
+    if(value<30):
         state+="좋음"
-    elif(value<30):
+    elif(value<80):
         state+="보통"
-    elif(value<75):
+    elif(value<150):
         state+="나쁨"
-    elif(value>=76):
+    elif(value>=151):
         state+="매우나쁨"
 
     message = [
@@ -230,70 +211,94 @@ if __name__ == "__main__":
         result1=scrape_naver("청주")
         result2=scrape_weatheri("청주")
         result3=scrape_health("청주")
-        return render_template('Cheongju.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Cheongju.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Yeongdong")
     def yeongdong():
         result1=scrape_naver("영동")
         result2=scrape_weatheri("영동")
         result3=scrape_health("영동")
-        return render_template('Yeongdong.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Yeongdong.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Okcheon")
     def okcheon():
         result1=scrape_naver("옥천")
         result2=scrape_weatheri("옥천")
         result3=scrape_health("옥천")
-        return render_template('Okcheon.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Okcheon.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Boeun")
     def boeun():
         result1=scrape_naver("보은")
         result2=scrape_weatheri("보은")
         result3=scrape_health("보은")
-        return render_template('Boeun.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Boeun.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Goesan")
     def goesan():
         result1=scrape_naver("괴산")
         result2=scrape_weatheri("괴산")
         result3=scrape_health("괴산")
-        return render_template('Goesan.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Goesan.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Jincheon")
     def jincheon():
         result1=scrape_naver("진천")
         result2=scrape_weatheri("진천")
         result3=scrape_health("진천")
-        return render_template('Jincheon.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Jincheon.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Eumseong")
     def eumseong():
         result1=scrape_naver("음성")
         result2=scrape_weatheri("음성")
         result3=scrape_health("음성")
-        return render_template('Eumseong.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Eumseong.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Chungju")
     def chungju():
         result1=scrape_naver("충주")
         result2=scrape_weatheri("충주")
         result3=scrape_health("충주")
-        return render_template('Chungju.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Chungju.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Jecheon")
     def jecheon():
         result1=scrape_naver("제천")
         result2=scrape_weatheri("제천")
         result3=scrape_health("제천")
-        return render_template('Jecheon.html', result1=result1, result2=result2, result3=result3)
+        result4=read_arduino()
+        return render_template('Jecheon.html', result1=result1, result2=result2, result3=result3, result4=result4)
     
     @app.route("/Danyang")
     def danyang():
         result1=scrape_naver("단양")
         result2=scrape_weatheri("단양")
         result3=scrape_health("단양")
-        return render_template('Danyang.html', result1=result1, result2=result2, result3=result3)
-
+        result4=read_arduino()
+        return render_template('Danyang.html', result1=result1, result2=result2, result3=result3, result4=result4)
+   
+    @app.route("/Jeungpyeong")
+    def jeungpyeong():
+        result1=scrape_naver("증평")
+        result2=scrape_weatheri("증평")
+        result3=scrape_health("증평")
+        result4=read_arduino()
+        return render_template('Jeungpyeong.html', result1=result1, result2=result2, result3=result3, result4=result4)
+        
+    @app.teardown_appcontext             
+    def close_connection(exception=None):
+         if 'arduino' in g and g.arduino is not None:
+           g.arduino.close()
+           print("아두이노 포트 닫힘")
+    
     if __name__ == '__main__':
-        app.run(debug=True)
+        app.run(debug=True)  #디버그 모드 임시 활성화
