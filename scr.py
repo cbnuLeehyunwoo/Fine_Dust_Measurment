@@ -16,7 +16,7 @@ def read_arduino():
         print("아두이노 포트 미연결상태")
         data = "아두이노 포트 미연결"
         return data
-
+         
 def scrape_naver(location): # 네이버 미세먼지
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
     # 스크랩 해올 주소
@@ -294,7 +294,7 @@ if __name__ == "__main__":
         result4=read_arduino()
         return render_template('Jeungpyeong.html', result1=result1, result2=result2, result3=result3, result4=result4)
         
-    @app.teardown_appcontext             
+    @app.teardown_appcontext
     def close_connection(exception=None):
          if 'arduino' in g and g.arduino is not None:
            g.arduino.close()
