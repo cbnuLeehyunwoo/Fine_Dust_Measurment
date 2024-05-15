@@ -53,9 +53,23 @@
     border-radius: 20px;
       
     }
+.e{
+      margin-right: 35px;
+      height: 300px;
+      padding: 15px;
+    background: #fff;
+    border: 5px solid #00aeee;
+    border-radius: 20px;
+      
+    }
   #grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+.a{
+    margin-top: 20px;
+    grid-column: 1/3;
+    grid-row: 1/3;
   }
   #dotButton_Danyang {
     width: 30px; /* 버튼의 크기 조정 */
