@@ -3,41 +3,6 @@ from bs4 import BeautifulSoup
 from flask import Flask, render_template, g
 import serial
 
-
-# def scrape_naver_25(): # 네이버 초미세먼지
-#     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EC%B6%A9%EB%B6%81%EC%B4%88%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
-#     res=requests.get(url)
-#     res.raise_for_status()
-#     soup=BeautifulSoup(res.text, "lxml")
-
-#     dust=soup.find("div", attrs={"class":"map_area ct16"})
-#     place=dust.find_all("span", attrs={"class":"cityname"})
-#     value=dust.find_all("span", attrs={"class":"value"})
-
-#     x=0
-#     search=input("도시 이름 : ") # 도시 찾기
-#     for i in range(0, len(place)):
-#         if search in place[i]:
-#             x=i
-
-#     print(place[x].get_text()) # 도시 이름
-#     print("초미세먼지 :", value[x].get_text()) # 초미세먼지 값
-#     if int(value[x].get_text()) <= 15:
-#         state = "좋음"
-#     elif int(value[x].get_text()) <= 35:
-#         state = "보통"
-#     elif int(value[x].get_text()) <= 75:
-#         state = "나쁨"
-#     elif int(value[x].get_text()) >= 76:
-#         state = "매우나쁨"
-
-#     message = [
-#         place[x].get_text(),
-#         value[x].get_text(),
-#         state
-#     ]
-#     return '<br>'.join(message)
-
 def read_arduino():
     try:
         PORT = 'COM3'
@@ -51,7 +16,6 @@ def read_arduino():
         print("아두이노 포트 미연결상태")
         data = "아두이노 포트 미연결"
         return data
-
          
 def scrape_naver(location): # 네이버 미세먼지
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
@@ -69,23 +33,22 @@ def scrape_naver(location): # 네이버 미세먼지
         if location in place[i]:
             x=i
 
-    print(place[x].get_text()) # 도시 이름 출력
-    print("미세먼지 :", value[x].get_text()) # 미세먼지 농도 출력
+    key="농도 : "+value[x].get_text()
+    state = "상태 : "
     if int(value[x].get_text()) <= 30: # 상태 출력
-        state = "좋음"
+        state += "좋음"
     elif int(value[x].get_text()) <= 80:
-        state = "보통"
+        state += "보통"
     elif int(value[x].get_text()) <= 150:
-        state = "나쁨"
+        state += "나쁨"
     elif int(value[x].get_text()) >= 151:
-        state = "매우나쁨"
+        state += "매우나쁨"
 
     message = [ # html로 띄울 값
-        place[x].get_text(),
-        value[x].get_text(),
+        key,
         state
     ]
-    return message
+    return ' '.join(message)
 
 sum=0 # 웨더아이 미세먼지 값 합계
 count=0 # 웨더아이 미세먼지 지역 갯수
@@ -166,20 +129,22 @@ def scrape_weatheri(location):
         weatheri(30)
         value = int(sum/count)
 
-    state = "좋음"
-    if(15<value<30):
-        state="보통"
-    elif(value<75):
-        state="나쁨"
-    elif(value>=76):
-        state="매우나쁨"
+    dust="농도 : " + str(value)
+    state = "상태 : "
+    if(value<30):
+        state+="좋음"
+    elif(value<80):
+        state+="보통"
+    elif(value<150):
+        state+="나쁨"
+    elif(value>=151):
+        state+="매우나쁨"
 
     message = [
-        location,
-        value,
+        dust,
         state
     ]
-    return message
+    return ' '.join(message)
 
 
 def scrape_health(location): # 충청북도 보건환경연구원
@@ -191,6 +156,7 @@ def scrape_health(location): # 충청북도 보건환경연구원
     dust=soup.find("table", attrs={"class":"table tr_over"}).find_all("tr")
     count=0
     result=0
+    state="상태 : "
     for n in range(1, len(dust)): #1부터 시작
         place=dust[n].find("td", attrs={"class":"bd_left"}).get_text() #도시 이름
         
@@ -214,21 +180,21 @@ def scrape_health(location): # 충청북도 보건환경연구원
                 result+=int(value)
                 #value2=dust[n].find_all("td")[2].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
             
-            if int(value) <= 30:
-                state = "좋음"
-            elif int(value) <= 80:
-                state = "보통"
-            elif int(value) <= 150:
-                state = "나쁨"
-            elif int(value) >= 151:
-                state = "매우나쁨"
+    if int(value) <= 30:
+        state += "좋음"
+    elif int(value) <= 80:
+        state += "보통"
+    elif int(value) <= 150:
+        state += "나쁨"
+    elif int(value) >= 151:
+        state += "매우나쁨"
 
+    value="농도 : "+str(int(result/count))
     message = [
-        location,
-        int(result/count),
+        value,
         state
     ]
-    return message
+    return ' '.join(message)
 
 if __name__ == "__main__":
     app = Flask(__name__)
@@ -238,7 +204,7 @@ if __name__ == "__main__":
         photo1 = f"img/Whetheri.jpg"
         photo2 = f"img/NaverWhether.png"
         photo3 = f"img/AirKorea.png"
-        return render_template('site2.html', photo1=photo1, photo2=photo2, photo3=photo3)
+        return render_template('site.html', photo1=photo1, photo2=photo2, photo3=photo3)
     
     @app.route("/Cheongju")
     def cheongju():
@@ -328,7 +294,7 @@ if __name__ == "__main__":
         result4=read_arduino()
         return render_template('Jeungpyeong.html', result1=result1, result2=result2, result3=result3, result4=result4)
         
-   @app.teardown_appcontext             
+    @app.teardown_appcontext
     def close_connection(exception=None):
          if 'arduino' in g and g.arduino is not None:
            g.arduino.close()
