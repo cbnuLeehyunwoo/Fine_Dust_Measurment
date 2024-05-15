@@ -42,7 +42,17 @@
       position: relative;
       
     }
-    
+     .d{
+      margin-top: 20px;
+      height: 400px;
+      padding: 15px;
+      margin-bottom: 20px;
+      margin-right: 35px;
+    background: #fff;
+    border: 5px solid #00aeee;
+    border-radius: 20px;
+      
+    }
   #grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
