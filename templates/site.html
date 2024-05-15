@@ -4,178 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>미세먼지 측정기</title>
-<style>
-  body{
-    margin:0;
-  }
-  a {
-    color:black;
-    text-decoration: none;
-  }
-  h1 {
-    font-size:45px;
-    text-align: center;
-    border-bottom:1px solid gray;
-    margin:0;
-    padding:20px;
-  }
-  ol{
-    border-right:1px solid gray;
-    width:100px;
-    margin:0;
-    padding-right: 120px;
-    }
-    .BackGround{
-      width: 800px;
-      height: 400px;
-      background-image: url("Cheongju.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: relative;
-    }
-    
-  #grid{
-    display: grid;
-    grid-template-columns: 300px 1fr;
-  }
-  #dotButton_Danyang {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-  top: 60px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 265px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
-  }
-  #dotButton_Jecheon {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 51px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 188px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
-  }
-  #dotButton_Chungju {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #db3434; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 54px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 87px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
-  }
-  #dotButton_Eumseong {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 78px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -8px;
-  }
-  #dotButton_Jincheon {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 105px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -70px;
-  }
-  #dotButton_Goesan {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 133px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 3px;
-  }
-  #dotButton_Jeungpyeong {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 126px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -75px;
-  }
-  #dotButton_Boeun {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 222px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -68px;
-  }
-  #dotButton_Okcheon {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 275px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -110px;
-  }
-  #dotButton_Yeongdong {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 327px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -93px;
-  }
-  #dotButton_Cheongju {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: green; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: absolute;
-    top: 188px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 47px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
-  }
-
-</style>
+<link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body style="height: 600px;">
+<div id = "headline">
+  <h1 style="height: 71px;width: 500px;padding-left: 500px;">미세먼지 측정기</h1>
+</div>
 
-<h1>미세먼지 측정기</h1>
+<div id = 'fullBackground'>
 <div id ="grid">
 <ol>
   
@@ -243,14 +79,9 @@
     <button id="dotButton_Cheongju">
     </button>
   </a>
-  
-   
-  
-  
-
-
 <script src="script.js"></script>
- 
+</div>
+<div>fqwfewfefwe</div>
 </div>
 </div>
 
