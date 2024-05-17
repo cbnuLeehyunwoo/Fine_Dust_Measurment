@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px; 
+}
+
+.photo-item {
+    text-align: center; /* 사진과 텍스트를 중앙 정렬 */
+}
+.photo-item img {
+    width: 100%; /* 이미지를 그리드 셀에 맞게 조정 */
+    height: auto; /* 이미지의 비율을 유지 */
+}
+
+.photo-item p {
+    margin-top: 5px; /
+}
+
+.fixed-size-img {
+    width: 200px; /* 이미지의 너비를 200픽셀로 설정 */
+    height: 200px; /* 이미지의 높이를 200픽셀로 설정 */
+    object-fit: cover; /* 이미지 비율을 유지하면서 지정된 너비와 높이를 채움 */
+}
