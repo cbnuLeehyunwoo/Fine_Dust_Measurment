@@ -7,14 +7,37 @@
 <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="height: 600px;">
-<div id = "headline">
-  <h1 style="height: 71px;width: 500px;padding-left: 500px;">미세먼지 측정기</h1>
+
+  <header>
+  <div id = "headline">
+  <h1 style="height: 71px;width: 500px;padding-left: 650px;">미세먼지 측정기</h1>
 </div>
 
+</header>
+
+<main>
 <div id = 'fullBackground'>
 <div id ="grid">
 
   <div class="a">
+    <div id="dateTimeDisplay" style = "margin-left : 530px;"></div>
+
+    <script>
+        // 현재 날짜와 시간 가져오기
+        const now = new Date();
+
+        // 년, 월, 일, 시간 추출
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더해줌
+        const day = String(now.getDate()).padStart(2, '0');
+        const hour = String(now.getHours()).padStart(2, '0');
+
+        // 원하는 형식으로 출력
+        const formattedDateTime = `${year}년 ${month}월 ${day}일 ${hour}시`;
+
+        // HTML 요소에 날짜와 시간 설정
+        document.getElementById('dateTimeDisplay').textContent = formattedDateTime;
+    </script>
     <div class ="BackGround">
     
       <a href="Danyang.html">
@@ -71,7 +94,7 @@
         <button id="dotButton_Cheongju">
         </button>
       </a>
-    <script src="script.js"></script>
+   
     </div>
     <div class = "b"></div>
     <div class = "c"> </div></div>    
@@ -79,7 +102,7 @@
       
   <div class="d">
     <div class="container">    
-    <div class="ax"><h3>미세먼지 행동요령</h3></div>    
+    <div class="ax"><h3>미세먼지 행동요령</h3><p>단계별 행동요령 알아보기</p><!--이동할지 여기서 보여줄지 고민--></div>   
     <div class="bx">환기</div>    
     <div class="cx">가벼운 운동(산책)</div>    
     <div class="dx">과격한 운동(등산, 축구 등)</div>    
@@ -123,6 +146,7 @@
 
 </div>
 </div>
+</main>
 
 </body>
 </html>
