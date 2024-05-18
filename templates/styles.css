@@ -200,4 +200,18 @@
     top: 261px; /* 현재 위치에서 위쪽으로의 이동 거리 */
   left: 65px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
   }
+ 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+}
+
 
