@@ -13,7 +13,6 @@ def read_arduino():
             print("미세먼지 농도:", data) # 추후 출력을 다른 파일로 변경 필요   
             return data
     except serial.SerialException:
-        print("아두이노 포트 미연결상태")
         data = "아두이노 포트 미연결"
         return data
 
@@ -34,21 +33,8 @@ def scrape_naver(location): # 네이버 미세먼지
             x=i
 
     key="농도 : "+value[x].get_text()
-    state = "상태 : "
-    if int(value[x].get_text()) <= 30: # 상태 출력
-        state += "좋음"
-    elif int(value[x].get_text()) <= 80:
-        state += "보통"
-    elif int(value[x].get_text()) <= 150:
-        state += "나쁨"
-    elif int(value[x].get_text()) >= 151:
-        state += "매우나쁨"
 
-    message = [ # html로 띄울 값
-        key,
-        state
-    ]
-    return ' '.join(message)
+    return key
 
 sum=0 # 웨더아이 미세먼지 값 합계
 count=0 # 웨더아이 미세먼지 지역 갯수
@@ -130,21 +116,8 @@ def scrape_weatheri(location):
         value = int(sum/count)
 
     dust="농도 : " + str(value)
-    state = "상태 : "
-    if(value<30):
-        state+="좋음"
-    elif(value<80):
-        state+="보통"
-    elif(value<150):
-        state+="나쁨"
-    elif(value>=151):
-        state+="매우나쁨"
-
-    message = [
-        dust,
-        state
-    ]
-    return ' '.join(message)
+        
+    return dust
 
 
 def scrape_health(location): # 충청북도 보건환경연구원
@@ -156,7 +129,7 @@ def scrape_health(location): # 충청북도 보건환경연구원
     dust=soup.find("table", attrs={"class":"table tr_over"}).find_all("tr")
     count=0
     result=0
-    state="상태 : "
+    
     for n in range(1, len(dust)): #1부터 시작
         place=dust[n].find("td", attrs={"class":"bd_left"}).get_text() #도시 이름
         
@@ -169,7 +142,6 @@ def scrape_health(location): # 충청북도 보건환경연구원
                     value=0
                     count-=1
                 result+=int(value)
-                #value2=dust[n].find_all("td")[3].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
             else:
                 value=dust[n].find_all("td")[1].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
                 value=value.replace(".0㎍/㎥", "")
@@ -178,8 +150,13 @@ def scrape_health(location): # 충청북도 보건환경연구원
                     value=0
                     count-=1
                 result+=int(value)
-                #value2=dust[n].find_all("td")[2].get_text().strip().replace(".0㎍/㎥", "") #초미세먼지
             
+    value="농도 : "+str(int(result/count))
+    
+    return value
+
+def state(value):
+    state = "상태 : "
     if int(value) <= 30:
         state += "좋음"
     elif int(value) <= 80:
@@ -188,13 +165,7 @@ def scrape_health(location): # 충청북도 보건환경연구원
         state += "나쁨"
     elif int(value) >= 151:
         state += "매우나쁨"
-
-    value="농도 : "+str(int(result/count))
-    message = [
-        value,
-        state
-    ]
-    return ' '.join(message)
+    return state
 
 if __name__ == "__main__":
     app = Flask(__name__)
