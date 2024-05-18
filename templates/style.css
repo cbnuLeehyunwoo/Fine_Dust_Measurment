@@ -48,15 +48,25 @@
     line-height:20px; /*글자 높이*/
 }
 
+.bottom{
+    display:flex;
+    >div{margin:auto;}
+}
+
 .arduino{
-    margin-top:50px;
+    margin:auto;
     float:left;  width:49%; border:1px solid #c8c8c8; background:#fff; border-radius:10px; margin-bottom:2.5%; /* 0111 */
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2)  ; 
 	-webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2)  ; 
 	-moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2)  ;
-    .ard{background:url(https://m.airkorea.or.kr/images/main/b_menu1.png) no-repeat right 20px center; background-size:46px auto;}
-    .m{ font-size:120%; color:#1e1e1e; line-height:120%;}
-    .sub{ font-size:100%; color:#555; line-height:120%;}
+    .ard{background:url(https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA2MDlfMjEg%2FMDAxNTkxNjc3NjYwNTI5.9sH7ECEIc_Xdo9BAqQ_PjZdrrdquMQXH98dI2JgD0Scg.TRQHpIs8XCTawgM0P1o_wYO07xc_nhu-suJvMMT_fRog.PNG.ootsukaai5%2Ftoppng.com-arduino-logo-2392x1632.png&type=a340) no-repeat right 20px center; background-size:46px auto;}
+    .m{ margin-left:30px;font-size:120%; color:#1e1e1e; line-height:120%;}
+    .sub{ margin-left:30px;font-size:100%; color:#555; line-height:120%;}
+}
+
+.suggest{
+    .t1{background-color:#cac7c7;border-radius:10px;padding:8px 0;font-size:111%;text-align:center;}
+    .t2{background-color:white;text-align:center;}
 }
 
 .city{
