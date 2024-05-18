@@ -213,5 +213,22 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
-
+.good {
+    background-color: #b3e5fc;
+}
+.moderate {
+    background-color: #c8edc9;
+}
+.careful {
+    background-color: #ffee00;
+}
+.unhealthy {
+    background-color: #ff8800;
+}
+.very-unhealthy {
+    background-color: #ff3c00;
+}
+.do-not-out {
+    background-color: #772208;
+}
 
