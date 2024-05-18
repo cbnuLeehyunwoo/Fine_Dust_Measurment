@@ -164,7 +164,7 @@ def state(value):
     return state
 
 def suggest(n,w,h):
-    ard=read_arduino()
+    ard=10
     min=n-ard
     if (w-ard<min):
         min=w-ard
@@ -182,10 +182,7 @@ if __name__ == "__main__":
 
     @app.route('/')
     def first():
-        photo1 = f"img/Whetheri.jpg"
-        photo2 = f"img/NaverWhether.png"
-        photo3 = f"img/AirKorea.png"
-        return render_template('site.html', photo1=photo1, photo2=photo2, photo3=photo3)
+        return render_template('site.html')
     
     @app.route("/Cheongju")
     def cheongju():

@@ -1,18 +1,45 @@
 .body{
-    background-image:url("https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA0MThfMzYg%2FMDAxNzEzNDQ4MDE5NzQz.w5JRpH4vF7CfsDvR796WqH6TDLPFHJbcO9IF6FfmDcMg.rzzHYX8t2dmVZYEp07qr_qEqNM4-St8YDg-a3XfWxyEg.JPEG%2F%25B9%25CC%25BC%25BC%25B8%25D5%25C1%25F6.jpg&type=a340");
+    background-image:url("https://m.airkorea.or.kr/images/main/main_bg_spring.png");
     width:100%;
     height:600px;
     display:flex;
-    margin-top:40px;
+    margin-top:30px;
 }
 
-.scraping{
-    width:750px;
-}
+.air_box{width:30%; padding:20px 1% 0 1%;} /*블록넓이; display:table-cell; 블록위치;*/
+.air_box > div{ border-radius:10px;} /*아래 모서리 둥글게*/
+.air_box > div > div{background:#fff; border-radius:10px;  padding:12px 0 10px 0; position:relative;} /*위 모서리 둥글게; 흰 부분 넓이; 사진 위치*/
+.air_box > div > div b{font-size:20px;} /*농도*/
+.air_box > div > div img{position:absolute; width:40px; height:auto; left: 50%; transform: translateX(-50%); top:-30px;} /*사진 위치*/
+.air_box > div{background:#01b56e;} /*아래 색*/
+.air_box > div > div{border:2px solid #01b56e;} /*모서리 색*/
+.air_box .sta3{ font-size:18px; text-align:center;}
+.air_box .sta1{ color:#01b56e; font-size:18px; text-align:center;} /*상태 글자 색*/
+.air_box .sta4{ font-size:18px; color:#fff; text-align:center; }
 
 .arduino{
-    width:750px;
-}
+    margin-top: 20px;
+    height: 400px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 35px;
+  background: #fff;
+  border: 5px solid #00aeee;
+  border-radius: 20px;
+    
+  }
+
+.suggest{
+    margin-top: 20px;
+    height: 400px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 35px;
+  background: #fff;
+  border: 5px solid #00aeee;
+  border-radius: 20px;
+    
+  }
 
 .header{
     display:flex; /*이미지, 글 가로배치*/
