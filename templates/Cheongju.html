@@ -17,11 +17,11 @@
 </div>
 
 <div class="body">
-<div class="air_box">
-<div class="naver">
+<div class="box" style="width:935.6px;">
+<div class="site nav">
   <div>
     <div>
-      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340" width=15%>
+      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340">
       <p class="sta1">농도 : {{ n }}<span style="font-size: 14px;">㎍/m³</span></p>
       <p class="sta2"><b>{{ nn }}</b></p>
     </div>
@@ -29,10 +29,10 @@
   </div>
 </div>
 
-<div class="i">
+<div class="site wea">
   <div>
     <div>
-      <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2F1BNsSebKDyYn-UJMgvXrCqLpRRr5Z8qLJFK0NqtvTtMkFHiDvu70-K9F0FTg5jb6vDp4&type=a340" width=15%>
+      <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2F1BNsSebKDyYn-UJMgvXrCqLpRRr5Z8qLJFK0NqtvTtMkFHiDvu70-K9F0FTg5jb6vDp4&type=a340">
       <p class="sta1">농도 : {{ w }}<span style="font-size: 14px;">㎍/m³</span></p>
       <p class="sta2"><b>{{ ww }}</b></p>
     </div>
@@ -40,10 +40,10 @@
   </div>
 </div>
 
-<div class="health">
+<div class="site hea">
   <div>
     <div>
-      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340" width=15%>
+      <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg-cdn.theqoo.net%2FZGgdgf.png&type=a340">
       <p class="sta1">농도 : {{ h }}<span style="font-size: 14px;">㎍/m³</span></p>
       <p class="sta2"><b>{{ hh }}</b></p>
     </div>
@@ -52,14 +52,20 @@
 </div>
 </div>
 
+<div class="bottom">
 <div class="arduino">
-  <img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA2MDlfMjEg%2FMDAxNTkxNjc3NjYwNTI5.9sH7ECEIc_Xdo9BAqQ_PjZdrrdquMQXH98dI2JgD0Scg.TRQHpIs8XCTawgM0P1o_wYO07xc_nhu-suJvMMT_fRog.PNG.ootsukaai5%2Ftoppng.com-arduino-logo-2392x1632.png&type=a340" width=10%>
-  <span><font color = "red"><b>[아두이노]</b> {{ ard }}</font></span>
+  <div class="ard">
+    <p class="m">아두이노 측정값</p>
+    <p class="sub">{{ ard }}</p>
+  </div>
 </div>
+
 <div class="suggest">
-  <img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzExMTFfMjg3%2FMDAxNjk5NjkwNTgyOTc2.xqxD2uAGG3fbvxiiMI3oieDUjgJJoldaOgmBlgwf7lgg.p38QG0YYRohahV7EESA5klEcOQ-GoPd9A51Ivn3hTSsg.PNG.we8jhojpinld%2F2.png&type=a340" width=8%>
-  <span><b>[추천]</b> {{ s }}</font></span>
+<p class="t1">추천 사이트</p>
+<p class="t2">{{ s }}</p>
 </div>
+</div>
+
 </div>
 </body>
 
