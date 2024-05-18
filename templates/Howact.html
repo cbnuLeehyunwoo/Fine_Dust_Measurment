@@ -4,42 +4,42 @@
     <meta charset="UTF-8">
     <title>5x5 Photo Grid</title>
     <link rel="stylesheet" href= "Howact_style.css">
+    
 </head>
 <body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 사진 설명 데이터
-            var photoDescriptions = [
-                "환기 가능",
-                "환기 불가능",
-            ];
-
-            // 사진 설명을 업데이트하는 함수
-            function updatePhotoDescriptions() {
-                for (var i = 0; i < photoDescriptions.length; i++) {
-                    // 각 photo-item에 대한 설명 업데이트
-                    var descriptionElement = document.getElementById('description' + i);
-                    if (descriptionElement) {
-                        descriptionElement.innerText = photoDescriptions[i];
-                    }
-                }
-            }
-
-            // 설명 업데이트 함수 호출
-            updatePhotoDescriptions();
-        });
-    </script>
-</head>
-<body>
+    <div id="best_dust" data-number ="123"></div>
+   
     <div class="photo-grid">
-        <div class="photo-item">
+        <div class="photo-item" id="photo1">
             <img src="https://private-user-images.githubusercontent.com/85469621/329763807-1454fb44-0957-4dc9-83c4-45f22fe9e7eb.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTU5NjI5NzAsIm5iZiI6MTcxNTk2MjY3MCwicGF0aCI6Ii84NTQ2OTYyMS8zMjk3NjM4MDctMTQ1NGZiNDQtMDk1Ny00ZGM5LTgzYzQtNDVmMjJmZTllN2ViLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MTclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTE3VDE2MTc1MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWEyMDZmOWZmMDI4NDIxMThmZmIyYWEwMWQ5ODQxMmQwYWFkNGU5ZTFlYjNiYzM3ZmJkM2U5N2RjMWUyOWI5NzUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.mTvNXcdZ7wQy9UwJzL_e4wyAAssuf6QYL9KUDdnr3DQ" alt="사진1" class="fixed-size-img">
-            <p id="description0">기본 설명</p>
+            <p id="description0">설명이 로드되지 않았습니다.</p>
         </div>
-        <div class="photo-item">
+        <div class="photo-item" id="photo2">
             <img src=https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExem93bjV6eXRybWx1dnFmbHkwM2U3N3oxaG5lNHdoN3JvbXN6b2I1ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6MbabII0AotIzSWk/giphy.gif alt="사진2"  class="fixed-size-img">
-            <p id="description1">기본 설명</p>
+            <p id="description1">설명이 로드되지 않았습니다.</p>
         </div>
     </div>
+    <script>
+            window.onload = function() {
+            // div 요소에서 data-number 속성을 읽어옴
+            const container = document.getElementById('best_dust');
+            // 문자열을 int 형식으로 변환(10진수)
+            const number = parseInt(container.getAttribute('data-number'), 10);
+            // JavaScript 함수에 숫자 값을 전달
+            sendNumberToFunction(number);
+        }
+
+        function sendNumberToFunction(number) {
+            console.log("Received number:", number);
+            if(number >= 71){
+                document.getElementById('photo1').style.display = 'none';
+                document.getElementById('description1').innerText = "환기 불가능"
+            }
+            else if(number >= 0 && number <= 30) {
+            document.getElementById('photo2').style.display = 'none';
+            document.getElementById('description0').innerText = "환기 가능"
+            }
+        }
+    </script>
 </body>
 </html>
