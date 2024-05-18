@@ -31,10 +31,8 @@ def scrape_naver(location): # 네이버 미세먼지
     for i in range(0, len(place)): # 해당 도시에 해당하는 값 찾기
         if location in place[i]:
             x=i
-
-    key="농도 : "+value[x].get_text()
-
-    return key
+    
+    return int(value[x].get_text())
 
 sum=0 # 웨더아이 미세먼지 값 합계
 count=0 # 웨더아이 미세먼지 지역 갯수
@@ -114,10 +112,8 @@ def scrape_weatheri(location):
         weatheri(25)
         weatheri(30)
         value = int(sum/count)
-
-    dust="농도 : " + str(value)
         
-    return dust
+    return value
 
 
 def scrape_health(location): # 충청북도 보건환경연구원
@@ -151,7 +147,7 @@ def scrape_health(location): # 충청북도 보건환경연구원
                     count-=1
                 result+=int(value)
             
-    value="농도 : "+str(int(result/count))
+    value=int(result/count)
     
     return value
 
@@ -179,11 +175,7 @@ if __name__ == "__main__":
     
     @app.route("/Cheongju")
     def cheongju():
-        result1=scrape_naver("청주")
-        result2=scrape_weatheri("청주")
-        result3=scrape_health("청주")
-        result4=read_arduino()
-        return render_template('Cheongju.html', result1=result1, result2=result2, result3=result3, result4=result4)
+        return render_template('Cheongju.html', n=scrape_naver("청주"), w=scrape_weatheri("청주"), h=scrape_health("청주"), nn=state(scrape_naver("청주")), ss=state(scrape_weatheri("청주")), hh=state(scrape_health("청주")), ard=read_arduino())
     
     @app.route("/Yeongdong")
     def yeongdong():
