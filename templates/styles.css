@@ -79,6 +79,7 @@ text-align: center;
 }
 .one, .two{
   text-align: center;
+  margin-bottom: 20px;
 }
 .a{
   margin-top: 20px;
@@ -223,6 +224,11 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
+.table2 {
+  
+  height: 100%;
+  
+}
 th, td {
   border: 1px solid #ddd;
   text-align: center;
@@ -232,10 +238,10 @@ th {
   background-color: #f2f2f2;
 }
 .good {
-  background-color: #b3e5fc;
+  background-color: #3abefc;
 }
 .moderate {
-  background-color: #c8edc9;
+  background-color: #6af46f;
 }
 .careful {
   background-color: #ffee00;
