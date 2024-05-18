@@ -4,36 +4,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
+  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <title>청주 미세먼지</title>
+  <title>청주시 미세먼지</title>
 </head>
 
 <body>
 
 <div class="header">
-<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA2MjlfMTM1%2FMDAxNjU2NDk3NzMwMjI2.an59JdXdAGl3qvygb6GwdvyQN5Jk8VRRRtZgV_0wXsgg.2hqtOQq9hGuNxLBo2jMfTfHbEKlZaJfO_BDGt_5mLTQg.JPEG.sms1217k%2F%25C3%25BB%25C1%25D6%25B7%25CE%25B0%25ED.jpg&type=l340_165" width=10%>
-<h2>청주 미세먼지</h2>
+<img class="logo" src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA2MjlfMTM1%2FMDAxNjU2NDk3NzMwMjI2.an59JdXdAGl3qvygb6GwdvyQN5Jk8VRRRtZgV_0wXsgg.2hqtOQq9hGuNxLBo2jMfTfHbEKlZaJfO_BDGt_5mLTQg.JPEG.sms1217k%2F%25C3%25BB%25C1%25D6%25B7%25CE%25B0%25ED.jpg&type=l340_165" width=10%>
+<h2 class="city">청주시 미세먼지</h2>
 </div>
 
 <div class="body">
-<ol>
-<br>
-<li>
-<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340" width=4%>
-<span><font color = "green"><b>네이버</b> {{ result1 }}</font></span>
-</li>
+<div class="air_box">
+<div class="naver">
+  <div>
+    <div>
+      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340" width=15%>
+      <p class="sta1">농도 : {{ n }}<span style="font-size: 14px;">㎍/m³</span></p>
+      <p class="sta2"><b>{{ nn }}</b></p>
+    </div>
+    <p class="sta3">네이버</p>
+  </div>
+</div>
 
-<li>
-<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2F1BNsSebKDyYn-UJMgvXrCqLpRRr5Z8qLJFK0NqtvTtMkFHiDvu70-K9F0FTg5jb6vDp4&type=a340" width=4%>
-<span><font color = "blue"><b>웨더아이</b> {{ result2 }}</font></span>
-</li>
+<div class="i">
+  <div>
+    <div>
+      <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2F1BNsSebKDyYn-UJMgvXrCqLpRRr5Z8qLJFK0NqtvTtMkFHiDvu70-K9F0FTg5jb6vDp4&type=a340" width=15%>
+      <p class="sta1">농도 : {{ w }}<span style="font-size: 14px;">㎍/m³</span></p>
+      <p class="sta2"><b>{{ ww }}</b></p>
+    </div>
+    <p class="sta3">웨더아이</p>
+  </div>
+</div>
 
-<li>
-<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FMoRF2pQlfg0bQwSd0c7lALLaW2C31liTuP-AqeLYOQyAEHCRcFaJaIDe0GBJRifuDd9JHSSJQulAXPUPmz3LTg.webp&type=a340" width=5%>
-<span><font color = "purple"><b>충청북도 보건환경연구원</b> {{ result3 }}</font></span>
-</li>
+<div class="health">
+  <div>
+    <div>
+      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340" width=15%>
+      <p class="sta1">농도 : {{ h }}<span style="font-size: 14px;">㎍/m³</span></p>
+      <p class="sta2"><b>{{ hh }}</b></p>
+    </div>
+    <p class="sta3">충청북도 보건환경연구원</p>
+  </div>
+</div>
+</div>
 
-</ol>
+<div class="arduino">
+  <img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA2MDlfMjEg%2FMDAxNTkxNjc3NjYwNTI5.9sH7ECEIc_Xdo9BAqQ_PjZdrrdquMQXH98dI2JgD0Scg.TRQHpIs8XCTawgM0P1o_wYO07xc_nhu-suJvMMT_fRog.PNG.ootsukaai5%2Ftoppng.com-arduino-logo-2392x1632.png&type=a340" width=10%>
+  <span><font color = "red"><b>[아두이노]</b> {{ ard }}</font></span>
+</div>
+<div class="suggest">
+  <img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzExMTFfMjg3%2FMDAxNjk5NjkwNTgyOTc2.xqxD2uAGG3fbvxiiMI3oieDUjgJJoldaOgmBlgwf7lgg.p38QG0YYRohahV7EESA5klEcOQ-GoPd9A51Ivn3hTSsg.PNG.we8jhojpinld%2F2.png&type=a340" width=8%>
+  <span><b>[추천]</b> {{ s }}</font></span>
+</div>
 </div>
 </body>
 
