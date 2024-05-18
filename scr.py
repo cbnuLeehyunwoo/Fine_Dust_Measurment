@@ -163,6 +163,20 @@ def state(value):
         state += "매우나쁨"
     return state
 
+def suggest(n,w,h):
+    ard=read_arduino()
+    min=n-ard
+    if (w-ard<min):
+        min=w-ard
+    if (h-ard<min):
+        min=h-ard
+    if (n-ard==min):
+        return n
+    if (w-ard==min):
+        return w
+    if (h-ard==min):
+        return h
+
 if __name__ == "__main__":
     app = Flask(__name__)
 
@@ -181,7 +195,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        s=suggest(n,w,h)
+        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino(), s=s)
     
     @app.route("/Yeongdong")
     def yeongdong():
