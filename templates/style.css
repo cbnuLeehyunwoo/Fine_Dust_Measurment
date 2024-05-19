@@ -1,42 +1,38 @@
 .body{
     background-image:url("https://m.airkorea.or.kr/images/main/main_bg_spring.png");
-    width:100%;
-    height:600px;
+    background-size:100%;
     margin-top:30px;
 }
 
 .box{
     display:flex;
-    margin-top:50px;
-    margin:auto;
-    > div {margin-left:50px;margin-right:50px;}
+    > div {margin-left:70px;}
 }
 
-.site{width:40%; } /*블록넓이; display:table-cell; padding:20px 1% 0 1%;블록위치;*/
-.site > div{ border-radius:10px;} /*아래 모서리 둥글게*/
+.site{margin-top:50px;} /*블록넓이; display:table-cell; padding:20px 1% 0 1%;블록위치;*/
+.site > div{ border-radius:10px; width:400px;} /*아래 모서리 둥글게*/
 .site > div > div{background:#fff; border-radius:10px;  padding:12px 0 10px 0; position:relative;} /*위 모서리 둥글게; 흰 부분 넓이; 사진 위치*/
-.site > div > div b{font-size:20px;} /*농도*/
 .site > div > div img{position:absolute; width:40px; height:auto; left: 50%; transform: translateX(-50%); top:-30px;} /*사진 위치*/
 .nav{
     > div{background:#01b56e;} /*아래 색*/
     > div > div{border:2px solid #01b56e;} /*모서리 색*/
     .sta1{ color:#01b56e; font-size:18px; text-align:center;} /*상태 글자 색*/
     .sta2{ font-size:18px; text-align:center;}
-    .sta3{ font-size:18px; color:#fff; text-align:center; }
+    .sta3{ font-size:20px; color:#fff; text-align:center; }
 }
 .wea{
     > div{background:#2359c4;} /*아래 색*/
     > div > div{border:2px solid #2359c4;} /*모서리 색*/
     .sta1{ color:#2359c4; font-size:18px; text-align:center;} /*상태 글자 색*/
     .sta2{ font-size:18px; text-align:center;}
-    .sta3{ font-size:18px; color:#fff; text-align:center; }
+    .sta3{ font-size:20px; color:#fff; text-align:center; }
 }
 .hea{
     > div{background:#b329ef;} /*아래 색*/
     > div > div{border:2px solid #b329ef;} /*모서리 색*/
     .sta1{ color:#b329ef; font-size:18px; text-align:center;} /*상태 글자 색*/
     .sta2{ font-size:18px; text-align:center;}
-    .sta3{ font-size:18px; color:#fff; text-align:center; }
+    .sta3{ font-size:20px; color:#fff; text-align:center; }
 }
 
 .header{
@@ -50,6 +46,7 @@
 
 .bottom{
     display:flex;
+    margin-top:100px;
     >div{margin:auto;}
 }
 
