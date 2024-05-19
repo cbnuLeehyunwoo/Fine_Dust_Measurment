@@ -7,7 +7,7 @@
     
 </head>
 <body>
-    <div id="best_dust" data-number ="123"></div>
+    <div id="best_dust" data-number =" 123 "></div>
    
     <div class="photo-grid">
         <div class="photo-item" id="photo1">
@@ -31,13 +31,32 @@
 
         function sendNumberToFunction(number) {
             console.log("Received number:", number);
-            if(number >= 71){
+           
+            if(number >= 0 && number < 31) {
+            document.getElementById('photo2').style.display = 'none';
+            document.getElementById('description0').innerText = "환기 가능"
+            }
+            else if(number >= 31 && number < 51) {
+            document.getElementById('photo2').style.display = 'none';
+            document.getElementById('description0').innerText = "환기 가능"
+            }
+            else if(number >= 51  && number < 71) {
+            document.getElementById('photo2').style.display = 'none';
+            document.getElementById('description0').innerText = "환기 가능"
+            }
+            else if(number >= 71 && number < 86){
                 document.getElementById('photo1').style.display = 'none';
                 document.getElementById('description1').innerText = "환기 불가능"
             }
-            else if(number >= 0 && number <= 30) {
+            else if(number >= 86 && number < 101) {
             document.getElementById('photo2').style.display = 'none';
             document.getElementById('description0').innerText = "환기 가능"
+            }
+            else if(number >= 101) {
+            document.getElementById('photo2').style.display = 'none';
+            document.getElementById('description0').innerText = "환기 가능"
+            }
+            else {
             }
         }
     </script>
