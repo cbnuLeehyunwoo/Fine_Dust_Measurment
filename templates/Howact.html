@@ -42,6 +42,15 @@
             <img src=https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTdsNzBlemZrdXl5NXpycmxpYTJtdzk2b3JiNnd1bnV6eTgwcmJjdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OMeGDxdAsMPzW/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description7">설명이 로드되지 않았습니다.</p>
         </div> 
+        <div class="photo-item" id="일광건조 가능">
+            <img src=https://media1.giphy.com/media/ln4bohPvHhwgo/giphy.webp?cid=ecf05e47b83xdt4t7689xz2v55n8ulk3vvt53w9wloz5w47b&ep=v1_gifs_search&rid=giphy.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description8">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="일광건조 불가능">
+            <img src=https://cdn.ppomppu.co.kr/zboard/data3/2021/0905/m_20210905021711_qvxznchk.jpeg alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description9">설명이 로드되지 않았습니다.</p>
+        </div> 
+        
     </div>
     <script>
             window.onload = function() {
@@ -63,6 +72,8 @@
             const 실내활동  = document.getElementById("가급적 실내활동")
             const 야외바베큐가능  = document.getElementById("야외 바베큐 가능")
             const 야외바베큐불가능  = document.getElementById("야외 바베큐 불가능")
+            const 일광건조가능  = document.getElementById("일광건조 가능")
+            const 일광건조불가능  = document.getElementById("일광건조 불가능")
             
             // 모든 사진을 우선 숨김처리
             환기가능.style.display = 'none';
@@ -73,6 +84,8 @@
             실내활동.style.display = 'none';
             야외바베큐가능.style.display = 'none';
             야외바베큐불가능.style.display = 'none';
+            일광건조가능.style.display = 'none';
+            일광건조불가능.style.display = 'none';
             
             if(number >= 0 && number < 31) {
                 환기가능.style.display = '';
@@ -83,6 +96,8 @@
                 실내활동.style.display = 'none';
                 야외바베큐가능.style.display = '';
                 야외바베큐불가능.style.display = 'none';
+                일광건조가능.style.display = '';
+                일광건조불가능.style.display = 'none';
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
             }
@@ -95,6 +110,8 @@
                 실내활동.style.display = 'none';
                 야외바베큐가능.style.display = 'none';
                 야외바베큐불가능.style.display = 'none';
+                일광건조가능.style.display = '';
+                일광건조불가능.style.display = 'none';
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
             }
@@ -107,6 +124,8 @@
                 실내활동.style.display = 'none';
                 야외바베큐가능.style.display = '';
                 야외바베큐불가능.style.display = 'none';
+                일광건조가능.style.display = 'none';
+                일광건조불가능.style.display = '';
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
             }
@@ -119,6 +138,8 @@
                 실내활동.style.display = '';
                 야외바베큐가능.style.display = 'none';
                 야외바베큐불가능.style.display = '';
+                일광건조가능.style.display = 'none';
+                일광건조불가능.style.display = '';
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description5').innerText = "가급적 실내활동 권장"
@@ -132,6 +153,8 @@
                 실내활동.style.display = '';
                 야외바베큐가능.style.display = 'none';
                 야외바베큐불가능.style.display = '';
+                일광건조가능.style.display = 'none';
+                일광건조불가능.style.display = '';
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description4').innerText = "마스크 쓰기 권장"
@@ -146,6 +169,8 @@
                 실내활동.style.display = '';
                 야외바베큐가능.style.display = 'none';
                 야외바베큐불가능.style.display = '';
+                일광건조가능.style.display = 'none';
+                일광건조불가능.style.display = '';
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description4').innerText = "마스크 쓰기 권장"
