@@ -47,8 +47,16 @@
             <p id="description8">설명이 로드되지 않았습니다.</p>
         </div> 
         <div class="photo-item" id="일광건조 불가능">
-            <img src=https://cdn.ppomppu.co.kr/zboard/data3/2021/0905/m_20210905021711_qvxznchk.jpeg alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <img src=https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi2.ruliweb.com%2Fimg%2F21%2F07%2F22%2F17acc2f3c45531408.png&type=sc960_832 alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description9">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="야외 바둑 장기 가능">
+            <img src=https://upload3.inven.co.kr/upload/2020/09/25/bbs/i015977547508.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description10">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="야외 바둑 장기 불가능">
+            <img src=https://38.media.tumblr.com/tumblr_ly3f69WNmh1qmqteco1_500.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description11">설명이 로드되지 않았습니다.</p>
         </div> 
         
     </div>
@@ -74,6 +82,8 @@
             const 야외바베큐불가능  = document.getElementById("야외 바베큐 불가능")
             const 일광건조가능  = document.getElementById("일광건조 가능")
             const 일광건조불가능  = document.getElementById("일광건조 불가능")
+            const 야외바둑장기가능  = document.getElementById("야외 바둑 장기 가능")
+            const 야외바둑장기불가능  = document.getElementById("야외 바둑 장기 불가능")
             
             // 모든 사진을 우선 숨김처리
             환기가능.style.display = 'none';
@@ -86,6 +96,9 @@
             야외바베큐불가능.style.display = 'none';
             일광건조가능.style.display = 'none';
             일광건조불가능.style.display = 'none';
+            야외바둑장기가능.style.display = 'none';
+            야외바둑장기불가능.style.display = 'none';
+            
             
             if(number >= 0 && number < 31) {
                 환기가능.style.display = '';
@@ -98,6 +111,8 @@
                 야외바베큐불가능.style.display = 'none';
                 일광건조가능.style.display = '';
                 일광건조불가능.style.display = 'none';
+                야외바둑장기가능.style.display = '';
+                야외바둑장기불가능.style.display = 'none';
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
             }
@@ -112,6 +127,8 @@
                 야외바베큐불가능.style.display = 'none';
                 일광건조가능.style.display = '';
                 일광건조불가능.style.display = 'none';
+                야외바둑장기가능.style.display = '';
+                야외바둑장기불가능.style.display = 'none';
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
             }
@@ -126,6 +143,8 @@
                 야외바베큐불가능.style.display = 'none';
                 일광건조가능.style.display = 'none';
                 일광건조불가능.style.display = '';
+                야외바둑장기가능.style.display = 'none';
+                야외바둑장기불가능.style.display = '';
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
             }
@@ -140,6 +159,8 @@
                 야외바베큐불가능.style.display = '';
                 일광건조가능.style.display = 'none';
                 일광건조불가능.style.display = '';
+                야외바둑장기가능.style.display = 'none';
+                야외바둑장기불가능.style.display = '';
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description5').innerText = "가급적 실내활동 권장"
@@ -155,6 +176,8 @@
                 야외바베큐불가능.style.display = '';
                 일광건조가능.style.display = 'none';
                 일광건조불가능.style.display = '';
+                야외바둑장기가능.style.display = 'none';
+                야외바둑장기불가능.style.display = '';
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description4').innerText = "마스크 쓰기 권장"
@@ -171,6 +194,8 @@
                 야외바베큐불가능.style.display = '';
                 일광건조가능.style.display = 'none';
                 일광건조불가능.style.display = '';
+                야외바둑장기가능.style.display = 'none';
+                야외바둑장기불가능.style.display = '';
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description4').innerText = "마스크 쓰기 권장"
