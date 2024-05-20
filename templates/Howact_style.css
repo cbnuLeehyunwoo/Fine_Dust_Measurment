@@ -26,8 +26,8 @@ body {
 }
 
 .fixed-size-img {
-    max-width: 100%; /* 이미지가 그리드 칸에 맞게 조정 */
-    height: 100%;
+    max-width: 200px; /* 이미지가 그리드 칸에 맞게 조정 */
+    height: 200px;
     border-radius: 5px; /* 이미지의 모서리를 둥글게 처리 */
 }
 
@@ -40,13 +40,13 @@ p {
 /* 화면 크기에 따른 반응형 디자인 */
 @media (max-width: 1024px) {
     .photo-grid {
-        grid-template-columns: repeat(3, 1fr); /* 화면이 작아지면 3열로 변경 */
+        grid-template-columns: repeat(4, 1fr); /* 화면이 작아지면 4열로 변경 */
     }
 }
 
 @media (max-width: 768px) {
     .photo-grid {
-        grid-template-columns: repeat(2, 1fr); /* 화면이 더 작아지면 2열로 변경 */
+        grid-template-columns: repeat(3, 1fr); /* 화면이 더 작아지면 3열로 변경 */
     }
 }
 
@@ -55,4 +55,5 @@ p {
         grid-template-columns: 1fr; /* 화면이 매우 작아지면 1열로 변경 */
     }
 }
+
 
