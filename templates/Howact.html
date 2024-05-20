@@ -7,7 +7,7 @@
     
 </head>
 <body>
-    <div id="best_dust" data-number =" 123 "></div>
+    <div id="best_dust" data-number =" 12 "></div>
    
     <div class="photo-grid">
         <div class="photo-item" id="환기 가능">
@@ -51,12 +51,24 @@
             <p id="description9">설명이 로드되지 않았습니다.</p>
         </div> 
         <div class="photo-item" id="야외 바둑 장기 가능">
-            <img src=https://upload3.inven.co.kr/upload/2020/09/25/bbs/i015977547508.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <img src=https://cdn.dribbble.com/users/1550532/screenshots/3799744/media/a31ac80d1f1ad03536eda02402cca978.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description10">설명이 로드되지 않았습니다.</p>
         </div> 
         <div class="photo-item" id="야외 바둑 장기 불가능">
             <img src=https://38.media.tumblr.com/tumblr_ly3f69WNmh1qmqteco1_500.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description11">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="코 세척 권장">
+            <img src=https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTZxdG85ZzByZ3hyN3o2d3FkZXVwdmFrbm4xeThkYjk0cmdheDVlMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3otPovr6LMRg5avWmY/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description12">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="과격한 운동 가능">
+            <img src=https://cdn.dribbble.com/users/31664/screenshots/1892284/media/b646cbd223213d7af78f302d5af30037.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description13">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="과격한 운동 불가능">
+            <img src=https://i.namu.wiki/i/9sG4fMliwczY79a_2CLzV8xNv19GJGzVG-QEiHDHOm_ncSpocfzR_Gl-zuvZMdZCqMZWumA8ztlZblWzvqVHkw.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description14">설명이 로드되지 않았습니다.</p>
         </div> 
         
     </div>
@@ -84,7 +96,10 @@
             const 일광건조불가능  = document.getElementById("일광건조 불가능")
             const 야외바둑장기가능  = document.getElementById("야외 바둑 장기 가능")
             const 야외바둑장기불가능  = document.getElementById("야외 바둑 장기 불가능")
-            
+            const 코세척권장  = document.getElementById("코 세척 권장")
+            const 과격한운동가능  = document.getElementById("과격한 운동 가능")
+            const 과격한운동불가능  = document.getElementById("과격한 운동 불가능")
+                    
             // 모든 사진을 우선 숨김처리
             환기가능.style.display = 'none';
             환기불가능.style.display = 'none';
@@ -98,8 +113,10 @@
             일광건조불가능.style.display = 'none';
             야외바둑장기가능.style.display = 'none';
             야외바둑장기불가능.style.display = 'none';
-            
-            
+            코세척권장.style.display = 'none';
+            과격한운동가능.style.display = 'none';
+            과격한운동불가능.style.display = 'none';
+           
             if(number >= 0 && number < 31) {
                 환기가능.style.display = '';
                 환기불가능.style.display = 'none';
@@ -113,6 +130,10 @@
                 일광건조불가능.style.display = 'none';
                 야외바둑장기가능.style.display = '';
                 야외바둑장기불가능.style.display = 'none';
+                코세척권장.style.display = 'none';
+                과격한운동가능.style.display = '';
+                과격한운동불가능.style.display = 'none';
+
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
                 document.getElementById('description6').innerText = "야외 바베큐 가능"
@@ -132,6 +153,10 @@
                 일광건조불가능.style.display = 'none';
                 야외바둑장기가능.style.display = '';
                 야외바둑장기불가능.style.display = 'none';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = '';
+                과격한운동불가능.style.display = 'none';
+
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
                 document.getElementById('description6').innerText = "야외 바베큐 가능"
@@ -151,6 +176,10 @@
                 일광건조불가능.style.display = '';
                 야외바둑장기가능.style.display = 'none';
                 야외바둑장기불가능.style.display = '';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = 'none';
+                과격한운동불가능.style.display = '';
+
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
                 document.getElementById('description6').innerText = "야외 바베큐 가능"
@@ -170,6 +199,10 @@
                 일광건조불가능.style.display = '';
                 야외바둑장기가능.style.display = 'none';
                 야외바둑장기불가능.style.display = '';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = 'none';
+                과격한운동불가능.style.display = '';
+
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description5').innerText = "가급적 실내활동 권장"
@@ -190,6 +223,10 @@
                 일광건조불가능.style.display = '';
                 야외바둑장기가능.style.display = 'none';
                 야외바둑장기불가능.style.display = '';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = 'none';
+                과격한운동불가능.style.display = '';
+
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description4').innerText = "마스크 쓰기 권장"
@@ -212,6 +249,10 @@
                 일광건조불가능.style.display = '';
                 야외바둑장기가능.style.display = 'none';
                 야외바둑장기불가능.style.display = '';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = 'none';
+                과격한운동불가능.style.display = '';
+
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
                 document.getElementById('description4').innerText = "마스크 쓰기 권장"
