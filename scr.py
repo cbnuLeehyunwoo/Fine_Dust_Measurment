@@ -164,18 +164,20 @@ def state(value):
     return state
 
 def suggest(n,w,h):
-    ard=10
+    ard=read_arduino()
     min=n-ard
+    site=""
     if (w-ard<min):
         min=w-ard
     if (h-ard<min):
         min=h-ard
     if (n-ard==min):
-        return n
+        site += "네이버 "
     if (w-ard==min):
-        return w
+        site += "웨더아이 "
     if (h-ard==min):
-        return h
+        site += "충북보건환경연구원"
+    return site
 
 if __name__ == "__main__":
     app = Flask(__name__)
