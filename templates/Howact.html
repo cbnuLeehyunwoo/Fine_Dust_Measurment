@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -78,6 +78,16 @@
             <img src=https://media0.giphy.com/media/z9fOrELqdSnFm/giphy.webp?cid=ecf05e47hgs17enbnoy3fgoqjqcpznr2au1dbiu9l08tu75z&ep=v1_gifs_search&rid=giphy.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description14">설명이 로드되지 않았습니다.</p>
         </div> 
+        <div class="photo-item" id="가벼운 외출 가능">
+            <img src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MThfMjUy%2FMDAxNTU1NTc1NjU1NDMz.srUhbqiRAi7E0Q_YCpuRrDnSbzwsJTHdzOdQspy3_3Ag.Q3ApRQ89V16KPBZXyIYjLyQbEwpdcXB369opSDHe7xEg.GIF.sswnsdn%2F1.gif&type=sc960_832_gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description15">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="가벼운 외출 불가능">
+            <img src=https://t1.daumcdn.net/cafeattach/Uzlo/684352a4fce355a583c5fae4ce5f61c04012685a alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description16">설명이 로드되지 않았습니다.</p>
+        </div> 
+        
+        
         
     </div>
     <script>
@@ -107,9 +117,11 @@
             const 코세척권장  = document.getElementById("코 세척 권장")
             const 과격한운동가능  = document.getElementById("과격한 운동 가능")
             const 과격한운동불가능  = document.getElementById("과격한 운동 불가능")
-            const 체력측정가능  = document.getElementById("체력 측정 가능")
-            const 체력측정불가능  = document.getElementById("체력 측정 불가능")
-                    
+            const 체력측정가능  = document.getElementById("체력측정 가능")
+            const 체력측정불가능  = document.getElementById("체력측정 불가능")
+            const 가벼운외출가능  = document.getElementById("가벼운 외출 가능")
+            const 가벼운외출불가능  = document.getElementById("가벼운 외출 불가능")
+                            
             // 모든 사진을 우선 숨김처리
             환기가능.style.display = 'none';
             환기불가능.style.display = 'none';
@@ -128,6 +140,8 @@
             과격한운동불가능.style.display = 'none';
             체력측정가능.style.display = 'none';
             체력측정불가능.style.display = 'none';
+            가벼운외출가능.style.display = 'none';
+            가벼운외출불가능.style.display = 'none';
            
             if(number >= 0 && number < 31) {
                 환기가능.style.display = '';
@@ -147,6 +161,8 @@
                 과격한운동불가능.style.display = 'none';
                 체력측정가능.style.display = '';
                 체력측정불가능.style.display = 'none';
+                가벼운외출가능.style.display = '';
+                가벼운외출불가능.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -173,6 +189,8 @@
                 과격한운동불가능.style.display = 'none';
                 체력측정가능.style.display = '';
                 체력측정불가능.style.display = 'none';
+                가벼운외출가능.style.display = '';
+                가벼운외출불가능.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -200,6 +218,8 @@
                 과격한운동불가능.style.display = '';
                 체력측정가능.style.display = 'none';
                 체력측정불가능.style.display = '';
+                가벼운외출가능.style.display = '';
+                가벼운외출불가능.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -227,7 +247,8 @@
                 과격한운동불가능.style.display = '';
                 체력측정가능.style.display = 'none';
                 체력측정불가능.style.display = '';
-
+                가벼운외출가능.style.display = '';
+                가벼운외출불가능.style.display = 'none';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -256,7 +277,8 @@
                 과격한운동불가능.style.display = '';
                 체력측정가능.style.display = 'none';
                 체력측정불가능.style.display = '';
-
+                가벼운외출가능.style.display = 'none';
+                가벼운외출불가능.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -287,7 +309,8 @@
                 과격한운동불가능.style.display = '';
                 체력측정가능.style.display = 'none';
                 체력측정불가능.style.display = '';
-
+                가벼운외출가능.style.display = 'none';
+                가벼운외출불가능.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
