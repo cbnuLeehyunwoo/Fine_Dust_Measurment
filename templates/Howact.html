@@ -70,6 +70,14 @@
             <img src=https://i.namu.wiki/i/9sG4fMliwczY79a_2CLzV8xNv19GJGzVG-QEiHDHOm_ncSpocfzR_Gl-zuvZMdZCqMZWumA8ztlZblWzvqVHkw.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description14">설명이 로드되지 않았습니다.</p>
         </div> 
+        <div class="photo-item" id="체력측정 가능">
+            <img src=https://media0.giphy.com/media/QsyISIeqbKZ5q4bMpj/200.webp?cid=ecf05e47738xgbj29nehbcza0nvoym1to64bopa1kogf8x5w&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description14">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="체력측정 불가능">
+            <img src=https://media0.giphy.com/media/z9fOrELqdSnFm/giphy.webp?cid=ecf05e47hgs17enbnoy3fgoqjqcpznr2au1dbiu9l08tu75z&ep=v1_gifs_search&rid=giphy.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description14">설명이 로드되지 않았습니다.</p>
+        </div> 
         
     </div>
     <script>
@@ -99,6 +107,8 @@
             const 코세척권장  = document.getElementById("코 세척 권장")
             const 과격한운동가능  = document.getElementById("과격한 운동 가능")
             const 과격한운동불가능  = document.getElementById("과격한 운동 불가능")
+            const 체력측정가능  = document.getElementById("체력 측정 가능")
+            const 체력측정불가능  = document.getElementById("체력 측정 불가능")
                     
             // 모든 사진을 우선 숨김처리
             환기가능.style.display = 'none';
@@ -116,6 +126,8 @@
             코세척권장.style.display = 'none';
             과격한운동가능.style.display = 'none';
             과격한운동불가능.style.display = 'none';
+            체력측정가능.style.display = 'none';
+            체력측정불가능.style.display = 'none';
            
             if(number >= 0 && number < 31) {
                 환기가능.style.display = '';
@@ -133,6 +145,8 @@
                 코세척권장.style.display = 'none';
                 과격한운동가능.style.display = '';
                 과격한운동불가능.style.display = 'none';
+                체력측정가능.style.display = '';
+                체력측정불가능.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -157,6 +171,8 @@
                 코세척권장.style.display = '';
                 과격한운동가능.style.display = '';
                 과격한운동불가능.style.display = 'none';
+                체력측정가능.style.display = '';
+                체력측정불가능.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -182,6 +198,8 @@
                 코세척권장.style.display = '';
                 과격한운동가능.style.display = 'none';
                 과격한운동불가능.style.display = '';
+                체력측정가능.style.display = 'none';
+                체력측정불가능.style.display = '';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -207,6 +225,9 @@
                 코세척권장.style.display = '';
                 과격한운동가능.style.display = 'none';
                 과격한운동불가능.style.display = '';
+                체력측정가능.style.display = 'none';
+                체력측정불가능.style.display = '';
+
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -233,6 +254,9 @@
                 코세척권장.style.display = '';
                 과격한운동가능.style.display = 'none';
                 과격한운동불가능.style.display = '';
+                체력측정가능.style.display = 'none';
+                체력측정불가능.style.display = '';
+
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -261,6 +285,9 @@
                 코세척권장.style.display = '';
                 과격한운동가능.style.display = 'none';
                 과격한운동불가능.style.display = '';
+                체력측정가능.style.display = 'none';
+                체력측정불가능.style.display = '';
+
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
