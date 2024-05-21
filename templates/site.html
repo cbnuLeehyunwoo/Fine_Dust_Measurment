@@ -3,255 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>미세먼지 측정기</title>
-<style>
-  body{
-    margin:0;
-  }
-  a {
-    color:black;
-    text-decoration: none;
-  }
-  h1 {
-    font-size:45px;
-    text-align: center;
-    border-bottom:1px solid gray;
-    margin:0;
-    padding:20px;
-  }
-  ol{
-    border-right:1px solid gray;
-    width:100px;
-    margin:0;
-    padding-right: 120px;
-    }
-    .BackGround{
-      width: 800px;
-      height: 400px;
-      background-image: url("Cheongju.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: relative;
-    }
-    
-  #grid{
-    display: grid;
-    grid-template-columns: 300px 1fr;
-  }
-  #dotButton_Danyang {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-  top: 60px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 265px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
-  }
-  #dotButton_Jecheon {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 51px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 188px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
-  }
-  #dotButton_Chungju {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #db3434; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 54px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 87px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
-  }
-  #dotButton_Eumseong {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 78px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -8px;
-  }
-  #dotButton_Jincheon {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 105px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -70px;
-  }
-  #dotButton_Goesan {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 133px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 3px;
-  }
-  #dotButton_Jeungpyeong {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 126px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -75px;
-  }
-  #dotButton_Boeun {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 222px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -68px;
-  }
-  #dotButton_Okcheon {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 275px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -110px;
-  }
-  #dotButton_Yeongdong {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: #3498db; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: relative;
-    top: 327px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: -93px;
-  }
-  #dotButton_Cheongju {
-    width: 20px; /* 버튼의 크기 조정 */
-    height: 20px; /* 버튼의 크기 조정 */
-    border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
-    background-color: green; /* 버튼의 배경색 */
-    border: none; /* 테두리 없애기 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
-    position: absolute;
-    top: 188px; /* 현재 위치에서 위쪽으로의 이동 거리 */
-  left: 47px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
-  }
-
-</style>
+<title>미세먼지 알리미</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body style="height: 600px;">
 
-<h1>미세먼지 측정기</h1>
+  <header>
+  <div id = "headline">
+  <h1 style="height: 71px;width: 500px;padding-left: 650px;">미세먼지 알리미</h1>
+</div>
+
+</header>
+
+<main>
+<div id = 'fullBackground'>
 <div id ="grid">
-<ol>  
-  <h3><a href=https://www.weatheri.co.kr>웨더아이</a></h3>
-  <div><img src={{url_for("static", filename = photo1)}}></div>
-  <h3><a href=https://weather.naver.com>네이버날씨</a></h3>
-  <div><img src={{url_for("static", filename = photo2)}}></div>
-  <h3><a href=https://m.airkorea.or.kr>에어코리아</a></h3>
-  <div><img src={{url_for("static", filename = photo3)}}></div>
-</ol>
 
-<div class ="BackGround">
+  <div class="a">
+    <div id="dateTimeDisplay" style = "margin-left : 500px;margin-right : 50px;"></div>
 
-  <a href="/Danyang">
-  <button id="dotButton_Danyang">
-</button>
-  </a>
+    <script>
+        // 현재 날짜와 시간 가져오기
+        const now = new Date();
 
-  <a href="/Jecheon">
-    <button id="dotButton_Jecheon">
-  </button>
-</a>
+        // 년, 월, 일, 시간 추출
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더해줌
+        const day = String(now.getDate()).padStart(2, '0');
+        const hour = String(now.getHours()).padStart(2, '0');
 
-<a href="/Chungju">
-  <button id="dotButton_Chungju">
-  </button>
-</a>
+        // 원하는 형식으로 출력
+        const formattedDateTime = `${year}년 ${month}월 ${day}일 ${hour}시`;
 
-<a href="/Eumseong">
-  <button id="dotButton_Eumseong">
-  </button> 
-  </a>
-
-  <a href="/Jincheon">
-  <button id="dotButton_Jincheon">
-  </button> 
-</a>
-
-<a href = "/Goesan">
-  <button id="dotButton_Goesan">
-  </button>
-</a>
-
-<a href = "/Jeungpyeong">
-  <button id="dotButton_Jeungpyeong">
-  </button>
-</a>
-
-<a href="/Boeun">
-  <button id="dotButton_Boeun">
-  </button>
-</a>
-
-<a href="/Okcheon">
-  <button id="dotButton_Okcheon">
-  </button>
-</a>
-
-<a href="/Yeongdong"> 
-  <button id="dotButton_Yeongdong">
-  </button>
-</a>
-  
-  <a href="/Cheongju">
-    <button id="dotButton_Cheongju">
+        // HTML 요소에 날짜와 시간 설정
+        document.getElementById('dateTimeDisplay').textContent = formattedDateTime;
+    </script>
+    <div class ="BackGround">
+    
+      <a href="Danyang.html">
+      <button id="dotButton_Danyang">
     </button>
-  </a>
-  
+      </a>
+    
+      <a href="Jecheon.html">
+        <button id="dotButton_Jecheon">
+      </button>
+    </a>
+    
+    <a href="Chungju.html">
+      <button id="dotButton_Chungju">
+      </button>
+    </a>
+    
+    <a href="Eumseong.html">
+      <button id="dotButton_Eumseong">
+      </button> 
+      </a>
+    
+      <a href="Jincheon.html">
+      <button id="dotButton_Jincheon">
+      </button> 
+    </a>
+    
+    <a href = "Goesan.html">
+      <button id="dotButton_Goesan">
+      </button>
+    </a>
+    
+    <a href = "Jeungpyeong.html">
+      <button id="dotButton_Jeungpyeong">
+      </button>
+    </a>
+    
+    <a href="Boeun.html">
+      <button id="dotButton_Boeun">
+      </button>
+    </a>
+    
+    <a href="Okcheon.html">
+      <button id="dotButton_Okcheon">
+      </button>
+    </a>
+    
+    <a href="Yeongdong.html"> 
+      <button id="dotButton_Yeongdong">
+      </button>
+    </a>
+      
+      <a href="Cheongju.html">
+        <button id="dotButton_Cheongju">
+        </button>
+      </a>
    
-  
-  
-
-
-<script src="script.js"></script>
+    </div>
+    <div class = "b"></div>
+    <div class = "c"> </div>
+  </div>    
+      
+  <div class="d"> <table>
+    <thead>
+        <tr>
+            <th rowspan="6">등급</th>
+            <th colspan="6">미세먼지 6단계</th>
+        </tr>
+        <tr>
+            <th class="good">좋음</th>
+            <th class="moderate">양호</th>
+            <th class="careful">주의</th>
+            <th class="unhealthy">나쁨</th>
+            <th class="very-unhealthy">매우나쁨</th>
+            <th class="do-not-out">외출금지</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <th>예측농도<br>(μg/m³,1일)</th>
+          <td>0~30</td>
+          <td>31~50</td>
+          <td>51~70</td>
+          <td>71~85</td>
+          <td>86~100</td>
+          <td>101~</td>
+      </tr>
+    </tbody>
+</table></div>    
+     
+<div class="e">
+  <div class ="grid3">
+    <div class = "one">
+      <h4>미세먼지 알리미</h4>
+      미세먼지 알리미는 기존에는 없던 미세먼지 실시간 스크래핑, 아두이노를 이용한 우리 동네 미세먼지 수치, 직관적인 미세먼지 행동요령을 제공하고 있습니다.
+    </div>
+    <div class = "two">
+      <table class = "table2">
+      <tr style="height: 200px">
+        <th>사진 1</th>
+        <th>사진 2</th>
+        <th>사진 3</th>
+    </tr>
+      <tr>
+        <th>실시간 미세먼지 스크래핑
+        </th>
+        <th> <div>아두이노를 통한 우리동네</div> 미세먼지 수치 확인</th>
+        <th>직관적인 미세먼지 행동요령</th>
+    </tr>
+  </table>
+    </div>
+   
+  </div>
  
+
+</div>      
+  <div class="f"></div>    
+ 
+
 </div>
 </div>
+</main>
 
 </body>
 </html>

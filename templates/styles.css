@@ -1,0 +1,257 @@
+
+a {
+  color:black;
+  text-decoration: none;
+}
+#dateTimeDisplay{
+background: #fff;
+border: 2px solid #bcbfc0;
+border-radius: 20px;
+text-align: center;
+}
+#headline{
+      display: inline-block;
+    width: 200px;
+    height: 80px;
+    background-image: url("data:image/png;base64,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");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    
+  }
+ 
+  #fullBackground{
+    width: 100%;
+    height: 900px;
+    background-image: url("https://www.shutterstock.com/image-illustration/paint-hand-drawn-illustration-gradient-260nw-1272563962.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    background-size: cover;
+  }
+  .BackGround{
+    width: 500px;
+    height: 600px;
+    margin-left: 50px;
+    background-image: url("Cheongju.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    
+  }
+  .container{
+    display: grid;     
+  grid-template-columns: 1fr 1fr 1fr;     
+  grid-template-rows:  1fr 1fr 1fr 1fr 1fr;
+  }
+  .d{
+    margin-top: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 35px;
+  background: #fff;
+  border: 5px solid #00aeee;
+  border-radius: 20px;
+    
+  }
+  .e{
+    margin-top: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 35px;
+  background: #fff;
+  border: 5px solid #00aeee;
+  border-radius: 20px;
+    
+  }
+
+  
+#grid{
+  display: grid;     
+  grid-template-columns: 1fr 1fr 2fr;     
+  grid-template-rows: 1fr 2fr 1px;
+}
+
+.grid3{
+  display: grid;     
+  grid-template-rows: 1fr 2fr;     
+  
+}
+.one, .two{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.a{
+  margin-top: 20px;
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+
+#dotButton_Danyang {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+top: 80px; /* 현재 위치에서 위쪽으로의 이동 거리 60+20*/
+left: 371px; /* 현재 위치에서 왼쪽으로의 이동 거리 265+106*/
+}
+#dotButton_Jecheon {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 71px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: 263px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
+}
+#dotButton_Chungju {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 74px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: 119px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
+}
+#dotButton_Eumseong {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 108px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: -11px;
+}
+#dotButton_Jincheon {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 145px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: -98px;
+}
+#dotButton_Goesan {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 185px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: 5px;
+}
+#dotButton_Jeungpyeong {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 176px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: -105px;
+}
+#dotButton_Boeun {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 310px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: -94px;
+}
+#dotButton_Okcheon {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 385px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: -153px;
+}
+#dotButton_Yeongdong {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: #3498db; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: relative;
+  top: 457px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: -127px;
+}
+#dotButton_Cheongju {
+  width: 30px; /* 버튼의 크기 조정 */
+  height: 30px; /* 버튼의 크기 조정 */
+  border-radius: 50%; /* 원 모양의 버튼을 만들기 위해 */
+  background-color: green; /* 버튼의 배경색 */
+  border: none; /* 테두리 없애기 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
+  position: absolute;
+  top: 261px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+left: 65px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table2 {
+  
+  height: 100%;
+  
+}
+th, td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+}
+th {
+  background-color: #f2f2f2;
+}
+.good {
+  background-color: #3abefc;
+}
+.moderate {
+  background-color: #6af46f;
+}
+.careful {
+  background-color: #ffee00;
+}
+.unhealthy {
+  background-color: #ff8800;
+}
+.very-unhealthy {
+  background-color: #ff3c00;
+}
+.do-not-out {
+  background-color: #772208;
+}
