@@ -2,20 +2,24 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, g
 import serial
+import threading
 
+arduino_data = "No data"
 def read_arduino():
+    global arduino_data
     try:
         PORT = 'COM3'
         BaudRate = 9600
-        ser = serial.Serial(PORT, BaudRate)  # 포트번호 확인 완료, 추후에 다른 컴퓨터에서 동작 시 재확인 필요
-        if ser.in_waiting:
-            data = ser.readline().decode('utf-8').strip()
-            print("미세먼지 농도:", data) # 추후 출력을 다른 파일로 변경 필요   
-            return data
+        ser = serial.Serial(PORT, BaudRate)
+        while True:
+            if ser.in_waiting:
+                ard = ser.readline().decode('utf-8').strip()
+                print("", ard)
+                arduino_data = ard
     except serial.SerialException:
-        data = "아두이노 포트 미연결"
-        return data
-         
+        arduino_data = "포트 미연결 상태"
+threading.Thread(target=read_arduino, daemon=True).start()
+
 def scrape_naver(location): # 네이버 미세먼지
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
     # 스크랩 해올 주소
