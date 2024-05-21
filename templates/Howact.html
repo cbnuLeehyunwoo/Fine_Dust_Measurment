@@ -96,13 +96,16 @@
         </div> 
         <div class="photo-item" id="피크닉 가능">
             <img src=https://media4.giphy.com/media/3o6Mbo5EtSpALmSrGo/200.webp?cid=790b7611f5cfw4zmvb7ckz2p59nvpgnv45x0wdg66egh3kj3&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
-            <p id="description20">설명이 로드되지 않았습니다.</p>
+            <p id="description21">설명이 로드되지 않았습니다.</p>
         </div> 
         <div class="photo-item" id="피크닉 불가능">
             <img src=https://media1.giphy.com/media/3o6Mb7psCHBmY5XICA/200.webp?cid=ecf05e47phe4uhfohkg3xnb6shb0956zql42w7fq2vsq3d77&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
-            <p id="description20">설명이 로드되지 않았습니다.</p>
+            <p id="description22">설명이 로드되지 않았습니다.</p>
         </div> 
-        
+        <div class="photo-item" id="야채 과일 섭취 권장">
+            <img src=https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmhoYWcxZnBvb2RtM3Joa20zbmQ5d2k0MXdtaWFsMXp4ajNuc3ljZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/9D6S66ufguIzdCJaVI/200.webp alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description22">설명이 로드되지 않았습니다.</p>
+        </div> 
         
         
         
@@ -143,7 +146,8 @@
             const 실외수업가능 = document.getElementById("실외수업 가능")
             const 실외수업불가능 = document.getElementById("실외수업 불가능")
             const 피크닉가능 = document.getElementById("피크닉 가능")
-            const 피크닉불가능 = document.getElementById("피크닉 불가능") 
+            const 피크닉불가능 = document.getElementById("피크닉 불가능")
+            const 야채과일섭취권장 = document.getElementById("야채 과일 섭취 권장")  
 
                             
             // 모든 사진을 우선 숨김처리
@@ -170,6 +174,8 @@
             실외수업불가능.style.display = 'none';
             피크닉가능.style.display = 'none';
             피크닉불가능.style.display = 'none';
+            야채과일섭취권장.style.display = 'none';
+
 
             if(number >= 0 && number < 31) {
                 환기가능.style.display = '';
@@ -195,6 +201,7 @@
                 실외수업불가능.style.display = 'none';
                 피크닉가능.style.display = '';
                 피크닉불가능.style.display = 'none';
+                야채과일섭취권장.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -229,6 +236,7 @@
                 실외수업불가능.style.display = 'none';
                 피크닉가능.style.display = '';
                 피크닉불가능.style.display = 'none';
+                야채과일섭취권장.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -265,6 +273,7 @@
                 실외수업불가능.style.display = 'none';
                 피크닉가능.style.display = '';
                 피크닉불가능.style.display = 'none';
+                야채과일섭취권장.style.display = '';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -300,6 +309,7 @@
                 실외수업불가능.style.display = '';
                 피크닉가능.style.display = 'none';
                 피크닉불가능.style.display = '';
+                야채과일섭취권장.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -337,6 +347,7 @@
                 실외수업불가능.style.display = '';
                 피크닉가능.style.display = 'none';
                 피크닉불가능.style.display = '';
+                야채과일섭취권장.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -376,6 +387,7 @@
                 실외수업불가능.style.display = '';
                 피크닉가능.style.display = 'none';
                 피크닉불가능.style.display = '';
+                야채과일섭취권장.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
