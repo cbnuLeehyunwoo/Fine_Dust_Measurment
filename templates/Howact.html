@@ -86,6 +86,16 @@
             <img src=https://media1.giphy.com/media/yDXX3sIGnSjmut0muV/200.webp?cid=ecf05e47z1eco1b92zm8vu883n1bdtm26p40oe3hh30u2k64&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description18">설명이 로드되지 않았습니다.</p>
         </div> 
+        <div class="photo-item" id="실외수업 가능">
+            <img src=https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDVzamczZms4cnhvbnZzbGl4N3Zua25waHkwd3RzNWJ6NTJwbnZsYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l2Je24ONWRJepKEpO/200.webp alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description19">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="실외수업 불가능">
+            <img src=https://media2.giphy.com/media/l2JdXlpDtaNmTHOHS/200.webp?cid=ecf05e475y4a0qcskj4x5c4a7ofwjg6shiipsctnb703m07p&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description20">설명이 로드되지 않았습니다.</p>
+        </div> 
+        
+        
         
         
         
@@ -121,6 +131,9 @@
             const 체력측정불가능  = document.getElementById("체력측정 불가능")
             const 가벼운외출가능  = document.getElementById("가벼운 외출 가능")
             const 가벼운외출불가능  = document.getElementById("가벼운 외출 불가능")
+            const 실외수업가능 = document.getElementById("실외수업 가능")
+            const 실외수업불가능 = document.getElementById("실외수업 불가능")
+
                             
             // 모든 사진을 우선 숨김처리
             환기가능.style.display = 'none';
@@ -142,6 +155,8 @@
             체력측정불가능.style.display = 'none';
             가벼운외출가능.style.display = 'none';
             가벼운외출불가능.style.display = 'none';
+            실외수업가능.style.display = 'none';
+            실외수업불가능.style.display = 'none';
            
             if(number >= 0 && number < 31) {
                 환기가능.style.display = '';
@@ -163,6 +178,8 @@
                 체력측정불가능.style.display = 'none';
                 가벼운외출가능.style.display = '';
                 가벼운외출불가능.style.display = 'none';
+                실외수업가능.style.display = '';
+                실외수업불가능.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -193,6 +210,8 @@
                 체력측정불가능.style.display = 'none';
                 가벼운외출가능.style.display = '';
                 가벼운외출불가능.style.display = 'none';
+                실외수업가능.style.display = '';
+                실외수업불가능.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -225,6 +244,8 @@
                 체력측정불가능.style.display = '';
                 가벼운외출가능.style.display = '';
                 가벼운외출불가능.style.display = 'none';
+                실외수업가능.style.display = '';
+                실외수업불가능.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -256,6 +277,8 @@
                 체력측정불가능.style.display = '';
                 가벼운외출가능.style.display = '';
                 가벼운외출불가능.style.display = 'none';
+                실외수업가능.style.display = 'none';
+                실외수업불가능.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -289,6 +312,8 @@
                 체력측정불가능.style.display = '';
                 가벼운외출가능.style.display = 'none';
                 가벼운외출불가능.style.display = '';
+                실외수업가능.style.display = 'none';
+                실외수업불가능.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -324,6 +349,8 @@
                 체력측정불가능.style.display = '';
                 가벼운외출가능.style.display = 'none';
                 가벼운외출불가능.style.display = '';
+                실외수업가능.style.display = 'none';
+                실외수업불가능.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -344,5 +371,4 @@
     </script>
 </body>
 </html>
-
 
