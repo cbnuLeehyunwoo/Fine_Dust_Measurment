@@ -106,6 +106,10 @@
             <img src=https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmhoYWcxZnBvb2RtM3Joa20zbmQ5d2k0MXdtaWFsMXp4ajNuc3ljZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/9D6S66ufguIzdCJaVI/200.webp alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description23">설명이 로드되지 않았습니다.</p>
         </div> 
+        <div class="photo-item" id="외출금지">
+            <img src=https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb25qbm5pdHUzdGF0YXRpaDc5ajNmd2pvdWVyN2toMWplcjl6NjJpayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RH5PC3s4JWh32/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description24">설명이 로드되지 않았습니다.</p>
+        </div> 
         
         
         
@@ -148,6 +152,7 @@
             const 피크닉가능 = document.getElementById("피크닉 가능")
             const 피크닉불가능 = document.getElementById("피크닉 불가능")
             const 야채과일섭취권장 = document.getElementById("야채 과일 섭취 권장")  
+            const 외출금지 = document.getElementById("외출금지")  
 
                             
             // 모든 사진을 우선 숨김처리
@@ -175,6 +180,7 @@
             피크닉가능.style.display = 'none';
             피크닉불가능.style.display = 'none';
             야채과일섭취권장.style.display = 'none';
+            외출금지.style.display = 'none';
 
 
             if(number >= 0 && number < 31) {
@@ -202,6 +208,8 @@
                 피크닉가능.style.display = '';
                 피크닉불가능.style.display = 'none';
                 야채과일섭취권장.style.display = 'none';
+                외출금지.style.display = 'none';
+
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -240,7 +248,7 @@
                 피크닉가능.style.display = '';
                 피크닉불가능.style.display = 'none';
                 야채과일섭취권장.style.display = 'none';
-                
+                외출금지.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -280,6 +288,7 @@
                 피크닉가능.style.display = '';
                 피크닉불가능.style.display = 'none';
                 야채과일섭취권장.style.display = '';
+                외출금지.style.display = 'none';
 
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
@@ -319,6 +328,7 @@
                 피크닉가능.style.display = 'none';
                 피크닉불가능.style.display = '';
                 야채과일섭취권장.style.display = '';
+                외출금지.style.display = 'none';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -360,6 +370,7 @@
                 피크닉가능.style.display = 'none';
                 피크닉불가능.style.display = '';
                 야채과일섭취권장.style.display = '';
+                외출금지.style.display = 'none';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -403,6 +414,7 @@
                 피크닉가능.style.display = 'none';
                 피크닉불가능.style.display = '';
                 야채과일섭취권장.style.display = '';
+                외출금지.style.display = '';
 
                 document.getElementById('description1').innerText = "환기 불가능"
                 document.getElementById('description3').innerText = "가벼운 운동 불가능"
@@ -418,6 +430,8 @@
                 document.getElementById('description20').innerText = "실외수업 불가능"
                 document.getElementById('description22').innerText = "피크닉 불가능"
                 document.getElementById('description23').innerText = "야채 과일 섭취 권장"
+                document.getElementById('description24').innerText = "외출금지"
+
 
             }
             else {
@@ -426,4 +440,3 @@
     </script>
 </body>
 </html>
-
