@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from flask import Flask, render_template, g
 import serial
 import threading
+import re
 
 arduino_data = "No data"
 def read_arduino():
@@ -15,7 +16,12 @@ def read_arduino():
             if ser.in_waiting:
                 ard = ser.readline().decode('utf-8').strip()
                 print("", ard)
-                arduino_data = ard
+                numbers = re.findall(r'\d+\.?\d*', ard)
+                if numbers:
+                    arduino_data = float(numbers[0])
+                    print(arduino_data)
+                else:
+                    arduino_data = "값에 숫자가 없습니다."
     except serial.SerialException:
         arduino_data = "포트 미연결 상태"
 threading.Thread(target=read_arduino, daemon=True).start()
@@ -168,7 +174,7 @@ def state(value):
     return state
 
 def suggest(n,w,h):
-    ard=read_arduino()
+    ard=arduino_data
     min=n-ard
     site=""
     if (w-ard<min):
