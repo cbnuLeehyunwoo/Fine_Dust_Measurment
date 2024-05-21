@@ -7,7 +7,7 @@
     
 </head>
 <body>
-    <div id="best_dust" data-number =" 123 "></div>
+    <div id="best_dust" data-number =" 2 "></div>
    
     <div class="photo-grid">
         <div class="photo-item" id="환기 가능">
@@ -183,7 +183,7 @@
             외출금지.style.display = 'none';
 
 
-            if(number >= 0 && number < 31) {
+            if(number >= 0 && number < 31) { // 좋음
                 환기가능.style.display = '';
                 환기불가능.style.display = 'none';
                 가벼운운동가능.style.display = '';
@@ -223,7 +223,7 @@
                 document.getElementById('description21').innerText = "피크닉 가능"
 
             }
-            else if(number >= 31 && number < 51) {
+            else if(number >= 31 && number < 51) { // 양호
                 환기가능.style.display = '';
                 환기불가능.style.display = 'none';
                 가벼운운동가능.style.display = '';
@@ -263,7 +263,7 @@
                 document.getElementById('description21').innerText = "피크닉 가능"
                 
             }
-            else if(number >= 51  && number < 71) {
+            else if(number >= 51  && number < 71) { // 주의
                 환기가능.style.display = '';
                 환기불가능.style.display = 'none';
                 가벼운운동가능.style.display = '';
@@ -293,7 +293,7 @@
                 document.getElementById('description0').innerText = "환기 가능"
                 document.getElementById('description2').innerText = "가벼운 운동 가능"
                 document.getElementById('description6').innerText = "야외 바베큐 가능"
-                document.getElementById('description8').innerText = "일광건조 가능"
+                document.getElementById('description9').innerText = "일광건조 불가능"
                 document.getElementById('description11').innerText = "야외 바둑, 장기 불가능"
                 document.getElementById('description12').innerText = "코 세척 권장"
                 document.getElementById('description14').innerText = "과격한 운동 불가능"
@@ -303,7 +303,7 @@
                 document.getElementById('description21').innerText = "피크닉 가능"
                 document.getElementById('description23').innerText = "야채 과일 섭취 권장"
             }
-            else if(number >= 71 && number < 86){
+            else if(number >= 71 && number < 86){  // 나쁨
                 환기가능.style.display = 'none';
                 환기불가능.style.display = '';
                 가벼운운동가능.style.display = 'none';
@@ -345,7 +345,7 @@
                 document.getElementById('description23').innerText = "야채 과일 섭취 권장"
 
             }
-            else if(number >= 86 && number < 101) {
+            else if(number >= 86 && number < 101) { //매우나쁨
                 환기가능.style.display = 'none';
                 환기불가능.style.display = '';
                 가벼운운동가능.style.display = 'none';
@@ -389,7 +389,7 @@
 
                 
             }
-            else if(number >= 101) {
+            else if(number >= 101) {  //외출금지
                 환기가능.style.display = 'none';
                 환기불가능.style.display = '';
                 가벼운운동가능.style.display = 'none';

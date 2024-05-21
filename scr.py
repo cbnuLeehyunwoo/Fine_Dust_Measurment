@@ -15,11 +15,10 @@ def read_arduino():
         while True:
             if ser.in_waiting:
                 ard = ser.readline().decode('utf-8').strip()
-                print("", ard)
                 numbers = re.findall(r'\d+\.?\d*', ard)
                 if numbers:
                     arduino_data = float(numbers[0])
-                    print(arduino_data)
+                    # print(arduino_data) 아두이노 데이터 정상수신 테스트 코드
                 else:
                     arduino_data = "값에 숫자가 없습니다."
     except serial.SerialException:
