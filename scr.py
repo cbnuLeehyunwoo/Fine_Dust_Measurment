@@ -2,20 +2,29 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, g
 import serial
+import threading
+import re
 
+arduino_data = "No data"
 def read_arduino():
+    global arduino_data
     try:
         PORT = 'COM3'
         BaudRate = 9600
-        ser = serial.Serial(PORT, BaudRate)  # 포트번호 확인 완료, 추후에 다른 컴퓨터에서 동작 시 재확인 필요
-        if ser.in_waiting:
-            data = ser.readline().decode('utf-8').strip()
-            print("미세먼지 농도:", data) # 추후 출력을 다른 파일로 변경 필요   
-            return data
+        ser = serial.Serial(PORT, BaudRate)
+        while True:
+            if ser.in_waiting:
+                ard = ser.readline().decode('utf-8').strip()
+                numbers = re.findall(r'\d+\.?\d*', ard)
+                if numbers:
+                    arduino_data = float(numbers[0])
+                    # print(arduino_data) 아두이노 데이터 정상수신 테스트 코드
+                else:
+                    arduino_data = "값에 숫자가 없습니다."
     except serial.SerialException:
-        data = "아두이노 포트 미연결"
-        return data
-         
+        arduino_data = "포트 미연결 상태"
+threading.Thread(target=read_arduino, daemon=True).start()
+
 def scrape_naver(location): # 네이버 미세먼지
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
     # 스크랩 해올 주소
@@ -164,7 +173,7 @@ def state(value):
     return state
 
 def suggest(n,w,h):
-    ard=read_arduino()
+    ard=arduino_data
     min=n-ard
     site=""
     if (w-ard<min):
@@ -195,7 +204,8 @@ if __name__ == "__main__":
         ww=state(w)
         hh=state(h)
         s=suggest(n,w,h)
-        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino(), s=s)
+        ard=arduino_data
+        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard, s=s)
     
     @app.route("/Yeongdong")
     def yeongdong():
@@ -205,7 +215,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+        return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
     
     @app.route("/Okcheon")
     def okcheon():
@@ -215,7 +226,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+        return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
     
     @app.route("/Boeun")
     def boeun():
@@ -225,7 +237,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+        return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
     
     @app.route("/Goesan")
     def goesan():
@@ -235,7 +248,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+        return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
     
     @app.route("/Jincheon")
     def jincheon():
@@ -245,7 +259,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+        return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
     
     @app.route("/Eumseong")
     def eumseong():
@@ -255,7 +270,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+        return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
     
     @app.route("/Chungju")
     def chungju():
@@ -265,7 +281,9 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+
+        return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
     
     @app.route("/Jecheon")
     def jecheon():
@@ -275,7 +293,9 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+       
+        return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
     
     @app.route("/Danyang")
     def danyang():
@@ -285,7 +305,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+        return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
    
     @app.route("/Jeungpyeong")
     def jeungpyeong():
@@ -295,7 +316,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=read_arduino())
+        ard=arduino_data
+        return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
         
     @app.teardown_appcontext
     def close_connection(exception=None):
@@ -304,4 +326,4 @@ if __name__ == "__main__":
            print("아두이노 포트 닫힘")
     
     if __name__ == '__main__':
-        app.run(debug=True)  #디버그 모드 임시 활성화
+        app.run(debug=False)  #디버그 모드 임시 비활성화
