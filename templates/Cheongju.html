@@ -8,7 +8,6 @@
   <link href= "{{url_for('static', filename='Howact_style.css')}}"rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="Howact_style.css">
-  <title>5x5 Photo Grid</title>
   <title>청주시 미세먼지</title>
 </head>
 
@@ -20,7 +19,11 @@
 </div>
 
 <div class="body">
-<div class="box" style="width:935.6px;">
+<div class="title">
+    <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
+    <strong>웹 스크래핑</strong>
+</div>
+<div class="box">
 <div class="site nav">
   <div>
     <div>
@@ -68,8 +71,6 @@
 <p class="t2">※아두이노 측정값과 가장 유사한 사이트 추천※</p>
 <p class="t3"><br>{{ s }}</p>
 </div>
-</div>
-
 </div>
 
 <div id="best_dust" data-number =" 2 "></div>
@@ -503,6 +504,7 @@
             }
         }
     </script>
+</div>
 </body>
 
 </html>
