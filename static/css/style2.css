@@ -6,7 +6,9 @@ body {
 .title {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    font-size:18px;
 }
 
 .title img {
@@ -60,17 +62,16 @@ body {
 .bottom {
     display: flex;
     justify-content: space-between;
+    align-items:center;
 }
 
 .arduino, .suggest {
-    width: 48%;
+    /*width: 48%;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.ard, .suggest div {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+    flex: 1;
     text-align: center;
 }
 
@@ -81,7 +82,7 @@ body {
 
 .sub {
     font-size: 24px;
-    color: #555;
+    color: #4CAF50;
 }
 
 .t1 {
@@ -96,8 +97,10 @@ body {
 
 .t3 {
     font-size: 24px;
-    color: #555;
+    color: #4CAF50;
+    margin-bottom: 20px;
 }
+
 .header{
     display:flex; /*이미지, 글 가로배치*/
     width:1250px; /*헤더블록 넓이*/
@@ -107,14 +110,10 @@ body {
     line-height:10px; /*글자 높이*/
     margin-bottom:30px;
     .city{
-        font-size:30px;
+        font-size:25px;
         margin-left:20px;
     }
 }
-
-
-
-
 
 .photo-grid {
     display: grid;
