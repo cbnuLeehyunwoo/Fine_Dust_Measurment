@@ -11,6 +11,7 @@ body {
     background-color: #4CAF50;
     padding: 10px 20px;
     color: white;
+    font-size:20px;
 }
 .title img {
     margin-right: 10px;
@@ -20,7 +21,12 @@ body {
     justify-content: space-around;
     margin: 20px;
 }
-.site {
+
+.site{margin-top:30px;} /*블록넓이; display:table-cell; padding:20px 1% 0 1%;블록위치;*/
+.site > div{ border-radius:10px; width:400px;} /*아래 모서리 둥글게*/
+.site > div > div{background:#fff; border-radius:10px;  padding:12px 0 10px 0; position:relative;} /*위 모서리 둥글게; 흰 부분 넓이; 사진 위치*/
+.site > div > div img{position:absolute; width:40px; height:auto; left: 50%; transform: translateX(-50%); top:-30px;} /*사진 위치*/
+/*.site {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -29,22 +35,123 @@ body {
     padding: 20px;
     margin: 10px;
 }
+
 .site img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     margin-bottom: 10px;
+}*/
+/*.nav{
+    text-align:center;
+    .sta1{
+        color:#01b56e;
+    }
+    .sta3{
+    background:#01b56e;
+    margin:5px 0;
+    font-size:20px;
+    }  
+    border:2px solid #01b56e;
+}*/
+.nav{
+    > div{background:#01b56e;} /*아래 색*/
+    > div > div{border:2px solid #01b56e;} /*모서리 색*/
+    .sta1{ color:#01b56e; font-size:18px; text-align:center;} /*상태 글자 색*/
+    .sta2{ font-size:18px; text-align:center;}
+    .sta3{ font-size:20px; color:#fff; text-align:center; }
 }
-.sta1, .sta2, .sta3 {
+/*
+.wea{
+    text-align:center;
+    .sta1{
+        color:#2359c4;
+    }
+    .sta3{
+    background:#2359c4;
     margin: 5px 0;
+    font-size:20px;
+    }
+    border:2px solid #2359c4;
 }
-.sta1 b, .sta2 b, .sta3 b {
+*/
+.wea{
+    > div{background:#2359c4;} /*아래 색*/
+    > div > div{border:2px solid #2359c4;} /*모서리 색*/
+    .sta1{ color:#2359c4; font-size:18px; text-align:center;} /*상태 글자 색*/
+    .sta2{ font-size:18px; text-align:center;}
+    .sta3{ font-size:20px; color:#fff; text-align:center; }
+}
+/*
+.hea{
+    text-align:center;
+    .sta1{
+        color:#b329ef;
+    }
+    .sta3{
+    background:#b329ef;
+    margin: 5px 0;
+    font-size:20px;
+    }
+    border:2px solid #b329ef;
+}
+*/
+.hea{
+    > div{background:#b329ef;} /*아래 색*/
+    > div > div{border:2px solid #b329ef;} /*모서리 색*/
+    .sta1{ color:#b329ef; font-size:18px; text-align:center;} /*상태 글자 색*/
+    .sta2{ font-size:18px; text-align:center;}
+    .sta3{ font-size:20px; color:#fff; text-align:center; }
+}
+.sta1 b{
     font-size: 1.2em;
 }
+.sta2{
+    font-size:1.2em;
+}
 .sta1 span {
-    font-size: 0.8em;
+    font-size: 1em;
     color: #777;
 }
+/*
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.arduino, .suggest {
+    flex: 1;
+}
+.ard, .suggest {
+    text-align: center;
+}
+.m, .t1 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.sub, .t3 {
+    font-size: 16px;
+    color: #666;
+}
+.t2 {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+}
+.t3 {
+    margin-top: 20px;
+}
+.t3 br {
+    display: none;
+}
+*/
 .bottom {
     margin: 20px;
     padding: 20px;
@@ -83,9 +190,13 @@ body {
     width:1250px; /*헤더블록 넓이*/
     height:60px; /*헤더블록 높이*/
     margin:auto; /*헤더블록 가운데 맞춤*/
-    margin-top:40px;
-    line-height:20px; /*글자 높이*/
-    margin-bottom:50px;
+    margin-top:30px;
+    line-height:10px; /*글자 높이*/
+    margin-bottom:30px;
+    .city{
+        font-size:30px;
+        margin-left:20px;
+    }
 }
 
 
