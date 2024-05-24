@@ -10,6 +10,16 @@
     > div {margin-left:50px; margin-right:50px;}
 }
 
+.title {
+    position: relative;
+    font-size: 20px;
+    color: #0a0a0a;
+    font-weight: 500;
+    margin: 50px 0 10px 0;
+    display: block;
+    background-color:skyblue;
+}
+
 .site{margin-top:50px;} /*블록넓이; display:table-cell; padding:20px 1% 0 1%;블록위치;*/
 .site > div{ border-radius:10px; width:400px;} /*아래 모서리 둥글게*/
 .site > div > div{background:#fff; border-radius:10px;  padding:12px 0 10px 0; position:relative;} /*위 모서리 둥글게; 흰 부분 넓이; 사진 위치*/
