@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.title {
+    display: flex;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: white;
+}
+.title img {
+    margin-right: 10px;
+}
+.box {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+.site {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+}
+.site img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.sta1, .sta2, .sta3 {
+    margin: 5px 0;
+}
+.sta1 b, .sta2 b, .sta3 b {
+    font-size: 1.2em;
+}
+.sta1 span {
+    font-size: 0.8em;
+    color: #777;
+}
+.bottom {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.arduino, .suggest {
+    text-align: center;
+}
+.m {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+.sub {
+    font-size: 1.2em;
+    color: #4CAF50;
+}
+.t1 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.t2 {
+    font-size: 1em;
+    color: #777;
+}
+.t3 {
+    font-size: 1.2em;
+    color: #4CAF50;
+    margin-top: 20px;
+}
+
+.header{
+    display:flex; /*이미지, 글 가로배치*/
+    width:1250px; /*헤더블록 넓이*/
+    height:60px; /*헤더블록 높이*/
+    margin:auto; /*헤더블록 가운데 맞춤*/
+    margin-top:40px;
+    line-height:20px; /*글자 높이*/
+    margin-bottom:50px;
+}
+
+
+
+
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.photo-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.photo-item:hover {
+    transform: scale(1.05);
+}
+.photo-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.photo-item p {
+    margin: 15px 10px;
+    font-size: 14px;
+    color: #555;
+}
