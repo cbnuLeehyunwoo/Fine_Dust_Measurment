@@ -7,7 +7,10 @@ float maxValue = 0; // 0으로 초기화
 float averageValue = 0; // 평균값 초기화
 long readCount = 0; // 읽은 횟수 초기화
 float sumValue = 0; // 총 합 초기화
-
+int under_06 = 0;
+int under_05 = 0;
+int under_04 = 0;
+int under_03 = 0;
 void setup() {
   pinMode(PIN_DUST_LED, OUTPUT);
   digitalWrite(PIN_DUST_LED, HIGH);  // 미세먼지 센서 적외선 LED 초기값 설정(HIGH -> 센서 끔)
@@ -28,7 +31,18 @@ void updateStatistics(float dustV) {
   // 최솟값, 최댓값 업데이트
   if(dustV < minValue) minValue = dustV;
   if(dustV > maxValue) maxValue = dustV;
-  
+  if(dustV < 0.3){
+    under_03++;
+  }
+  if(dustV < 0.4){
+    under_04++;
+  } 
+  if(dustV < 0.5){
+    under_05++;
+  }
+  if(dustV < 0.6){
+    under_06++;
+  }
   // 평균값 업데이트
   sumValue += dustV;
   readCount++;
@@ -36,6 +50,23 @@ void updateStatistics(float dustV) {
 }
 
 void printStatistics() {
+  
+  Serial.print("0.3 이하의 값 출현 횟수:  ");
+  Serial.print(under_03);
+  Serial.println(" 회");
+  
+  Serial.print("0.4 이하의 값 출현 횟수:  ");
+  Serial.print(under_04);
+  Serial.println(" 회");
+  
+  Serial.print("0.5 이하의 값 출현 횟수:  ");
+  Serial.print(under_05);
+  Serial.println(" 회");
+
+  Serial.print("0.5 이하의 값 출현 횟수:  ");
+  Serial.print(under_06);
+  Serial.println(" 회");
+  
   Serial.print("최소 전압: ");
   Serial.print(minValue);
   Serial.println(" V");
