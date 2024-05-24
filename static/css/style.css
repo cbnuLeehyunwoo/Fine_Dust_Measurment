@@ -1,13 +1,13 @@
 .body{
     background-image:url("https://m.airkorea.or.kr/images/main/main_bg_spring.png");
     background-size:100%;
-    height:700px;
     margin-top:30px;
 }
 
 .box{
     display:flex;
-    > div {margin-left:70px;}
+    justify-content:center;
+    > div {margin-left:50px; margin-right:50px;}
 }
 
 .site{margin-top:50px;} /*블록넓이; display:table-cell; padding:20px 1% 0 1%;블록위치;*/
@@ -52,7 +52,7 @@
 }
 
 .arduino{
-    margin:auto;
+    justify-content:center;
     float:left;  width:49%; border:1px solid #c8c8c8; background:#fff; border-radius:10px; margin-bottom:2.5%;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
 	-webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
