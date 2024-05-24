@@ -4,10 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
-  <link href= "{{url_for('static', filename='Howact_style.css')}}"rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="Howact_style.css">
+  <link href= "{{url_for('static', filename='css/qwer.css')}}"rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="qwer.css">
   <title>청주시 미세먼지</title>
 </head>
 
@@ -29,7 +27,7 @@
     <div>
       <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340">
       <p class="sta1"><b>농도 : {{ n }}</b><span>㎍/m³</span></p>
-      <p class="sta2"><b>{{ nn }}</b></p>
+      <p class="sta2">{{ nn }}</p>
     </div>
     <p class="sta3"><b>네이버</b></p>
   </div>
@@ -58,6 +56,10 @@
 </div>
 </div>
 
+<div class="title">
+    <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
+    <strong>추천 사이트</strong>
+</div>
 <div class="bottom">
 <div class="arduino">
   <div class="ard">
@@ -69,12 +71,15 @@
 <div class="suggest">
 <p class="t1"><b>추천 사이트</b></p>
 <p class="t2">※아두이노 측정값과 가장 유사한 사이트 추천※</p>
-<p class="t3"><br>{{ s }}</p>
+<p class="t3">{{ s }}</p>
 </div>
 </div>
 
-<div id="best_dust" data-number =" 2 "></div>
-   
+<div class="title">
+    <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
+    <strong>행동요령</strong>
+</div>
+<div id="best_dust" data-number =" 2 "></div>  
     <div class="photo-grid">
         <div class="photo-item" id="환기 가능">
             <img src=https://media1.tenor.com/m/JzCyICxAbYIAAAAC/open-fenster.gif alt="사진이 로드되지 않았습니다." class="fixed-size-img">
@@ -109,7 +114,7 @@
             <p id="description7">설명이 로드되지 않았습니다.</p>
         </div> 
         <div class="photo-item" id="일광건조 가능">
-            <img src=https://media1.giphy.com/media/ln4bohPvHhwgo/giphy.webp?cid=ecf05e47b83xdt4t7689xz2v55n8ulk3vvt53w9wloz5w47b&ep=v1_gifs_search&rid=giphy.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <img src=https://m.ilbe.com/file/download/125566529 alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description8">설명이 로드되지 않았습니다.</p>
         </div> 
         <div class="photo-item" id="일광건조 불가능">
@@ -175,13 +180,9 @@
         <div class="photo-item" id="외출금지">
             <img src=https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb25qbm5pdHUzdGF0YXRpaDc5ajNmd2pvdWVyN2toMWplcjl6NjJpayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RH5PC3s4JWh32/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
             <p id="description24">설명이 로드되지 않았습니다.</p>
-        </div> 
-        
-        
-        
-        
-        
+        </div>         
     </div>
+    
     <script>
             window.onload = function() {
             // div 요소에서 data-number 속성을 읽어옴
