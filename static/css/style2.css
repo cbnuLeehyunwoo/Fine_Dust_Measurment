@@ -1,39 +1,35 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-.title {
-    display: flex;
-    align-items: center;
-    background-color: #4CAF50;
-    padding: 10px 20px;
-    color: white;
-    font-size:20px;
-}
-.title img {
-    margin-right: 10px;
-}
-.box {
-    display: flex;
-    justify-content: space-around;
     margin: 20px;
 }
 
-.site{margin-top:30px;} /*블록넓이; display:table-cell; padding:20px 1% 0 1%;블록위치;*/
-.site > div{ border-radius:10px; width:400px;} /*아래 모서리 둥글게*/
-.site > div > div{background:#fff; border-radius:10px;  padding:12px 0 10px 0; position:relative;} /*위 모서리 둥글게; 흰 부분 넓이; 사진 위치*/
-.site > div > div img{position:absolute; width:40px; height:auto; left: 50%; transform: translateX(-50%); top:-30px;} /*사진 위치*/
-/*.site {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.title img {
+    margin-right: 10px;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.site {
     width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
-    padding: 20px;
-    margin: 10px;
+}
+
+.site div {
+    padding: 10px;
 }
 
 .site img {
@@ -41,150 +37,67 @@ body {
     height: 60px;
     border-radius: 50%;
     margin-bottom: 10px;
-}*/
-/*.nav{
-    text-align:center;
-    .sta1{
-        color:#01b56e;
-    }
-    .sta3{
-    background:#01b56e;
-    margin:5px 0;
-    font-size:20px;
-    }  
-    border:2px solid #01b56e;
-}*/
-.nav{
-    > div{background:#01b56e;} /*아래 색*/
-    > div > div{border:2px solid #01b56e;} /*모서리 색*/
-    .sta1{ color:#01b56e; font-size:18px; text-align:center;} /*상태 글자 색*/
-    .sta2{ font-size:18px; text-align:center;}
-    .sta3{ font-size:20px; color:#fff; text-align:center; }
 }
-/*
-.wea{
-    text-align:center;
-    .sta1{
-        color:#2359c4;
-    }
-    .sta3{
-    background:#2359c4;
-    margin: 5px 0;
-    font-size:20px;
-    }
-    border:2px solid #2359c4;
+
+.sta1 {
+    font-size: 18px;
+    margin: 10px 0;
 }
-*/
-.wea{
-    > div{background:#2359c4;} /*아래 색*/
-    > div > div{border:2px solid #2359c4;} /*모서리 색*/
-    .sta1{ color:#2359c4; font-size:18px; text-align:center;} /*상태 글자 색*/
-    .sta2{ font-size:18px; text-align:center;}
-    .sta3{ font-size:20px; color:#fff; text-align:center; }
+
+.sta2 {
+    color: #555;
+    margin-bottom: 10px;
 }
-/*
-.hea{
-    text-align:center;
-    .sta1{
-        color:#b329ef;
-    }
-    .sta3{
-    background:#b329ef;
-    margin: 5px 0;
-    font-size:20px;
-    }
-    border:2px solid #b329ef;
+
+.sta3 {
+    text-align: center;
+    background: #f8f8f8;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    font-size: 18px;
 }
-*/
-.hea{
-    > div{background:#b329ef;} /*아래 색*/
-    > div > div{border:2px solid #b329ef;} /*모서리 색*/
-    .sta1{ color:#b329ef; font-size:18px; text-align:center;} /*상태 글자 색*/
-    .sta2{ font-size:18px; text-align:center;}
-    .sta3{ font-size:20px; color:#fff; text-align:center; }
-}
-.sta1 b{
-    font-size: 1.2em;
-}
-.sta2{
-    font-size:1.2em;
-}
-.sta1 span {
-    font-size: 1em;
-    color: #777;
-}
-/*
+
 .bottom {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.arduino, .suggest {
-    flex: 1;
-}
-.ard, .suggest {
-    text-align: center;
-}
-.m, .t1 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-}
-.sub, .t3 {
-    font-size: 16px;
-    color: #666;
-}
-.t2 {
-    font-size: 14px;
-    color: #888;
-    margin-top: 10px;
-}
-.t3 {
-    margin-top: 20px;
-}
-.t3 br {
-    display: none;
-}
-*/
-.bottom {
-    margin: 20px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.arduino, .suggest {
-    text-align: center;
-}
-.m {
-    font-size: 1.5em;
-    margin: 10px 0;
-}
-.sub {
-    font-size: 1.2em;
-    color: #4CAF50;
-}
-.t1 {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin: 10px 0;
-}
-.t2 {
-    font-size: 1em;
-    color: #777;
-}
-.t3 {
-    font-size: 1.2em;
-    color: #4CAF50;
-    margin-top: 20px;
 }
 
+.arduino, .suggest {
+    width: 48%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.ard, .suggest div {
+    text-align: center;
+}
+
+.m {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sub {
+    font-size: 24px;
+    color: #555;
+}
+
+.t1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.t2 {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.t3 {
+    font-size: 24px;
+    color: #555;
+}
 .header{
     display:flex; /*이미지, 글 가로배치*/
     width:1250px; /*헤더블록 넓이*/
