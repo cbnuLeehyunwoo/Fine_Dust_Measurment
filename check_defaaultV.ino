@@ -47,12 +47,17 @@ void printStatistics() {
   Serial.print("평균 전압: ");
   Serial.print(averageValue);
   Serial.println(" V");
+
+  Serial.print("측정 횟수: ");
+  Serial.print(readCount);
+  Serial.println(" 회");
+  
 }
 
 void loop() {
   float dustV = read_dust();
   updateStatistics(dustV); // 통계 업데이트
-
+  Serial.println();
   Serial.print("현재 전압: ");
   Serial.print(dustV);
   Serial.println(" V");
