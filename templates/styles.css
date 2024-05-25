@@ -72,6 +72,18 @@ text-align: center;
   background: #fff;
   border: 5px solid #007bee;
   border-radius: 20px;
+  grid-column: 1/3;
+    
+  }
+  .side2{
+    margin-top: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 35px;
+  background: #fff;
+  border: 5px solid #007bee;
+  border-radius: 20px;
+ 
     
   }
   
