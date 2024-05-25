@@ -164,16 +164,22 @@ def state(value):
     state = "상태 : "
     if int(value) <= 30:
         state += "좋음"
-    elif int(value) <= 80:
-        state += "보통"
-    elif int(value) <= 150:
+    elif int(value) <= 50:
+        state += "양호"
+    elif int(value) <= 70:
+        state += "주의"
+    elif int(value) <= 85:
         state += "나쁨"
-    elif int(value) >= 151:
+    elif int(value) <= 100:
         state += "매우나쁨"
+    elif int(value) >= 101:
+        state += "외출금지"
     return state
 
 def suggest(n,w,h):
     ard=arduino_data
+    if(ard=="포트 미연결 상태") or (ard=="No data"):
+        return "아두이노 포트 미연결"
     min=n-ard
     site=""
     if (w-ard<min):
@@ -204,8 +210,7 @@ if __name__ == "__main__":
         ww=state(w)
         hh=state(h)
         s=suggest(n,w,h)
-        ard=arduino_data
-        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard, s=s)
+        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s)
     
     @app.route("/Yeongdong")
     def yeongdong():
@@ -215,8 +220,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-        return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
     
     @app.route("/Okcheon")
     def okcheon():
@@ -226,8 +230,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-        return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
     
     @app.route("/Boeun")
     def boeun():
@@ -237,8 +240,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-        return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
     
     @app.route("/Goesan")
     def goesan():
@@ -248,8 +250,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-        return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
     
     @app.route("/Jincheon")
     def jincheon():
@@ -259,8 +260,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-        return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
     
     @app.route("/Eumseong")
     def eumseong():
@@ -270,8 +270,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-        return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
     
     @app.route("/Chungju")
     def chungju():
@@ -281,9 +280,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-
-        return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
     
     @app.route("/Jecheon")
     def jecheon():
@@ -293,9 +290,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-       
-        return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
     
     @app.route("/Danyang")
     def danyang():
@@ -305,8 +300,7 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-        return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
    
     @app.route("/Jeungpyeong")
     def jeungpyeong():
@@ -316,10 +310,9 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        ard=arduino_data
-        return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=ard)
+        return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
         
-    @app.teardown_appcontext
+    @app.teardown_appcontext             
     def close_connection(exception=None):
          if 'arduino' in g and g.arduino is not None:
            g.arduino.close()

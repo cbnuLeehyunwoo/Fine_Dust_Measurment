@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>미세먼지 알리미</title>
+<link href= "{{url_for('static', filename='css/styles.css')}}"rel="stylesheet">
 <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="height: 600px;">
@@ -40,57 +41,57 @@
     </script>
     <div class ="BackGround">
     
-      <a href="Danyang.html">
+      <a href="/Danyang">
       <button id="dotButton_Danyang">
     </button>
       </a>
     
-      <a href="Jecheon.html">
+      <a href="/Jecheon">
         <button id="dotButton_Jecheon">
       </button>
     </a>
     
-    <a href="Chungju.html">
+    <a href="/Chungju">
       <button id="dotButton_Chungju">
       </button>
     </a>
     
-    <a href="Eumseong.html">
+    <a href="/Eumseong">
       <button id="dotButton_Eumseong">
       </button> 
       </a>
     
-      <a href="Jincheon.html">
+      <a href="/Jincheon">
       <button id="dotButton_Jincheon">
       </button> 
     </a>
     
-    <a href = "Goesan.html">
+    <a href = "/Goesan">
       <button id="dotButton_Goesan">
       </button>
     </a>
     
-    <a href = "Jeungpyeong.html">
+    <a href = "/Jeungpyeong">
       <button id="dotButton_Jeungpyeong">
       </button>
     </a>
     
-    <a href="Boeun.html">
+    <a href="/Boeun">
       <button id="dotButton_Boeun">
       </button>
     </a>
     
-    <a href="Okcheon.html">
+    <a href="/Okcheon">
       <button id="dotButton_Okcheon">
       </button>
     </a>
     
-    <a href="Yeongdong.html"> 
+    <a href="/Yeongdong"> 
       <button id="dotButton_Yeongdong">
       </button>
     </a>
       
-      <a href="Cheongju.html">
+      <a href="/Cheongju">
         <button id="dotButton_Cheongju">
         </button>
       </a>
@@ -148,9 +149,110 @@
         <th> <div>아두이노를 통한 우리동네</div> 미세먼지 수치 확인</th>
         <th>직관적인 미세먼지 행동요령</th>
     </tr>
+    
   </table>
     </div>
+    <div class="wrap">
+      <a href="#pop_info_1" class="btn_open">미세먼지 알기</a>
+      <a href="#pop_info_2" class="btn_open">미세먼지 발생 원인</a>
+      <a href="#pop_info_3" class="btn_open">미세먼지는 건강에 어떤 영향을 미칠까?</a>
+      <p></p>
+      <a href="#pop_info_4" class="btn_open">미세먼지 노출 후 나타나는 증상은?</a>
+      <a href="#pop_info_5" class="btn_open">미세먼지 건강수칙을 지키기는 왜 중요할까?</a>
+      
+      
+    
+    
+      <div id="pop_info_1" class="pop_wrap" style="display:none;">
+        <div class="pop_inner">
+        <h3>미세먼지 알기</h3>
+          <p class="dsc">미세먼지는 우리 눈에 보이지 않을 정도로 작은 먼지입자로 입자 크기에 따라 
+            <P>직경 10 ㎛ 이하 (10 ㎛은 0.001 ㎝)인 것을 미세먼지(PM10)라고 하며</P>
+            <p> 직경 2.5 ㎛ 이하인 것을 초미세먼지 (PM2.5)라고 합니다.</p>
+               이들 먼지는 매우 작아 숨쉴 때 폐포 끝까지 들어와 바로 혈관으로 들어갈 수 있습니다.</p>
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA0MDNfMjQw%2FMDAxNzEyMTIxMDE3NjU2.YFej9iTBE3hpQ_lkOmw4AEvvJvGXkaMbnzZeNco5H2Eg.yqt9oobu8lXnsomwF47tv3aYltxrajE-rD8mAQBNg84g.JPEG%2FK-009.jpg&type=sc960_832" width="550" height="200">
+        <p></p>  
+        <button type="button" class="btn_close">닫기</button>
+        </div>
+      </div>
+      <div id="pop_info_2" class="pop_wrap" style="display:none;">
+        <div class="pop_inner">
+          <h3>미세먼지 발생 원인</h3>
+          <p class="dsc">미세먼지는 발생원에 따라 자연적인 것과 인위적인 것으로 구분되며,
+            <p> 인위적 발생원이 대부분입니다. 미세먼지 중 건강에 영향이 큰 PM2.5는 자동차, </p>
+             <P>화력발전소 등에서 연소를 통해 배출된 1차 오염물질이 대기 중 다른 물질과</P>
+             <p> 반응하여 생성된 2차 오염물질이 주요 발생원이며,</p>
+              주로 황산염, 질산염, 유기탄소 등으로 구성되어 있습니다.</p>
+          
+              <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjAyMDdfMTk2%2FMDAxNjQ0MjI4NjA3Mjg3.pvmGUmkTpQuvf1Ccp_J7gkpG7U9gPl8JKyvK1sFzEAcg.XHJHeZkxyBtkM4wTYoU-nyJWQyA1-niVYYeD9EoUJF4g.JPEG.jaegun1007%2F1_%25285%2529.jpg&type=sc960_832" width="450" height="150">
+              <p></p>
+              <button type="button" class="btn_close">닫기</button>
+        </div>
+      </div>
+      <div id="pop_info_3" class="pop_wrap" style="display:none;">
+        <div class="pop_inner">
+          <h3>미세먼지는 건강에 어떤 영향을 미칠까?</h3>
+          <p class="dsc">미세먼지에 대한 노출은 심장 및 폐 관련 질환 등을 발생시키거나 악화시킬 수 있으며,
+             <p>결과적으로 사망 증가에 영향을 줄 수 있습니다. 단기적으로는 천식 발작, </p>
+             <p>급성 기관지염, 부정맥과 같은 증상을 악화시키고 미세먼지 농도가 높은 곳에서 오래 노출되는 경우 심혈관질환,</p>
+              <p>호흡기질환, 폐암 발생의 위험이 증가합니다.</p>
+            <p>
+
+            </p>
+            <p>미세먼지는 체내에 들어오면 체내 여러 장기에 활성산소를 공급하여 세포 노화를 촉진합니다.</p>
+             <p>또 염증반응을 촉진하여 조직 손상을 가져옵니다. 이러한 작용은 혈류를 따라 전신에서 작용하므로</p>
+              미세먼지의 영향은 단지 호흡기에 그치지 않고 신체 다양한 장기에 영향을 미칠 수 있습니다.
+            
+            </p>
+          
+          <button type="button" class="btn_close">닫기</button>
+        </div>
+      </div>
+      <div id="pop_info_4" class="pop_wrap" style="display:none;">
+        <div class="pop_inner">
+          <h3>미세먼지 노출 후 나타나는 증상은?</h3>
+          <p class="dsc">기침과 같은 호흡기 점막 자극 증상, 폐기능 감소 및 악화로 인한 호흡 곤란, 가슴 답답함, 쌕쌕거림, 천식 증상</p>
+          <p class="dsc">혈관기능장애로 인한 가슴 압박감, 가슴 통증, 가슴 두근거림, 호흡 곤란 등 심혈관계 증상</p>
+          <p class="dsc">가려움, 따가움을 동반하는 피부 알레르기, 아토피피부염</p>
+          <p class="dsc">통증, 이물감, 가려움증을 동반하는 알레르기결막염과 안구건조증</p>
+          <img src="https://www.kdca.go.kr/html/a2/namoimage/images/000018/200226_01.jpg">
+          <p></p>
+          <button type="button" class="btn_close">닫기</button>
+        </div>
+      </div>
+      <div id="pop_info_5" class="pop_wrap" style="display:none;">
+        <div class="pop_inner">
+        <h3>미세먼지 건강수칙을 지키기는 왜 중요할까?</h3>
+          <p class="dsc">미세먼지 노출로 인한 질병 발생의 위험을 감소시켜 조기사망과 질병으로 인한 건강 손실을 줄일 수 있습니다.
+             건강을 보호하여 삶의 질을 높이고 더 오래 건강하게 생활하게 되면 사회 전반에 걸친 경제적 손실 또한 줄일 수 있습니다.</p>
+         <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fpost.phinf.naver.net%2FMjAxNzEwMjhfMTYz%2FMDAxNTA5MTY3NzU0MTA0.ejd8rILTUCx5Gvh7XV8MTd4G1h3I5ybRroY1Rhvr47Ug.gSkx1Cp-9wveiOAveeVgwK1_5kBaMa3n3TIcLZeJ0mUg.PNG%2FIiwvZic0HZWliKVn42Qv0sqZNQw8.jpg&type=sc960_832" width="500" height="250">
+         <p></p> 
+         <button type="button" class="btn_close">닫기</button>
+        </div>
+      </div>
+    
    
+    </div>
+    <script>
+      var target = document.querySelectorAll('.btn_open');
+      var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+      var targetID;
+      
+      // 팝업 열기
+      for(var i = 0; i < target.length; i++){
+        target[i].addEventListener('click', function(){
+          targetID = this.getAttribute('href');
+          document.querySelector(targetID).style.display = 'block';
+        });
+      }
+      
+      // 팝업 닫기
+      for(var j = 0; j < target.length; j++){
+        btnPopClose[j].addEventListener('click', function(){
+          this.parentNode.parentNode.style.display = 'none';
+        });
+      }
+    </script>
   </div>
  
 
