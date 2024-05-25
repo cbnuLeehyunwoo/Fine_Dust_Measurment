@@ -15,6 +15,7 @@ void setup() {
   pinMode(PIN_DUST_LED, OUTPUT);
   digitalWrite(PIN_DUST_LED, HIGH);  // 미세먼지 센서 적외선 LED 초기값 설정(HIGH -> 센서 끔)
   Serial.begin(9600); // 시리얼 통신 시작, 바우드레이트 9600으로 설정
+  delayy(1000); // 센서 안정화를 위해 대기
 }
 
 float read_dust() {
@@ -63,7 +64,7 @@ void printStatistics() {
   Serial.print(under_05);
   Serial.println(" 회");
 
-  Serial.print("0.5 이하의 값 출현 횟수:  ");
+  Serial.print("0.6 이하의 값 출현 횟수:  ");
   Serial.print(under_06);
   Serial.println(" 회");
   
@@ -88,12 +89,14 @@ void printStatistics() {
 void loop() {
   float dustV = read_dust();
   updateStatistics(dustV); // 통계 업데이트
-  Serial.println();
-  Serial.print("현재 전압: ");
-  Serial.print(dustV);
-  Serial.println(" V");
+  if(readCount > 1){
+    Serial.println();
+    Serial.print("현재 전압: ");
+    Serial.print(dustV);
+    Serial.println(" V");
 
-  printStatistics(); // 통계 출력
+    printStatistics(); // 통계 출력
+  }
 
   delay(3000); // 3초 대기
 }
