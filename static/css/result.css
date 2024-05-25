@@ -142,3 +142,13 @@ body {
     margin: 15px 10px;
     font-size: 16px;
 }
+
+.possible {
+    color: green;
+}
+.impossible {
+    color: red;
+}
+.recommended {
+    color: blue;
+}
