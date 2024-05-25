@@ -22,8 +22,8 @@ text-align: center;
  
   #fullBackground{
     width: 100%;
-    height: 900px;
-    background-image: url("https://www.shutterstock.com/image-illustration/paint-hand-drawn-illustration-gradient-260nw-1272563962.jpg");
+    height: 1200px;
+    background-image: url("https://img.freepik.com/free-photo/white-cloud-sky-background_74190-4646.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
@@ -64,13 +64,23 @@ text-align: center;
   border-radius: 20px;
     
   }
+  .side{
+    margin-top: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 35px;
+  background: #fff;
+  border: 5px solid #007bee;
+  border-radius: 20px;
+    
+  }
   
 
   
 #grid{
   display: grid;     
   grid-template-columns: 1fr 1fr 2fr;     
-  grid-template-rows: 1fr 2fr 1px;
+  grid-template-rows: 1 1 1;
 }
 
 .grid3{
