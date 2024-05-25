@@ -1,0 +1,144 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.body{
+    background-image:url("https://m.airkorea.or.kr/images/main/main_bg_spring.png");
+    background-size:100%;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.header .logo {
+    width:9%;
+    margin-right: 20px;
+}
+
+.header .city {
+    font-size: 1.7em;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title img {
+    margin-right: 10px;
+}
+
+.title strong {
+    font-size: 1.2em;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.site {
+    width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    background: #fff;
+}
+
+.site div {
+    padding: 10px;
+}
+
+.site img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sta1 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.sta2 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.sta3 {
+    text-align: center;
+    background: #f8f8f8;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    font-size: 18px;
+}
+
+.bottom{
+    display:flex;
+    background: #fff;
+    align-items : center;
+    margin-bottom:40px;
+}
+
+.arduino, .suggest {
+    flex: 1;
+    text-align: center;
+    background: #fff;
+}
+
+.arduino .m, .suggest .t1 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.arduino .sub, .suggest .t3 {
+    font-size: 1.3em;
+    color: #4CAF50;
+}
+
+.suggest .t2 {
+    font-size: 0.9em;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /*gap: 20px;*/
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.photo-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.photo-item:hover {
+    transform: scale(1.05);
+}
+.photo-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.photo-item p {
+    margin: 15px 10px;
+    font-size: 16px;
+}
