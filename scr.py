@@ -164,12 +164,16 @@ def state(value):
     state = "상태 : "
     if int(value) <= 30:
         state += "좋음"
-    elif int(value) <= 80:
-        state += "보통"
-    elif int(value) <= 150:
+    elif int(value) <= 50:
+        state += "양호"
+    elif int(value) <= 70:
+        state += "주의"
+    elif int(value) <= 85:
         state += "나쁨"
-    elif int(value) >= 151:
+    elif int(value) <= 100:
         state += "매우나쁨"
+    elif int(value) >= 101:
+        state += "외출금지"
     return state
 
 def suggest(n,w,h):
@@ -315,4 +319,4 @@ if __name__ == "__main__":
            print("아두이노 포트 닫힘")
     
     if __name__ == '__main__':
-        app.run(debug=True)  #디버그 모드 임시 활성화
+        app.run(debug=False)  #디버그 모드 임시 비활성화
