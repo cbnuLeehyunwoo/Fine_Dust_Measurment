@@ -52,31 +52,18 @@ body {
 
 .item {
     background-color: lightgray;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     margin-bottom: 5px;
     margin-top: 5px; 
-}
-/* .item ul {
-    padding-left: 0;
-    text-align: left;
-    list-style: none;
-}
-
-.item ul li {
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.item ul li::before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 0;
-    width: 20px;
-    height: 100%;
-    background: repeating-linear-gradient(to bottom, #000, #000 10%, transparent 10%, transparent 20%);
-} */
+    max-width: 2000px;}
+.item_bupueum {
+    background-color: lightgray;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 5px; 
+    max-width: 200px;}
 table {
     width: 100%;
     border-collapse: collapse;
