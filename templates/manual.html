@@ -4,15 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link href= "{{url_for('static', filename='css/result.css')}}"rel="stylesheet">
-    <link href="result.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="result.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-    </style>
+    <link href="manual.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="manual.css">
     <title>아두이노 측정기 메뉴얼</title>
 </head>
 <body>
@@ -20,12 +13,13 @@
         <img class="logo" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Arduino_Logo_Registered.svg/1200px-Arduino_Logo_Registered.svg.png">
         <h2 class="city">아두이노 측정기 메뉴얼</h2>
     </div>
-    <div class="title">
-        <img src="https://private-user-images.githubusercontent.com/85469621/333589025-6da4062d-6d16-4bb5-b79f-a46e72bd3676.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTY2NTY2NjYsIm5iZiI6MTcxNjY1NjM2NiwicGF0aCI6Ii84NTQ2OTYyMS8zMzM1ODkwMjUtNmRhNDA2MmQtNmQxNi00YmI1LWI3OWYtYTQ2ZTcyYmQzNjc2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MjUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTI1VDE2NTkyNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI5YTg3NGE5ZWUxZDZjM2U4ZDJlNjJhZTU3NGU0NThlMDRkNjcxMjk5NGJlMjA0ZWQ4NjE3OGJlZmY3MzE5ZWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.oDIlV3DBqF41cSF1VfOhfVYXwaNfYWchqHOZX_dPncs" width="30">
-        <strong>회로도</strong>
+    <div class="title container">
+      <div class="item">
+        <strong class="descript">아두이노 회로도</strong>
+        <img class= "circuit" src="https://private-user-images.githubusercontent.com/85469621/333589025-6da4062d-6d16-4bb5-b79f-a46e72bd3676.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTY3MDEyMzksIm5iZiI6MTcxNjcwMDkzOSwicGF0aCI6Ii84NTQ2OTYyMS8zMzM1ODkwMjUtNmRhNDA2MmQtNmQxNi00YmI1LWI3OWYtYTQ2ZTcyYmQzNjc2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTI2VDA1MjIxOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFhYjhlZDY0ZGEyODcyMmQ2NGY3NjdlNjE3NTM0YmNhY2Y1MzZmNDY2MWI4Zjk4N2JlNTM4YTg2NDY1MDNjMzkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.XUlrWBhQ-N1qMQvqR-WfkCeJnOTJDIIV8aTbkR9h8lg" width="30">
     </div>
-    <div class="box">
-        <table>
+    <div class="box container">
+        <table class="item">
             <tr>
               <th>아두이노 우노 R3</th>
               <th>먼지센서 어댑터</th>
@@ -72,7 +66,7 @@
               <td>오른쪽</td>
             </tr>
           </table>
-        
+    </div>
 
 </body>
 </html>
