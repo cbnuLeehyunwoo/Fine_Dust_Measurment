@@ -1,0 +1,68 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #524e488a;
+    color: #fff;
+}
+.header .logo {
+    width:9%;
+    margin-right: 20px;
+}
+
+.title .circuit {
+    width: auto;
+    height: auto;
+}
+.descript {
+    display: flex;
+    align-items: center; /* 세로 방향으로 가운데 정렬 */
+    justify-content: flex-start; /* 가로 방향으로 시작점(왼쪽) 정렬 */
+  }
+.container {
+    display: grid;
+    grid-template-columns: auto auto; /* 가로에 2개의 열 */
+    gap: 10px; /* 요소 사이의 간격 */
+}
+.item {
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+}
+th {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+tr:hover { 
+    background-color: #f1f1f1;
+}
+tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
