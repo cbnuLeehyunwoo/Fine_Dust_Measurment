@@ -5,7 +5,7 @@ from flask import Flask, render_template, g
 class Scr:
     arduino_data = "No data"
     def read_arduino():
-        global arduino_data
+        #global arduino_data
         try:
             PORT = 'COM3'
             BaudRate = 9600
@@ -15,12 +15,12 @@ class Scr:
                     ard = ser.readline().decode('utf-8').strip()
                     numbers = re.findall(r'\d+\.?\d*', ard)
                     if numbers:
-                        arduino_data = float(numbers[0])
+                        Scr.arduino_data = float(numbers[0])
                         # print(arduino_data) 아두이노 데이터 정상수신 테스트 코드
                     else:
-                        arduino_data = "값에 숫자가 없습니다."
+                        Scr.arduino_data = "값에 숫자가 없습니다."
         except serial.SerialException:
-            arduino_data = "포트 미연결 상태"
+            Scr.arduino_data = "포트 미연결 상태"
     threading.Thread(target=read_arduino, daemon=True).start()
 
     def scrape_naver(location): # 네이버 미세먼지
@@ -175,7 +175,7 @@ class Scr:
         return state
 
     def suggest(n,w,h):
-        ard=arduino_data
+        ard=Scr.arduino_data
         if(ard=="포트 미연결 상태") or (ard=="No data"):
             return "아두이노 포트 미연결"
         min=n-ard
