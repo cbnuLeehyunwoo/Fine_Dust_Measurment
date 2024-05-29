@@ -319,6 +319,10 @@ if __name__ == "__main__":
         hh=state(h)
         return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
         
+    @app.route("/manual")
+    def manual():
+        return render_template('manual.html')
+        
     @app.teardown_appcontext             
     def close_connection(exception=None):
          if 'arduino' in g and g.arduino is not None:
@@ -327,4 +331,3 @@ if __name__ == "__main__":
     
     if __name__ == '__main__':
         app.run(debug=False)  #디버그 모드 임시 비활성화
-
