@@ -9,7 +9,7 @@ arduino_data = "No data"
 def read_arduino():
     global arduino_data
     try:
-        PORT = 'COM3'
+        PORT = 'COM4'
         BaudRate = 9600
         ser = serial.Serial(PORT, BaudRate)
         while True:
@@ -18,7 +18,7 @@ def read_arduino():
                 numbers = re.findall(r'\d+\.?\d*', ard)
                 if numbers:
                     arduino_data = float(numbers[0])
-                    # print(arduino_data) 아두이노 데이터 정상수신 테스트 코드
+                    print(arduino_data)
                 else:
                     arduino_data = "값에 숫자가 없습니다."
     except serial.SerialException:
@@ -179,7 +179,10 @@ def state(value):
 def suggest(n,w,h):
     ard=arduino_data
     if(ard=="포트 미연결 상태") or (ard=="No data"):
-        return "아두이노 포트 미연결"
+        error = "아두이노 포트 미연결"
+        value = "포트 미연결 상태"
+        return error, value
+    value = 0
     min=n-ard
     site=""
     if (w-ard<min):
@@ -188,11 +191,14 @@ def suggest(n,w,h):
         min=h-ard
     if (n-ard==min):
         site += "네이버 "
+        value = n
     if (w-ard==min):
         site += "웨더아이 "
+        value = w
     if (h-ard==min):
         site += "충북보건환경연구원"
-    return site
+        value = h
+    return site, value
 
 if __name__ == "__main__":
     app = Flask(__name__)
@@ -209,8 +215,9 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        s=suggest(n,w,h)
-        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s)
+        result =suggest(n,w,h)
+        site, value = result[0], result[1]
+        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, site=site, value=value)
     
     @app.route("/Yeongdong")
     def yeongdong():
@@ -311,6 +318,10 @@ if __name__ == "__main__":
         ww=state(w)
         hh=state(h)
         return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        
+    @app.route("/manual")
+    def manual():
+        return render_template('manual.html')
         
     @app.teardown_appcontext             
     def close_connection(exception=None):

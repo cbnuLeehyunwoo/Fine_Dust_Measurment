@@ -73,8 +73,12 @@
 <p class="t2">※아두이노 측정값과 가장 유사한 사이트 추천※</p>
 <p class="t3">{{ s }}</p>
 </div>
-</div>
 
+</div>
+<div class="button-container">
+    <p class="help-text">아두이노 세팅에 도움이 필요하신가요?</p>
+    <button type="button" onclick="location.href='{{ url_for('manual') }}'">아두이노 세팅 A부터 Z까지</button>
+  </div>
 <div class="title">
     <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
     <strong>행동요령</strong>
@@ -509,3 +513,4 @@
 </body>
 
 </html>
+
