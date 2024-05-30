@@ -1,12 +1,11 @@
 import unittest
 from scr import Scr
-#print(Scr.scrape_naver("청주"))
-#print(Scr.arduino_data)
 
 class TestScr(unittest.TestCase):
     # def test_arduino(self):
     #     Scr.read_arduino()
     def test_naver(self):
+        self.assertTrue(Scr.scrape_naver("청주"))
         Scr.scrape_naver("청주")
     def test_wea(self):
         Scr.weatheri(1)
