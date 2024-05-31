@@ -28,6 +28,17 @@ WHO에서 1급 발암물질로 지정된 미세먼지, 이에 대해서 더욱 �
   ```
 
 
+## 📁의존성
+```
+python - 3.x
+beautifulsoup4 - 4.x
+Flask - 3.x
+lxml - 5.x
+pyserial - 3.x
+requests - 2.x
+```
+
+
 ## 📋LICENSE
 ```
 MIT License
