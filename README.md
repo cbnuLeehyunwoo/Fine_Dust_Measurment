@@ -18,3 +18,13 @@
 - 이기홍 @gihong-free
 - 이현우 @cbnuLeehyunwoo
 - 최고원 @choigowon
+
+
+##  💾실행 방법
+  ### python
+  ```
+  pip install beautifulsoup4
+  pip install lxml
+  pip install request
+  pip install serial (혹은 pip install pyserial)
+  ```
