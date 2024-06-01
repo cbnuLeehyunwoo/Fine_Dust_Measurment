@@ -22,7 +22,7 @@ text-align: center;
  
   #fullBackground{
     width: 100%;
-    height: 1200px;
+    height: 780px;
     background-image: url("https://img.freepik.com/free-photo/white-cloud-sky-background_74190-4646.jpg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -65,25 +65,10 @@ text-align: center;
     
   }
   .side{
-    margin-top: 20px;
+    text-align: center;
     padding: 15px;
-    margin-bottom: 20px;
-    margin-right: 35px;
   background: #fff;
-  border: 5px solid #007bee;
-  border-radius: 20px;
-  grid-column: 1/3;
-    
-  }
-  .side2{
-    margin-top: 20px;
-    padding: 15px;
-    margin-bottom: 20px;
-    margin-right: 35px;
-  background: #fff;
-  border: 5px solid #007bee;
-  border-radius: 20px;
- 
+  grid-column: 1/4;
     
   }
   
@@ -281,7 +266,7 @@ th {
 
 .wrap{padding:10px;}
 
-.btn_open{font-weight:bold; margin:5px; padding:4px 6px; background:#000; color:#fff;}
+.btn_open{margin-left: 40px; font-size: 18px;}
 .pop_wrap{position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.5); font-size:0; text-align:center;}
 .pop_wrap:after{display:inline-block; height:100%; vertical-align:middle; content:'';}
 .pop_wrap .pop_inner{display:inline-block; padding:20px 30px; background:#fff; width:650px; height: 450px; vertical-align:middle; font-size:15px;}
