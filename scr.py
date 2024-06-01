@@ -5,23 +5,31 @@ from flask import Flask, render_template, g
 class Scr:
     arduino_data = "No data"
     def read_arduino():
+        PORT = 'COM3'
+        BaudRate = 9600
+        ser = serial.Serial(PORT, BaudRate)
+        while True:
+            if ser.in_waiting:
+                ard = ser.readline().decode('utf-8').strip()
+                numbers = re.findall(r'\d+\.?\d*', ard)
+                if numbers:
+                    Scr.arduino_data = float(numbers[0])
         #global arduino_data
-        try:
-            PORT = 'COM3'
-            BaudRate = 9600
-            ser = serial.Serial(PORT, BaudRate)
-            while True:
-                if ser.in_waiting:
-                    ard = ser.readline().decode('utf-8').strip()
-                    numbers = re.findall(r'\d+\.?\d*', ard)
-                    if numbers:
-                        Scr.arduino_data = float(numbers[0])
-                        # print(arduino_data) 아두이노 데이터 정상수신 테스트 코드
-                    else:
-                        Scr.arduino_data = "값에 숫자가 없습니다."
-        except serial.SerialException:
-            Scr.arduino_data = "포트 미연결 상태"
-    threading.Thread(target=read_arduino, daemon=True).start()
+        # try:
+        #     PORT = 'COM3'
+        #     BaudRate = 9600
+        #     ser = serial.Serial(PORT, BaudRate)
+        #     while True:
+        #         if ser.in_waiting:
+        #             ard = ser.readline().decode('utf-8').strip()
+        #             numbers = re.findall(r'\d+\.?\d*', ard)
+        #             if numbers:
+        #                 Scr.arduino_data = float(numbers[0])
+        #                 # print(arduino_data) 아두이노 데이터 정상수신 테스트 코드
+        #             else:
+        #                 Scr.arduino_data = "값에 숫자가 없습니다."
+        # except serial.SerialException:
+        #     Scr.arduino_data = "포트 미연결 상태"
 
     def scrape_naver(location): # 네이버 미세먼지
         url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
@@ -52,12 +60,10 @@ class Scr:
 
         dust=soup.find("table", attrs={"width":"100%", "border":"0", "cellpadding":"1", "cellspacing":"1", "bgcolor":"#D2D4D4"}).find_all("tr", attrs={"valign":"top", "bgcolor":"#FFFFFF", "height":"19"})
         value=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[0].get_text()
-        #global count
         Scr.count+=1
         if(value in "-\xa0"): # 미세먼지 값 안뜨는 지역은 제외 처리
             value = 0
             Scr.count-=1
-        #global sum
         Scr.sum+=int(value) # 미세먼지 합계
 
     def scrape_weatheri(location):
@@ -208,7 +214,7 @@ if __name__ == "__main__":
         ww=Scr.state(w)
         hh=Scr.state(h)
         s=Scr.suggest(n,w,h)
-        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s)
+        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Yeongdong")
     def yeongdong():
@@ -218,7 +224,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Okcheon")
     def okcheon():
@@ -228,7 +235,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Boeun")
     def boeun():
@@ -238,7 +246,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Goesan")
     def goesan():
@@ -248,7 +257,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Jincheon")
     def jincheon():
@@ -258,7 +268,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Eumseong")
     def eumseong():
@@ -268,7 +279,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Chungju")
     def chungju():
@@ -278,7 +290,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Jecheon")
     def jecheon():
@@ -288,7 +301,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Danyang")
     def danyang():
@@ -298,7 +312,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
    
     @app.route("/Jeungpyeong")
     def jeungpyeong():
@@ -308,7 +323,8 @@ if __name__ == "__main__":
         nn=Scr.state(n)
         ww=Scr.state(w)
         hh=Scr.state(h)
-        return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data)
+        s=Scr.suggest(n,w,h)
+        return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
         
     @app.teardown_appcontext             
     def close_connection(exception=None):
