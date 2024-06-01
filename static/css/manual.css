@@ -1,0 +1,107 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #524e488a;
+    color: #fff;
+}
+
+.header .logo {
+    width: 9%;
+    margin-right: 20px;
+}
+
+.title {
+    margin: 20px 0;
+}
+
+.title .descript {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    border-bottom: 2px solid #009879;
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.circuit {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    width: 700px;
+    height: 500px;
+    margin-bottom: 5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.item {
+    background-color: lightgray;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 5px; 
+    max-width: 2000px;}
+.item_bupueum {
+    background-color: lightgray;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 5px; 
+    max-width: 200px;}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+
+tr:nth-of-type() {
+    background-color: #fff;
+}
+
+tr:hover, tr:hover td {
+    background-color: #c4c4c4e3 !important;
+}
+
+tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.c_image {
+    width: 200px;
+    height: 200px;
+}
+
+
