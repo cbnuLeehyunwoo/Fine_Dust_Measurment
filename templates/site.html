@@ -151,13 +151,19 @@
     
   </table>
     </div>
+    
+    
+  </div>
+ 
+
+</div>      
+  <div class="side">
     <div class="wrap">
       <a href="#pop_info_1" class="btn_open">미세먼지 알기</a>
       <a href="#pop_info_2" class="btn_open">미세먼지 발생 원인</a>
       <a href="#pop_info_3" class="btn_open">미세먼지는 건강에 어떤 영향을 미칠까?</a>
-      <p></p>
       <a href="#pop_info_4" class="btn_open">미세먼지 노출 후 나타나는 증상은?</a>
-      <a href="#pop_info_5" class="btn_open">미세먼지 건강수칙을 지키기는 왜 중요할까?</a>
+      <a href="#pop_info_5" class="btn_open">미세먼지 건강수칙, 왜 중요할까?</a>
       
       
     
@@ -229,53 +235,11 @@
          <button type="button" class="btn_close">닫기</button>
         </div>
       </div>
-    
+      
    
     </div>
-    <script>
-      var target = document.querySelectorAll('.btn_open');
-      var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
-      var targetID;
-      
-      // 팝업 열기
-      for(var i = 0; i < target.length; i++){
-        target[i].addEventListener('click', function(){
-          targetID = this.getAttribute('href');
-          document.querySelector(targetID).style.display = 'block';
-        });
-      }
-      
-      // 팝업 닫기
-      for(var j = 0; j < target.length; j++){
-        btnPopClose[j].addEventListener('click', function(){
-          this.parentNode.parentNode.style.display = 'none';
-        });
-      }
-    </script>
-  </div>
- 
-
-</div>      
-  <div class="side">
-    <p>설명란</p>
-    <p>설명란</p>
-    <p>설명란</p>
-    <p>설명란</p>
-    <p>설명란</p>
-    <p>설명란</p>
-    <p>설명란</p>
-    <p>설명란</p>
   </div>    
- <div  class="side2">
-  <p>설명란</p>
-  <p>설명란</p>
-  <p>설명란</p>
-  <p>설명란</p>
-  <p>설명란</p>
-  <p>설명란</p>
-  <p>설명란</p>
-  <p>설명란</p>
- </div>
+ <div></div>
  <div></div>
 
 </div>
