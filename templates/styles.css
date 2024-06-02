@@ -22,8 +22,8 @@ text-align: center;
  
   #fullBackground{
     width: 100%;
-    height: 900px;
-    background-image: url("https://www.shutterstock.com/image-illustration/paint-hand-drawn-illustration-gradient-260nw-1272563962.jpg");
+    height: 780px;
+    background-image: url("https://img.freepik.com/free-photo/white-cloud-sky-background_74190-4646.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
@@ -33,7 +33,7 @@ text-align: center;
     width: 500px;
     height: 600px;
     margin-left: 50px;
-    background-image: url("https://private-user-images.githubusercontent.com/81912071/331969054-7d95f08f-4a63-41a0-89ca-db511fe995de.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTYxODc4NTAsIm5iZiI6MTcxNjE4NzU1MCwicGF0aCI6Ii84MTkxMjA3MS8zMzE5NjkwNTQtN2Q5NWYwOGYtNGE2My00MWEwLTg5Y2EtZGI1MTFmZTk5NWRlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MjAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTIwVDA2NDU1MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTlmNTI5Njk2ZDIzZmIwZjdlZWMxNzViNWFiOTkzN2RjNWQ1YmNmMDMxYzlmZDNmMWEzZTJkNzgxNTQ2OWM2N2ImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.GEU-eCzwLSV92Awjis63i_siWzOyuv-zchDnfBfjGh4");
+    background-image: url("https://private-user-images.githubusercontent.com/81912071/331969054-7d95f08f-4a63-41a0-89ca-db511fe995de.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTcyMDMzNTYsIm5iZiI6MTcxNzIwMzA1NiwicGF0aCI6Ii84MTkxMjA3MS8zMzE5NjkwNTQtN2Q5NWYwOGYtNGE2My00MWEwLTg5Y2EtZGI1MTFmZTk5NWRlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjAxVDAwNTA1NlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWVhYTRmZTNiZGU0N2EwOTg4YjM1MzI1YjRlMGYyNjRkMzQwZjVkOTZkZGNhMzllNWI4MWQ3ODhjOGMwZmYzZDAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.HQsdwx1N45MgzXarphiGPREYAsPOl5qQax6zjj3YbpY");
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
@@ -64,13 +64,20 @@ text-align: center;
   border-radius: 20px;
     
   }
+  .side{
+    text-align: center;
+    padding: 15px;
+  background: #fff;
+  grid-column: 1/4;
+    
+  }
   
 
   
 #grid{
   display: grid;     
   grid-template-columns: 1fr 1fr 2fr;     
-  grid-template-rows: 1fr 2fr 1px;
+  grid-template-rows: 1 1 1;
 }
 
 .grid3{
@@ -97,8 +104,8 @@ text-align: center;
   cursor: pointer; /* 마우스 커서를 포인터로 변경 */
   outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
   position: relative;
-top: 80px; /* 현재 위치에서 위쪽으로의 이동 거리 60+20*/
-left: 371px; /* 현재 위치에서 왼쪽으로의 이동 거리 265+106*/
+top: 82px; /* 현재 위치에서 위쪽으로의 이동 거리 60+20*/
+left: 370px; /* 현재 위치에서 왼쪽으로의 이동 거리 265+106*/
 }
 #dotButton_Jecheon {
   width: 30px; /* 버튼의 크기 조정 */
@@ -109,7 +116,7 @@ left: 371px; /* 현재 위치에서 왼쪽으로의 이동 거리 265+106*/
   cursor: pointer; /* 마우스 커서를 포인터로 변경 */
   outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
   position: relative;
-  top: 71px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  top: 70px; /* 현재 위치에서 위쪽으로의 이동 거리 */
 left: 263px; /* 현재 위치에서 왼쪽으로의 이동 거리 */
 }
 #dotButton_Chungju {
@@ -169,7 +176,7 @@ left: 5px;
   cursor: pointer; /* 마우스 커서를 포인터로 변경 */
   outline: none; /* 클릭 효과를 강조하는 기본적인 스타일 제거 */
   position: relative;
-  top: 176px; /* 현재 위치에서 위쪽으로의 이동 거리 */
+  top: 175px; /* 현재 위치에서 위쪽으로의 이동 거리 */
 left: -105px;
 }
 #dotButton_Boeun {
@@ -259,7 +266,7 @@ th {
 
 .wrap{padding:10px;}
 
-.btn_open{font-weight:bold; margin:5px; padding:4px 6px; background:#000; color:#fff;}
+.btn_open{margin-left: 40px; font-size: 18px;}
 .pop_wrap{position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.5); font-size:0; text-align:center;}
 .pop_wrap:after{display:inline-block; height:100%; vertical-align:middle; content:'';}
 .pop_wrap .pop_inner{display:inline-block; padding:20px 30px; background:#fff; width:650px; height: 450px; vertical-align:middle; font-size:15px;}
