@@ -1,5 +1,5 @@
 import unittest
-import practice.scr as scr
+import scr
 
 class TestScr(unittest.TestCase):
     def test_naver(self):
