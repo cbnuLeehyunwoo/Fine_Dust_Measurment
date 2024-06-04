@@ -18,8 +18,8 @@
 
 ## 🧑‍💻 개발자 소개 
 - 이기홍 @gihong-free
-- 이현우 @cbnuLeehyunwoo
-- 최고원 @choigowon
+- 이현우 @cbnuLeehyunwoo / Email: henow123@naver.com
+- 최고원 @choigowon / Emila: cape326@naver.com
 
 
 ## 💾 설치 방법
