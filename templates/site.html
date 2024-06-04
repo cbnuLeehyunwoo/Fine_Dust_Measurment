@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>미세먼지 알리미</title>
-<link href= "{{url_for('static', filename='css/styles.css')}}"rel="stylesheet">
 <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="height: 600px;">
@@ -41,57 +40,57 @@
     </script>
     <div class ="BackGround">
     
-      <a href="/Danyang">
+      <a href="Danyang.html">
       <button id="dotButton_Danyang">
     </button>
       </a>
     
-      <a href="/Jecheon">
+      <a href="Jecheon.html">
         <button id="dotButton_Jecheon">
       </button>
     </a>
     
-    <a href="/Chungju">
+    <a href="Chungju.html">
       <button id="dotButton_Chungju">
       </button>
     </a>
     
-    <a href="/Eumseong">
+    <a href="Eumseong.html">
       <button id="dotButton_Eumseong">
       </button> 
       </a>
     
-      <a href="/Jincheon">
+      <a href="Jincheon.html">
       <button id="dotButton_Jincheon">
       </button> 
     </a>
     
-    <a href = "/Goesan">
+    <a href = "Goesan.html">
       <button id="dotButton_Goesan">
       </button>
     </a>
     
-    <a href = "/Jeungpyeong">
+    <a href = "Jeungpyeong.html">
       <button id="dotButton_Jeungpyeong">
       </button>
     </a>
     
-    <a href="/Boeun">
+    <a href="Boeun.html">
       <button id="dotButton_Boeun">
       </button>
     </a>
     
-    <a href="/Okcheon">
+    <a href="Okcheon.html">
       <button id="dotButton_Okcheon">
       </button>
     </a>
     
-    <a href="/Yeongdong"> 
+    <a href="Yeongdong.html"> 
       <button id="dotButton_Yeongdong">
       </button>
     </a>
       
-      <a href="/Cheongju">
+      <a href="Cheongju.html">
         <button id="dotButton_Cheongju">
         </button>
       </a>
@@ -139,9 +138,18 @@
     <div class = "two">
       <table class = "table2">
       <tr style="height: 200px">
-        <th>사진 1</th>
-        <th>사진 2</th>
-        <th>사진 3</th>
+        <th><img src="scraping.png" style="
+          width: 195px;
+          height: 200px;
+      " ></th>  
+      <th><img src="arduinoValue.jpg" style="
+        width: 195px;
+        height: 200px;
+    " ></th>
+    <th><img src="howact.png" style="
+      width: 195px;
+      height: 200px;
+  " ></th>
     </tr>
       <tr>
         <th>실시간 미세먼지 스크래핑
@@ -152,13 +160,19 @@
     
   </table>
     </div>
+    
+    
+  </div>
+ 
+
+</div>      
+  <div class="side">
     <div class="wrap">
       <a href="#pop_info_1" class="btn_open">미세먼지 알기</a>
       <a href="#pop_info_2" class="btn_open">미세먼지 발생 원인</a>
       <a href="#pop_info_3" class="btn_open">미세먼지는 건강에 어떤 영향을 미칠까?</a>
-      <p></p>
       <a href="#pop_info_4" class="btn_open">미세먼지 노출 후 나타나는 증상은?</a>
-      <a href="#pop_info_5" class="btn_open">미세먼지 건강수칙을 지키기는 왜 중요할까?</a>
+      <a href="#pop_info_5" class="btn_open">미세먼지 건강수칙, 왜 중요할까?</a>
       
       
     
@@ -230,35 +244,31 @@
          <button type="button" class="btn_close">닫기</button>
         </div>
       </div>
-    
+      <script>
+        var target = document.querySelectorAll('.btn_open');
+        var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+        var targetID;
+        
+        // 팝업 열기
+        for(var i = 0; i < target.length; i++){
+          target[i].addEventListener('click', function(){
+            targetID = this.getAttribute('href');
+            document.querySelector(targetID).style.display = 'block';
+          });
+        }
+        
+        // 팝업 닫기
+        for(var j = 0; j < target.length; j++){
+          btnPopClose[j].addEventListener('click', function(){
+            this.parentNode.parentNode.style.display = 'none';
+          });
+        }
+      </script>
    
     </div>
-    <script>
-      var target = document.querySelectorAll('.btn_open');
-      var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
-      var targetID;
-      
-      // 팝업 열기
-      for(var i = 0; i < target.length; i++){
-        target[i].addEventListener('click', function(){
-          targetID = this.getAttribute('href');
-          document.querySelector(targetID).style.display = 'block';
-        });
-      }
-      
-      // 팝업 닫기
-      for(var j = 0; j < target.length; j++){
-        btnPopClose[j].addEventListener('click', function(){
-          this.parentNode.parentNode.style.display = 'none';
-        });
-      }
-    </script>
-  </div>
- 
-
-</div>      
-  <div class="f"></div>    
- 
+  </div>    
+ <div></div>
+ <div></div>
 
 </div>
 </div>

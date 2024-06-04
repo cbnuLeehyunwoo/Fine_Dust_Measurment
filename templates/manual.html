@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href= "{{url_for('static', filename='css/manual.css')}}"rel="stylesheet">
+    <link href="manual.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="manual.css">
+    <title>아두이노 측정기 메뉴얼</title>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Arduino_Logo_Registered.svg/1200px-Arduino_Logo_Registered.svg.png">
+        <h2 class="city">아두이노 측정기 메뉴얼</h2>
+    </div>
+    <div class="title container">
+      <div class="item">
+        <strong class="descript">아두이노 회로도</strong>
+        <div class="circuit-wrapper">
+        <img class= "circuit" src="https://private-user-images.githubusercontent.com/85469621/333867951-fee91bd3-73f6-4d30-9dcd-440631d9e174.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTY3MTU2MzgsIm5iZiI6MTcxNjcxNTMzOCwicGF0aCI6Ii84NTQ2OTYyMS8zMzM4Njc5NTEtZmVlOTFiZDMtNzNmNi00ZDMwLTlkY2QtNDQwNjMxZDllMTc0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTI2VDA5MjIxOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThmMGEwYjdhZmVmYjljYTdmOGRjZTdiNTZiMTRhMDM1MzllMWZjNTI1MzMwODhkNjNmYmFlNTAzOTBhNWIzMTYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.7dwolxFpdql4EATQm5kpw0m3SMKDtCg2iTb_mEoUrTo" width="30">
+        </div>
+      </div>
+    <div class="box container">
+        <table>
+            <tr>
+              <th>아두이노 우노 R3</th>
+              <th>먼지센서 어댑터</th>
+              <th>브레드보드</th>
+            </tr>
+            <tr>
+              <td>D11</td>
+              <td>LED</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>A0</td>
+              <td>OUT</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>GND</td>
+              <td>GND</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5V</td>
+              <td>VCC</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>GND</td>
+              <td>-</td>
+              <td>오른쪽</td>
+            </tr>
+            <tr>
+              <td>5V</td>
+              <td>-</td>
+              <td>왼쪽</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>VCC</td>
+              <td>왼쪽</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>GND</td>
+              <td>오른쪽</td>
+            </tr>
+          </table>
+    </div>
+  </div>
+  <div class="title container">
+    <div class="item_bupueum">
+      <strong class="descript">사용한 부품 설명</strong>
+       </div>
+         <div class="box container">
+            <table class>
+              <tr>
+                <th>아두이노 우노 R3</th>
+                <th>먼지센서 sharpGP2Y1010</th>
+                <th>먼지센서 어댑터</th>
+                <th>점퍼선</th>
+                <th>브레드보드</th>
+              </tr>
+              <tr>
+                 <td> <img class= "c_image" src="https://m.rollybot.com/web/product/big/201809/3ac5b106629ec85cf8bbcd3c8b174b4d.jpg" ></td>
+                 <td> <img class= "c_image" src="https://vctec.co.kr/web/product/ale/img/1795576452-1.jpg" ></td>
+                 <td> <img class= "c_image" src="https://o.lnwfile.com/_/o/_raw/5x/6q/wg.jpg" ></td>
+                 <td> <img class= "c_image" src="https://image9.coupangcdn.com/image/vendor_inventory/0bfe/cb87ec8b7057f47e59d0ae212b5f276dab724e8a1bb98a8ed49b0161f34b.png" ></td>
+                 <td> <img class= "c_image" src="https://m.icbanq.com/icdownload/data/ICBShop/Product/%5B121%5D11.JPG" ></td>
+              </tr>
+           </table>
+          </div>
+        </div>
+  <div class="title container">
+    <div class="item_bupueum">
+      <strong class="descript">측정방법</strong>
+        </div>
+        <div class="box container">
+            <table>
+                <tr>
+                    <th>단계</th>
+                    <th>내용</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>위에 나와있는 대로 회로도를 연결해 주세요.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>미세먼지 센서를 먼지가 없는 곳(공기청정기 위)에 두거나 테이프를 이용하여 구멍을 막아주세요.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ArduinoIDE를 설치해주시고 설치가 완료되면 아두이노를 USB를 통해 연결해주세요.</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>ArduinoIDE에서 도구(Tools)->포트(Port)항목에 진입하여 연결된 포트를 확인해주세요.</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>ArduinoIDE를 이용하여check_defaultV.ino 파일을 아두이노 우노에 업로드 해주세요.</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>아두이노 개발환경의 도구(Tools)->시리얼 모니터(Serial Monitor)로 들어가 출력값이 뜨는지 확인해 주세요.</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>충분한 시간동안(최소 10분) 동안 값을 측정해주세요.</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>출력된 평균값을 read_Dust.ino 파일의 18번째 줄 "defaultV =" 오른쪽에 넣어주세요(기존값은 지워주세요).</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>ArduinoIDE를 이용하여 read_Dust.ino 파일을 아두이노 우노에 업로드 해주세요.</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>마지막으로 scr.py 파일에 들어가서 3번에서 확인했던 포트번호를 12번째 줄 "PORT ="오른쪽에 넣어주세요(기존값은 지워주세요)</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>주의사항: scr.py 파일을 실행하실 때 시리얼 모니터가 켜져있지 않게해주세요.(값 출력이 안됩니다.)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+

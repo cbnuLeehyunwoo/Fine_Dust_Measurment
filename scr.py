@@ -2,10 +2,18 @@ import requests, serial, threading, re
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, g
 
+<<<<<<< HEAD
 class Scr:
     arduino_data = "No data"
     def read_arduino():
         PORT = 'COM3'
+=======
+arduino_data = "No data"
+def read_arduino():
+    global arduino_data
+    try:
+        PORT = 'COM4'
+>>>>>>> c3a9f94264caa68027ec3b1fd35f734fb082e4a3
         BaudRate = 9600
         ser = serial.Serial(PORT, BaudRate)
         while True:
@@ -13,6 +21,7 @@ class Scr:
                 ard = ser.readline().decode('utf-8').strip()
                 numbers = re.findall(r'\d+\.?\d*', ard)
                 if numbers:
+<<<<<<< HEAD
                     Scr.arduino_data = float(numbers[0])
         #global arduino_data
         # try:
@@ -30,6 +39,15 @@ class Scr:
         #                 Scr.arduino_data = "값에 숫자가 없습니다."
         # except serial.SerialException:
         #     Scr.arduino_data = "포트 미연결 상태"
+=======
+                    arduino_data = float(numbers[0])
+                    print(arduino_data)
+                else:
+                    arduino_data = "값에 숫자가 없습니다."
+    except serial.SerialException:
+        arduino_data = "포트 미연결 상태"
+threading.Thread(target=read_arduino, daemon=True).start()
+>>>>>>> c3a9f94264caa68027ec3b1fd35f734fb082e4a3
 
     def scrape_naver(location): # 네이버 미세먼지
         url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
@@ -180,6 +198,7 @@ class Scr:
             state += "외출금지"
         return state
 
+<<<<<<< HEAD
     def suggest(n,w,h):
         ard=Scr.arduino_data
         if(ard=="포트 미연결 상태") or (ard=="No data"):
@@ -197,6 +216,31 @@ class Scr:
         if (h-ard==min):
             site += "충북보건환경연구원"
         return site
+=======
+def suggest(n,w,h):
+    ard=arduino_data
+    if(ard=="포트 미연결 상태") or (ard=="No data"):
+        error = "아두이노 포트 미연결"
+        value = "포트 미연결 상태"
+        return error, value
+    value = 0
+    min=n-ard
+    site=""
+    if (w-ard<min):
+        min=w-ard
+    if (h-ard<min):
+        min=h-ard
+    if (n-ard==min):
+        site += "네이버 "
+        value = n
+    if (w-ard==min):
+        site += "웨더아이 "
+        value = w
+    if (h-ard==min):
+        site += "충북보건환경연구원"
+        value = h
+    return site, value
+>>>>>>> c3a9f94264caa68027ec3b1fd35f734fb082e4a3
 
 if __name__ == "__main__":
     app = Flask(__name__)
@@ -207,6 +251,7 @@ if __name__ == "__main__":
     
     @app.route("/Cheongju")
     def cheongju():
+<<<<<<< HEAD
         n=Scr.scrape_naver("청주")
         w=Scr.scrape_weatheri("청주")
         h=Scr.scrape_health("청주")
@@ -215,6 +260,17 @@ if __name__ == "__main__":
         hh=Scr.state(h)
         s=Scr.suggest(n,w,h)
         return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
+=======
+        n=scrape_naver("청주")
+        w=scrape_weatheri("청주")
+        h=scrape_health("청주")
+        nn=state(n)
+        ww=state(w)
+        hh=state(h)
+        result =suggest(n,w,h)
+        site, value = result[0], result[1]
+        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, site=site, value=value)
+>>>>>>> c3a9f94264caa68027ec3b1fd35f734fb082e4a3
     
     @app.route("/Yeongdong")
     def yeongdong():
@@ -325,6 +381,10 @@ if __name__ == "__main__":
         hh=Scr.state(h)
         s=Scr.suggest(n,w,h)
         return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=Scr.arduino_data, s=s, av=(n+w+h)/3)
+        
+    @app.route("/manual")
+    def manual():
+        return render_template('manual.html')
         
     @app.teardown_appcontext             
     def close_connection(exception=None):
