@@ -322,6 +322,10 @@ if __name__ == "__main__":
         hh=state(h)
         s=suggest(n,w,h)
         return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
+    
+    @app.route("/manual")
+    def manual():
+        return render_template('manual.html')
         
     @app.teardown_appcontext             
     def close_connection(exception=None):
