@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>미세먼지 알리미</title>
-<link href="styles.css" rel="stylesheet" type="text/css" />
+<link href= "{{url_for('static', filename='css/styles.css')}}"rel="stylesheet">
 </head>
 <body style="height: 600px;">
 
@@ -39,58 +39,57 @@
         document.getElementById('dateTimeDisplay').textContent = formattedDateTime;
     </script>
     <div class ="BackGround">
-    
-      <a href="Danyang.html">
+      <a href="/Danyang">
       <button id="dotButton_Danyang">
     </button>
       </a>
     
-      <a href="Jecheon.html">
+      <a href="/Jecheon">
         <button id="dotButton_Jecheon">
       </button>
     </a>
     
-    <a href="Chungju.html">
+    <a href="/Chungju">
       <button id="dotButton_Chungju">
       </button>
     </a>
     
-    <a href="Eumseong.html">
+    <a href="/Eumseong">
       <button id="dotButton_Eumseong">
       </button> 
       </a>
     
-      <a href="Jincheon.html">
+      <a href="/Jincheon">
       <button id="dotButton_Jincheon">
       </button> 
     </a>
     
-    <a href = "Goesan.html">
+    <a href = "/Goesan">
       <button id="dotButton_Goesan">
       </button>
     </a>
     
-    <a href = "Jeungpyeong.html">
+    <a href = "/Jeungpyeong">
       <button id="dotButton_Jeungpyeong">
       </button>
     </a>
     
-    <a href="Boeun.html">
+    <a href="/Boeun">
       <button id="dotButton_Boeun">
       </button>
     </a>
     
-    <a href="Okcheon.html">
+    <a href="/Okcheon">
       <button id="dotButton_Okcheon">
       </button>
     </a>
     
-    <a href="Yeongdong.html"> 
+    <a href="/Yeongdong"> 
       <button id="dotButton_Yeongdong">
       </button>
     </a>
       
-      <a href="Cheongju.html">
+      <a href="/Cheongju">
         <button id="dotButton_Cheongju">
         </button>
       </a>
@@ -138,25 +137,15 @@
     <div class = "two">
       <table class = "table2">
       <tr style="height: 200px">
-        <th><img src="scraping.png" style="
-          width: 195px;
-          height: 200px;
-      " ></th>  
-      <th><img src="arduinoValue.jpg" style="
-        width: 195px;
-        height: 200px;
-    " ></th>
-    <th><img src="howact.png" style="
-      width: 195px;
-      height: 200px;
-  " ></th>
-    </tr>
+        <th><img src={{url_for("static", filename=p1)}} style="width: 195px; height: 200px;"></th>  
+        <th><img src={{url_for("static", filename=p2)}} style="width: 195px; height: 200px;"></th>
+        <th><img src={{url_for("static", filename=p3)}} style="width: 195px; height: 200px;"></th>
+      </tr>
       <tr>
-        <th>실시간 미세먼지 스크래핑
-        </th>
+        <th>실시간 미세먼지 스크래핑</th>
         <th> <div>아두이노를 통한 우리동네</div> 미세먼지 수치 확인</th>
         <th>직관적인 미세먼지 행동요령</th>
-    </tr>
+      </tr>
     
   </table>
     </div>

@@ -1,9 +1,6 @@
-import requests
+import requests, serial, re, threading
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, g
-import serial
-import threading
-import re
 
 arduino_data = "No data"
 def read_arduino():
@@ -40,7 +37,7 @@ def scrape_naver(location): # 네이버 미세먼지
     for i in range(0, len(place)): # 해당 도시에 해당하는 값 찾기
         if location in place[i]:
             x=i
-    
+        
     return int(value[x].get_text())
 
 sum=0 # 웨더아이 미세먼지 값 합계
@@ -52,14 +49,15 @@ def weatheri(n):
     res.raise_for_status()
     soup=BeautifulSoup(res.content.decode('utf-8','replace'), "lxml") # 글자 깨짐 해결
 
+    global sum
+    global count
+
     dust=soup.find("table", attrs={"width":"100%", "border":"0", "cellpadding":"1", "cellspacing":"1", "bgcolor":"#D2D4D4"}).find_all("tr", attrs={"valign":"top", "bgcolor":"#FFFFFF", "height":"19"})
     value=dust[n].find_all("td", attrs={"width":"7%", "align":"right"})[0].get_text()
-    global count
     count+=1
     if(value in "-\xa0"): # 미세먼지 값 안뜨는 지역은 제외 처리
         value = 0
         count-=1
-    global sum
     sum+=int(value) # 미세먼지 합계
 
 def scrape_weatheri(location):
@@ -120,8 +118,7 @@ def scrape_weatheri(location):
     elif "제천" in location:
         weatheri(25)
         weatheri(30)
-        value = int(sum/count)
-        
+        value = int(sum/count)            
     return value
 
 
@@ -134,10 +131,10 @@ def scrape_health(location): # 충청북도 보건환경연구원
     dust=soup.find("table", attrs={"class":"table tr_over"}).find_all("tr")
     count=0
     result=0
-    
+        
     for n in range(1, len(dust)): #1부터 시작
         place=dust[n].find("td", attrs={"class":"bd_left"}).get_text() #도시 이름
-        
+            
         if location in place:
             if count==0:
                 value=dust[n].find_all("td")[2].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
@@ -155,34 +152,31 @@ def scrape_health(location): # 충청북도 보건환경연구원
                     value=0
                     count-=1
                 result+=int(value)
-            
+                
     value=int(result/count)
-    
+        
     return value
 
 def state(value):
     state = "상태 : "
-    if int(value) <= 30:
+    if value <= 30:
         state += "좋음"
-    elif int(value) <= 50:
+    elif value <= 50:
         state += "양호"
-    elif int(value) <= 70:
+    elif value <= 70:
         state += "주의"
-    elif int(value) <= 85:
+    elif value <= 85:
         state += "나쁨"
-    elif int(value) <= 100:
+    elif value <= 100:
         state += "매우나쁨"
-    elif int(value) >= 101:
+    elif value >= 101:
         state += "외출금지"
     return state
 
 def suggest(n,w,h):
     ard=arduino_data
     if(ard=="포트 미연결 상태") or (ard=="No data"):
-        error = "아두이노 포트 미연결"
-        value = "포트 미연결 상태"
-        return error, value
-    value = 0
+        return "아두이노 포트 미연결"
     min=n-ard
     site=""
     if (w-ard<min):
@@ -191,21 +185,22 @@ def suggest(n,w,h):
         min=h-ard
     if (n-ard==min):
         site += "네이버 "
-        value = n
     if (w-ard==min):
         site += "웨더아이 "
-        value = w
     if (h-ard==min):
         site += "충북보건환경연구원"
-        value = h
-    return site, value
+    return site
 
 if __name__ == "__main__":
     app = Flask(__name__)
 
     @app.route('/')
     def first():
-        return render_template('site.html')
+        p1 = f"img/scraping.png"
+        p2 = f"img/arduinoValue.jpg"
+        p3 = f"img/howact.png"
+        p4 = f"img/Cheongju.png"
+        return render_template('site.html', p1=p1, p2=p2, p3=p3, p4=p4)
     
     @app.route("/Cheongju")
     def cheongju():
@@ -215,9 +210,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        result =suggest(n,w,h)
-        site, value = result[0], result[1]
-        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, site=site, value=value)
+        s=suggest(n,w,h)
+        return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Yeongdong")
     def yeongdong():
@@ -227,7 +221,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Okcheon")
     def okcheon():
@@ -237,7 +232,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Boeun")
     def boeun():
@@ -247,7 +243,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Goesan")
     def goesan():
@@ -257,7 +254,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Jincheon")
     def jincheon():
@@ -267,7 +265,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Eumseong")
     def eumseong():
@@ -277,7 +276,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Chungju")
     def chungju():
@@ -287,7 +287,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Jecheon")
     def jecheon():
@@ -297,7 +298,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
     @app.route("/Danyang")
     def danyang():
@@ -307,7 +309,8 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
+        s=suggest(n,w,h)
+        return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
    
     @app.route("/Jeungpyeong")
     def jeungpyeong():
@@ -317,8 +320,9 @@ if __name__ == "__main__":
         nn=state(n)
         ww=state(w)
         hh=state(h)
-        return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data)
-        
+        s=suggest(n,w,h)
+        return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
+    
     @app.route("/manual")
     def manual():
         return render_template('manual.html')

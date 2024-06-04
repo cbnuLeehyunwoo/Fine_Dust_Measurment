@@ -4,37 +4,510 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href= "{{url_for('static', filename='css/result.css')}}"rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="result.css">
   <title>진천군 미세먼지</title>
 </head>
 
 <body>
 
 <div class="header">
-<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F655%2F2022%2F08%2F05%2F0000003665_002_20220805113202828.jpg&type=l340_165" width=10%>
-<h2>진천군 미세먼지</h2>
+<img class="logo" src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F655%2F2022%2F08%2F05%2F0000003665_002_20220805113202828.jpg&type=l340_165" width=10%;>
+<h2 class="city">진천군 미세먼지</h2>
 </div>
 
 <div class="body">
-<ol>
+<div class="title">
+    <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
+    <strong>웹 스크래핑</strong>
+</div>
+<div class="box">
+<div class="site nav">
+  <div>
+    <div>
+      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340">
+      <p class="sta1"><b>농도 : {{ n }}</b><span>㎍/m³</span></p>
+      <p class="sta2">{{ nn }}</p>
+    </div>
+    <p class="sta3"><b>네이버</b></p>
+  </div>
+</div>
 
-<li>
-<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160504_295%2Fzzlidde_1462360339348GT0M2_PNG%2F2016-05-04_20.11.40.png&type=a340" width=4%>
-<span><font color = "green"><b>[네이버]</b> {{ result1 }}</font></span>
-</li>
+<div class="site wea">
+  <div>
+    <div>
+      <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2F1BNsSebKDyYn-UJMgvXrCqLpRRr5Z8qLJFK0NqtvTtMkFHiDvu70-K9F0FTg5jb6vDp4&type=a340">
+      <p class="sta1"><b>농도 : {{ w }}</b><span>㎍/m³</span></p>
+      <p class="sta2">{{ ww }}</p>
+    </div>
+    <p class="sta3"><b>웨더아이</b></p>
+  </div>
+</div>
 
-<li>
-<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2F1BNsSebKDyYn-UJMgvXrCqLpRRr5Z8qLJFK0NqtvTtMkFHiDvu70-K9F0FTg5jb6vDp4&type=a340" width=4%>
-<span><font color = "blue"><b>[웨더아이]</b> {{ result2 }}</font></span>
-</li>
+<div class="site hea">
+  <div>
+    <div>
+      <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg-cdn.theqoo.net%2FZGgdgf.png&type=a340">
+      <p class="sta1"><b>농도 : {{ h }}</b><span>㎍/m³</span></p>
+      <p class="sta2">{{ hh }}</p>
+    </div>
+    <p class="sta3"><b>충청북도 보건환경연구원</b></p>
+  </div>
+</div>
+</div>
 
-<li>
-<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FMoRF2pQlfg0bQwSd0c7lALLaW2C31liTuP-AqeLYOQyAEHCRcFaJaIDe0GBJRifuDd9JHSSJQulAXPUPmz3LTg.webp&type=a340" width=5%>
-<span><font color = "purple"><b>[충청북도 보건환경연구원]</b> {{ result3 }}</font></span>
-</li>
+<div class="title">
+    <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
+    <strong>추천 사이트</strong>
+</div>
+<div class="bottom">
+<div class="arduino">
+  <div class="ard">
+    <p class="m">아두이노 측정값</p>
+    <p class="sub">{{ ard }}</p>
+  </div>
+</div>
 
-</ol>
+<div class="suggest">
+<p class="t1"><b>추천 사이트</b></p>
+<p class="t2">※아두이노 측정값과 가장 유사한 사이트 추천※</p>
+<p class="t3">{{ s }}</p>
+</div>
+</div>
+<div class="button-container">
+    <p class="help-text">아두이노 세팅에 도움이 필요하신가요?</p>
+    <button type="button" onclick="location.href='{{ url_for('manual') }}'">아두이노 세팅 A부터 Z까지</button>
+</div>
+<div class="title">
+    <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
+    <strong>행동요령</strong>
+</div>
+<div id="best_dust" data-number = 20></div>  
+    <div class="photo-grid">
+        <div class="photo-item" id="환기 가능">
+            <img src=https://media1.tenor.com/m/JzCyICxAbYIAAAAC/open-fenster.gif alt="사진이 로드되지 않았습니다." class="fixed-size-img">
+            <p id="description0">설명이 로드되지 않았습니다.</p>
+        </div>
+        <div class="photo-item" id="환기 불가능">
+            <img src=https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExem93bjV6eXRybWx1dnFmbHkwM2U3N3oxaG5lNHdoN3JvbXN6b2I1ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6MbabII0AotIzSWk/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description1">설명이 로드되지 않았습니다.</p>
+         </div>
+        <div class="photo-item" id="가벼운 운동 가능">
+            <img src=https://media1.giphy.com/media/3ohs7J1ZmzXZmj5o6A/giphy.gif?cid=790b7611ayplbpnwhhf9ydpha8qxb72czgo2cmubcwfar4l9&ep=v1_gifs_search&rid=giphy.gif&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description2">설명이 로드되지 않았습니다.</p>
+        </div>
+        <div class="photo-item" id="가벼운 운동 불가능">
+            <img src=https://i.namu.wiki/i/FgRvYsirraMEiQVb582pfenhZBYTUC6m4N4eQbzHOwr09jUKZMkbRhry-t4jHDUw9sPOCKfRWCgu6ubeBU2GmQ.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description3">설명이 로드되지 않았습니다.</p>
+        </div>
+        <div class="photo-item" id="마스크 및 보호안경 쓰기">
+            <img src=https://jjalbang.today/files/jjalbox/2022/05/20220526_628f38289566a.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description4">설명이 로드되지 않았습니다.</p>
+        </div>
+        <div class="photo-item" id="가급적 실내활동">
+            <img src=https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjlybjIxNWliazZpZDV3MWkzcWZ2ZjUzd3BwZnN5OXdhdnRudHNqeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/N1n3RFwTVXWM0Dpj3d/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description5">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="야외 바베큐 가능">
+            <img src=https://media2.giphy.com/media/TiVdW8hqXSRducil5X/giphy.webp?cid=790b7611sc4dbaxy41r6ibc9qrs5gxd0mgfk9b57rh1abexq&ep=v1_gifs_search&rid=giphy.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description6">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="야외 바베큐 불가능">
+            <img src=https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTdsNzBlemZrdXl5NXpycmxpYTJtdzk2b3JiNnd1bnV6eTgwcmJjdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OMeGDxdAsMPzW/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description7">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="일광건조 가능">
+            <img src=https://m.ilbe.com/file/download/125566529 alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description8">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="일광건조 불가능">
+            <img src=https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi2.ruliweb.com%2Fimg%2F21%2F07%2F22%2F17acc2f3c45531408.png&type=sc960_832 alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description9">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="야외 바둑 장기 가능">
+            <img src=https://cdn.dribbble.com/users/1550532/screenshots/3799744/media/a31ac80d1f1ad03536eda02402cca978.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description10">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="야외 바둑 장기 불가능">
+            <img src=https://38.media.tumblr.com/tumblr_ly3f69WNmh1qmqteco1_500.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description11">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="코 세척 권장">
+            <img src=https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTZxdG85ZzByZ3hyN3o2d3FkZXVwdmFrbm4xeThkYjk0cmdheDVlMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3otPovr6LMRg5avWmY/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description12">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="과격한 운동 가능">
+            <img src=https://cdn.dribbble.com/users/31664/screenshots/1892284/media/b646cbd223213d7af78f302d5af30037.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description13">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="과격한 운동 불가능">
+            <img src=https://i.namu.wiki/i/9sG4fMliwczY79a_2CLzV8xNv19GJGzVG-QEiHDHOm_ncSpocfzR_Gl-zuvZMdZCqMZWumA8ztlZblWzvqVHkw.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description14">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="체력측정 가능">
+            <img src=https://media0.giphy.com/media/QsyISIeqbKZ5q4bMpj/200.webp?cid=ecf05e47738xgbj29nehbcza0nvoym1to64bopa1kogf8x5w&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description15">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="체력측정 불가능">
+            <img src=https://media0.giphy.com/media/z9fOrELqdSnFm/giphy.webp?cid=ecf05e47hgs17enbnoy3fgoqjqcpznr2au1dbiu9l08tu75z&ep=v1_gifs_search&rid=giphy.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description16">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="가벼운 외출 가능">
+            <img src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MThfMjUy%2FMDAxNTU1NTc1NjU1NDMz.srUhbqiRAi7E0Q_YCpuRrDnSbzwsJTHdzOdQspy3_3Ag.Q3ApRQ89V16KPBZXyIYjLyQbEwpdcXB369opSDHe7xEg.GIF.sswnsdn%2F1.gif&type=sc960_832_gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description17">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="가벼운 외출 불가능">
+            <img src=https://media1.giphy.com/media/yDXX3sIGnSjmut0muV/200.webp?cid=ecf05e47z1eco1b92zm8vu883n1bdtm26p40oe3hh30u2k64&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description18">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="실외수업 가능">
+            <img src=https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDVzamczZms4cnhvbnZzbGl4N3Zua25waHkwd3RzNWJ6NTJwbnZsYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l2Je24ONWRJepKEpO/200.webp alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description19">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="실외수업 불가능">
+            <img src=https://media2.giphy.com/media/l2JdXlpDtaNmTHOHS/200.webp?cid=ecf05e475y4a0qcskj4x5c4a7ofwjg6shiipsctnb703m07p&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description20">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="피크닉 가능">
+            <img src=https://media4.giphy.com/media/3o6Mbo5EtSpALmSrGo/200.webp?cid=790b7611f5cfw4zmvb7ckz2p59nvpgnv45x0wdg66egh3kj3&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description21">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="피크닉 불가능">
+            <img src=https://media1.giphy.com/media/3o6Mb7psCHBmY5XICA/200.webp?cid=ecf05e47phe4uhfohkg3xnb6shb0956zql42w7fq2vsq3d77&ep=v1_gifs_search&rid=200.webp&ct=g alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description22">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="야채 과일 섭취 권장">
+            <img src=https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmhoYWcxZnBvb2RtM3Joa20zbmQ5d2k0MXdtaWFsMXp4ajNuc3ljZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/9D6S66ufguIzdCJaVI/200.webp alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description23">설명이 로드되지 않았습니다.</p>
+        </div> 
+        <div class="photo-item" id="외출금지">
+            <img src=https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb25qbm5pdHUzdGF0YXRpaDc5ajNmd2pvdWVyN2toMWplcjl6NjJpayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RH5PC3s4JWh32/giphy.gif alt="사진이 로드되지 않았습니다."  class="fixed-size-img">
+            <p id="description24">설명이 로드되지 않았습니다.</p>
+        </div>         
+    </div>
+    
+    <script>
+            window.onload = function() {
+            // div 요소에서 data-number 속성을 읽어옴
+            const container = document.getElementById('best_dust');
+            // 문자열을 int 형식으로 변환(10진수)
+            const number = parseInt(container.getAttribute('data-number'), 10);
+            // JavaScript 함수에 숫자 값을 전달
+            sendNumberToFunction(number);
+        }
+
+        function sendNumberToFunction(number) {
+            console.log("Received number:", number);
+            const 환기가능 = document.getElementById('환기 가능');
+            const 환기불가능 = document.getElementById('환기 불가능')
+            const 가벼운운동가능  = document.getElementById("가벼운 운동 가능")
+            const 가벼운운동불가능  = document.getElementById("가벼운 운동 불가능")
+            const 마스크쓰기  = document.getElementById("마스크 및 보호안경 쓰기")
+            const 실내활동  = document.getElementById("가급적 실내활동")
+            const 야외바베큐가능  = document.getElementById("야외 바베큐 가능")
+            const 야외바베큐불가능  = document.getElementById("야외 바베큐 불가능")
+            const 일광건조가능  = document.getElementById("일광건조 가능")
+            const 일광건조불가능  = document.getElementById("일광건조 불가능")
+            const 야외바둑장기가능  = document.getElementById("야외 바둑 장기 가능")
+            const 야외바둑장기불가능  = document.getElementById("야외 바둑 장기 불가능")
+            const 코세척권장  = document.getElementById("코 세척 권장")
+            const 과격한운동가능  = document.getElementById("과격한 운동 가능")
+            const 과격한운동불가능  = document.getElementById("과격한 운동 불가능")
+            const 체력측정가능  = document.getElementById("체력측정 가능")
+            const 체력측정불가능  = document.getElementById("체력측정 불가능")
+            const 가벼운외출가능  = document.getElementById("가벼운 외출 가능")
+            const 가벼운외출불가능  = document.getElementById("가벼운 외출 불가능")
+            const 실외수업가능 = document.getElementById("실외수업 가능")
+            const 실외수업불가능 = document.getElementById("실외수업 불가능")
+            const 피크닉가능 = document.getElementById("피크닉 가능")
+            const 피크닉불가능 = document.getElementById("피크닉 불가능")
+            const 야채과일섭취권장 = document.getElementById("야채 과일 섭취 권장")  
+            const 외출금지 = document.getElementById("외출금지")  
+
+                            
+            // 모든 사진을 우선 숨김처리
+            환기가능.style.display = 'none';
+            환기불가능.style.display = 'none';
+            가벼운운동가능.style.display = 'none';
+            가벼운운동불가능.style.display = 'none';
+            마스크쓰기.style.display = 'none';
+            실내활동.style.display = 'none';
+            야외바베큐가능.style.display = 'none';
+            야외바베큐불가능.style.display = 'none';
+            일광건조가능.style.display = 'none';
+            일광건조불가능.style.display = 'none';
+            야외바둑장기가능.style.display = 'none';
+            야외바둑장기불가능.style.display = 'none';
+            코세척권장.style.display = 'none';
+            과격한운동가능.style.display = 'none';
+            과격한운동불가능.style.display = 'none';
+            체력측정가능.style.display = 'none';
+            체력측정불가능.style.display = 'none';
+            가벼운외출가능.style.display = 'none';
+            가벼운외출불가능.style.display = 'none';
+            실외수업가능.style.display = 'none';
+            실외수업불가능.style.display = 'none';
+            피크닉가능.style.display = 'none';
+            피크닉불가능.style.display = 'none';
+            야채과일섭취권장.style.display = 'none';
+            외출금지.style.display = 'none';
+
+
+            if(number >= 0 && number < 31) { // 좋음
+                환기가능.style.display = '';
+                환기불가능.style.display = 'none';
+                가벼운운동가능.style.display = '';
+                가벼운운동불가능.style.display = 'none';
+                마스크쓰기.style.display = 'none';
+                실내활동.style.display = 'none';
+                야외바베큐가능.style.display = '';
+                야외바베큐불가능.style.display = 'none';
+                일광건조가능.style.display = '';
+                일광건조불가능.style.display = 'none';
+                야외바둑장기가능.style.display = '';
+                야외바둑장기불가능.style.display = 'none';
+                코세척권장.style.display = 'none';
+                과격한운동가능.style.display = '';
+                과격한운동불가능.style.display = 'none';
+                체력측정가능.style.display = '';
+                체력측정불가능.style.display = 'none';
+                가벼운외출가능.style.display = '';
+                가벼운외출불가능.style.display = 'none';
+                실외수업가능.style.display = '';
+                실외수업불가능.style.display = 'none';
+                피크닉가능.style.display = '';
+                피크닉불가능.style.display = 'none';
+                야채과일섭취권장.style.display = 'none';
+                외출금지.style.display = 'none';
+
+
+                document.getElementById('description0').innerText = "환기 가능"
+                document.getElementById('description2').innerText = "가벼운 운동 가능"
+                document.getElementById('description6').innerText = "야외 바베큐 가능"
+                document.getElementById('description8').innerText = "일광건조 가능"
+                document.getElementById('description10').innerText = "야외 바둑, 장기 가능"
+                document.getElementById('description13').innerText = "과격한 운동 가능"
+                document.getElementById('description15').innerText = "체력측정 가능"
+                document.getElementById('description17').innerText = "가벼운 외출 가능"
+                document.getElementById('description19').innerText = "실외수업 가능"
+                document.getElementById('description21').innerText = "피크닉 가능"
+
+            }
+            else if(number >= 31 && number < 51) { // 양호
+                환기가능.style.display = '';
+                환기불가능.style.display = 'none';
+                가벼운운동가능.style.display = '';
+                가벼운운동불가능.style.display = 'none';
+                마스크쓰기.style.display = 'none';
+                실내활동.style.display = 'none';
+                야외바베큐가능.style.display = '';
+                야외바베큐불가능.style.display = 'none';
+                일광건조가능.style.display = '';
+                일광건조불가능.style.display = 'none';
+                야외바둑장기가능.style.display = '';
+                야외바둑장기불가능.style.display = 'none';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = '';
+                과격한운동불가능.style.display = 'none';
+                체력측정가능.style.display = '';
+                체력측정불가능.style.display = 'none';
+                가벼운외출가능.style.display = '';
+                가벼운외출불가능.style.display = 'none';
+                실외수업가능.style.display = '';
+                실외수업불가능.style.display = 'none';
+                피크닉가능.style.display = '';
+                피크닉불가능.style.display = 'none';
+                야채과일섭취권장.style.display = 'none';
+                외출금지.style.display = 'none';
+
+                document.getElementById('description0').innerText = "환기 가능"
+                document.getElementById('description2').innerText = "가벼운 운동 가능"
+                document.getElementById('description6').innerText = "야외 바베큐 가능"
+                document.getElementById('description8').innerText = "일광건조 가능"
+                document.getElementById('description10').innerText = "야외 바둑, 장기 가능"
+                document.getElementById('description12').innerText = "코 세척 권장"
+                document.getElementById('description13').innerText = "과격한 운동 가능"
+                document.getElementById('description15').innerText = "체력측정 가능"
+                document.getElementById('description17').innerText = "가벼운 외출 가능"
+                document.getElementById('description19').innerText = "실외수업 가능"
+                document.getElementById('description21').innerText = "피크닉 가능"
+                
+            }
+            else if(number >= 51  && number < 71) { // 주의
+                환기가능.style.display = '';
+                환기불가능.style.display = 'none';
+                가벼운운동가능.style.display = '';
+                가벼운운동불가능.style.display = 'none';
+                마스크쓰기.style.display = 'none';
+                실내활동.style.display = 'none';
+                야외바베큐가능.style.display = '';
+                야외바베큐불가능.style.display = 'none';
+                일광건조가능.style.display = 'none';
+                일광건조불가능.style.display = '';
+                야외바둑장기가능.style.display = 'none';
+                야외바둑장기불가능.style.display = '';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = 'none';
+                과격한운동불가능.style.display = '';
+                체력측정가능.style.display = 'none';
+                체력측정불가능.style.display = '';
+                가벼운외출가능.style.display = '';
+                가벼운외출불가능.style.display = 'none';
+                실외수업가능.style.display = '';
+                실외수업불가능.style.display = 'none';
+                피크닉가능.style.display = '';
+                피크닉불가능.style.display = 'none';
+                야채과일섭취권장.style.display = '';
+                외출금지.style.display = 'none';
+
+                document.getElementById('description0').innerText = "환기 가능"
+                document.getElementById('description2').innerText = "가벼운 운동 가능"
+                document.getElementById('description6').innerText = "야외 바베큐 가능"
+                document.getElementById('description9').innerText = "일광건조 불가능"
+                document.getElementById('description11').innerText = "야외 바둑, 장기 불가능"
+                document.getElementById('description12').innerText = "코 세척 권장"
+                document.getElementById('description14').innerText = "과격한 운동 불가능"
+                document.getElementById('description16').innerText = "체력측정 불가능"
+                document.getElementById('description17').innerText = "가벼운 외출 가능"
+                document.getElementById('description19').innerText = "실외수업 가능"
+                document.getElementById('description21').innerText = "피크닉 가능"
+                document.getElementById('description23').innerText = "야채 과일 섭취 권장"
+            }
+            else if(number >= 71 && number < 86){  // 나쁨
+                환기가능.style.display = 'none';
+                환기불가능.style.display = '';
+                가벼운운동가능.style.display = 'none';
+                가벼운운동불가능.style.display = '';
+                마스크쓰기.style.display = 'none';
+                실내활동.style.display = '';
+                야외바베큐가능.style.display = 'none';
+                야외바베큐불가능.style.display = '';
+                일광건조가능.style.display = 'none';
+                일광건조불가능.style.display = '';
+                야외바둑장기가능.style.display = 'none';
+                야외바둑장기불가능.style.display = '';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = 'none';
+                과격한운동불가능.style.display = '';
+                체력측정가능.style.display = 'none';
+                체력측정불가능.style.display = '';
+                가벼운외출가능.style.display = '';
+                가벼운외출불가능.style.display = 'none';
+                실외수업가능.style.display = 'none';
+                실외수업불가능.style.display = '';
+                피크닉가능.style.display = 'none';
+                피크닉불가능.style.display = '';
+                야채과일섭취권장.style.display = '';
+                외출금지.style.display = 'none';
+
+                document.getElementById('description1').innerText = "환기 불가능"
+                document.getElementById('description3').innerText = "가벼운 운동 불가능"
+                document.getElementById('description5').innerText = "가급적 실내활동 권장"
+                document.getElementById('description7').innerText = "야외 바베큐 불가능"
+                document.getElementById('description9').innerText = "일광건조 불가능"
+                document.getElementById('description11').innerText = "야외 바둑, 장기 불가능"
+                document.getElementById('description12').innerText = "코 세척 권장"
+                document.getElementById('description14').innerText = "과격한 운동 불가능"
+                document.getElementById('description16').innerText = "체력측정 불가능"
+                document.getElementById('description17').innerText = "가벼운 외출 가능"
+                document.getElementById('description20').innerText = "실외수업 불가능"
+                document.getElementById('description22').innerText = "피크닉 불가능"
+                document.getElementById('description23').innerText = "야채 과일 섭취 권장"
+
+            }
+            else if(number >= 86 && number < 101) { //매우나쁨
+                환기가능.style.display = 'none';
+                환기불가능.style.display = '';
+                가벼운운동가능.style.display = 'none';
+                가벼운운동불가능.style.display = '';
+                마스크쓰기.style.display = '';
+                실내활동.style.display = '';
+                야외바베큐가능.style.display = 'none';
+                야외바베큐불가능.style.display = '';
+                일광건조가능.style.display = 'none';
+                일광건조불가능.style.display = '';
+                야외바둑장기가능.style.display = 'none';
+                야외바둑장기불가능.style.display = '';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = 'none';
+                과격한운동불가능.style.display = '';
+                체력측정가능.style.display = 'none';
+                체력측정불가능.style.display = '';
+                가벼운외출가능.style.display = 'none';
+                가벼운외출불가능.style.display = '';
+                실외수업가능.style.display = 'none';
+                실외수업불가능.style.display = '';
+                피크닉가능.style.display = 'none';
+                피크닉불가능.style.display = '';
+                야채과일섭취권장.style.display = '';
+                외출금지.style.display = 'none';
+
+                document.getElementById('description1').innerText = "환기 불가능"
+                document.getElementById('description3').innerText = "가벼운 운동 불가능"
+                document.getElementById('description4').innerText = "마스크 쓰기 권장"
+                document.getElementById('description5').innerText = "가급적 실내활동 권장"
+                document.getElementById('description7').innerText = "야외 바베큐 불가능"
+                document.getElementById('description9').innerText = "일광건조 불가능"
+                document.getElementById('description11').innerText = "야외 바둑, 장기 불가능"
+                document.getElementById('description12').innerText = "코 세척 권장"
+                document.getElementById('description14').innerText = "과격한 운동 불가능"
+                document.getElementById('description16').innerText = "체력측정 불가능"
+                document.getElementById('description18').innerText = "가벼운 외출 불가능"
+                document.getElementById('description20').innerText = "실외수업 불가능"
+                document.getElementById('description22').innerText = "피크닉 불가능"
+                document.getElementById('description23').innerText = "야채 과일 섭취 권장"
+
+                
+            }
+            else if(number >= 101) {  //외출금지
+                환기가능.style.display = 'none';
+                환기불가능.style.display = '';
+                가벼운운동가능.style.display = 'none';
+                가벼운운동불가능.style.display = '';
+                마스크쓰기.style.display = '';
+                실내활동.style.display = '';
+                야외바베큐가능.style.display = 'none';
+                야외바베큐불가능.style.display = '';
+                일광건조가능.style.display = 'none';
+                일광건조불가능.style.display = '';
+                야외바둑장기가능.style.display = 'none';
+                야외바둑장기불가능.style.display = '';
+                코세척권장.style.display = '';
+                과격한운동가능.style.display = 'none';
+                과격한운동불가능.style.display = '';
+                체력측정가능.style.display = 'none';
+                체력측정불가능.style.display = '';
+                가벼운외출가능.style.display = 'none';
+                가벼운외출불가능.style.display = '';
+                실외수업가능.style.display = 'none';
+                실외수업불가능.style.display = '';
+                피크닉가능.style.display = 'none';
+                피크닉불가능.style.display = '';
+                야채과일섭취권장.style.display = '';
+                외출금지.style.display = '';
+
+                document.getElementById('description1').innerText = "환기 불가능"
+                document.getElementById('description3').innerText = "가벼운 운동 불가능"
+                document.getElementById('description4').innerText = "마스크 쓰기 권장"
+                document.getElementById('description5').innerText = "가급적 실내활동 권장"
+                document.getElementById('description7').innerText = "야외 바베큐 불가능"
+                document.getElementById('description9').innerText = "일광건조 불가능"
+                document.getElementById('description11').innerText = "야외 바둑, 장기 불가능"
+                document.getElementById('description12').innerText = "코 세척 권장"
+                document.getElementById('description14').innerText = "과격한 운동 불가능"
+                document.getElementById('description16').innerText = "체력측정 불가능"
+                document.getElementById('description18').innerText = "가벼운 외출 불가능"
+                document.getElementById('description20').innerText = "실외수업 불가능"
+                document.getElementById('description22').innerText = "피크닉 불가능"
+                document.getElementById('description23').innerText = "야채 과일 섭취 권장"
+                document.getElementById('description24').innerText = "외출금지"
+
+
+            }
+            else {
+            }
+        }
+    </script>
 </div>
 </body>
 
