@@ -17,7 +17,7 @@
 
 
 ## 🧑‍💻 개발자 소개 
-- 이기홍 @gihong-free
+- 이기홍 @gihong-free / Email: gihonggi@naver.com
 - 이현우 @cbnuLeehyunwoo / Email: henow123@naver.com
 - 최고원 @choigowon / Emila: cape326@naver.com
 
