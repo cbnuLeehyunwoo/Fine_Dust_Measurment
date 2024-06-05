@@ -38,6 +38,15 @@
 2. Flask를 통해 만들어진 주소 접속
 3. 사이트 실행
 
+## 🎬 실행 화면
+- 결과
+![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/1eec51f7-e03c-456d-b2a7-235410e1744c)
+![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/1e3bce3d-e1cc-43eb-a856-84a36fd558d4)
+
+- 아두이노 연결 방법
+![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/967e899c-7488-4000-aaba-5d01fa3c16ce)
+
+
 
 ## 📁 의존성
 ```
