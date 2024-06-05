@@ -201,7 +201,8 @@ def first():
     p2 = f"img/arduinoValue.jpg"
     p3 = f"img/howact.png"
     p4 = f"img/Cheongju.png"
-    return render_template('site.html', p1=p1, p2=p2, p3=p3, p4=p4)
+    p5 = f"img/circuit.png"
+    return render_template('site.html', p1=p1, p2=p2, p3=p3, p4=p4, p5=p5 )
 
 @app.route("/Cheongju")
 def cheongju():
