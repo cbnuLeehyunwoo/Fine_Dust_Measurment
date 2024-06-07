@@ -14,7 +14,6 @@ def read_arduino():
                 numbers = re.findall(r'\d+\.?\d*', ard)
                 if numbers:
                     arduino_data = float(numbers[0])
-                    print(arduino_data)
                 else:
                     arduino_data = "값에 숫자가 없습니다."
     except serial.SerialException:
