@@ -1,10 +1,7 @@
-from unittest.mock import patch
 import unittest
 import scr
 
-
-
-class TestScr(unittest.TestCase):
+class Testscr(unittest.TestCase):
     def test_naver(self):
         scr.scrape_naver("청주")
     def test_wea(self):
@@ -32,7 +29,11 @@ class TestScr(unittest.TestCase):
         scr.state(100)
         scr.state(110)
     def test_suggest(self):
-        scr.suggest(10,20,30)
+        scr.suggest(10,10,10)
+        scr.arduino_data=10
+        scr.suggest(10,1,1)
+        scr.suggest(1,10,1)
+        scr.suggest(1,1,10)
 
 if __name__ == '__main__':
     unittest.main()

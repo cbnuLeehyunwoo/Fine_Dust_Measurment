@@ -139,9 +139,6 @@ def scrape_health(location): # 충청북도 보건환경연구원
                 value=dust[n].find_all("td")[2].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
                 value=value.replace(".0㎍/㎥", "")
                 count+=1
-                if(value in "점검중"): # 점검 중인 지역 제외 처리
-                    value=0
-                    count-=1
                 result+=int(value)
             else:
                 value=dust[n].find_all("td")[1].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
@@ -176,16 +173,17 @@ def suggest(n,w,h):
     ard=arduino_data
     if(ard=="포트 미연결 상태") or (ard=="No data"):
         return "아두이노 포트 미연결"
-    min=n-ard
     site=""
-    if (w-ard<min):
-        min=w-ard
-    if (h-ard<min):
-        min=h-ard
-    if (n-ard==min):
-        site += "네이버 "
-    if (w-ard==min):
-        site += "웨더아이 "
-    if (h-ard==min):
-        site += "충북보건환경연구원"
+    min=abs(n-ard)
+    if (abs(w-ard)<min):
+        min=(w-ard)
+    if (abs(h-ard)<min):
+        min=(h-ard)
+
+    if(abs(n-ard)==min):
+        site+=" 네이버 "
+    if (abs(w-ard)==min):
+        site += " 웨더아이 "
+    if (abs(h-ard)==min):
+        site += " 충북보건환경연구원 "
     return site
