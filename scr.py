@@ -1,6 +1,5 @@
 import requests, serial, re, threading
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, g
 
 arduino_data = "No data"
 def read_arduino():
@@ -21,8 +20,7 @@ def read_arduino():
     except serial.SerialException:
         arduino_data = "포트 미연결 상태"
 threading.Thread(target=read_arduino, daemon=True).start()
-# global arduino_data
-# arduino_data = 50
+
 def scrape_naver(location): # 네이버 미세먼지
     url="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blQ3&qvt=0&query=%EC%B6%A9%EB%B6%81%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80"
     # 스크랩 해올 주소
@@ -191,139 +189,3 @@ def suggest(n,w,h):
     if (h-ard==min):
         site += "충북보건환경연구원"
     return site
-
-
-app = Flask(__name__)
-
-@app.route('/')
-def first():
-    p1 = f"img/scraping.png"
-    p2 = f"img/arduinoValue.jpg"
-    p3 = f"img/howact.png"
-    p4 = f"img/Cheongju.png"
-    p5 = f"img/circuit.png"
-    return render_template('site.html', p1=p1, p2=p2, p3=p3, p4=p4, p5=p5 )
-
-@app.route("/Cheongju")
-def cheongju():
-    n=scrape_naver("청주")
-    w=scrape_weatheri("청주")
-    h=scrape_health("청주")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Cheongju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Yeongdong")
-def yeongdong():
-    n=scrape_naver("영동")
-    w=scrape_weatheri("영동")
-    h=scrape_health("영동")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Yeongdong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Okcheon")
-def okcheon():
-    n=scrape_naver("옥천")
-    w=scrape_weatheri("옥천")
-    h=scrape_health("옥천")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Okcheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Boeun")
-def boeun():
-    n=scrape_naver("보은")
-    w=scrape_weatheri("보은")
-    h=scrape_health("보은")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Boeun.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Goesan")
-def goesan():
-    n=scrape_naver("괴산")
-    w=scrape_weatheri("괴산")
-    h=scrape_health("괴산")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Goesan.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Jincheon")
-def jincheon():
-    n=scrape_naver("진천")
-    w=scrape_weatheri("진천")
-    h=scrape_health("진천")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Jincheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Eumseong")
-def eumseong():
-    n=scrape_naver("음성")
-    w=scrape_weatheri("음성")
-    h=scrape_health("음성")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Eumseong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Chungju")
-def chungju():
-    n=scrape_naver("충주")
-    w=scrape_weatheri("충주")
-    h=scrape_health("충주")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Chungju.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Jecheon")
-def jecheon():
-    n=scrape_naver("제천")
-    w=scrape_weatheri("제천")
-    h=scrape_health("제천")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Jecheon.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Danyang")
-def danyang():
-    n=scrape_naver("단양")
-    w=scrape_weatheri("단양")
-    h=scrape_health("단양")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Danyang.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-
-@app.route("/Jeungpyeong")
-def jeungpyeong():
-    n=scrape_naver("증평")
-    w=scrape_weatheri("증평")
-    h=scrape_health("증평")
-    nn=state(n)
-    ww=state(w)
-    hh=state(h)
-    s=suggest(n,w,h)
-    return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
-    
-if __name__ == '__main__':
-    app.run(debug=False)  #디버그 모드 임시 비활성화
