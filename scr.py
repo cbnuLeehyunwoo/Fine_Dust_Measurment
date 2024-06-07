@@ -169,9 +169,9 @@ def state(value):
     return state
 
 def suggest(n,w,h):
-    ard=arduino_data
-    if(ard=="포트 미연결 상태") or (ard=="No data"):
+    if(arduino_data=="포트 미연결 상태") or (arduino_data=="No data"):
         return "아두이노 포트 미연결"
+    ard=arduino_data
     site=""
     min=abs(n-ard)
     if (abs(w-ard)<min):
