@@ -323,9 +323,10 @@ if __name__ == "__main__":
         s=suggest(n,w,h)
         return render_template('Jeungpyeong.html', n=n, w=w, h=h, nn=nn, ww=ww, hh=hh, ard=arduino_data, s=s, av=(n+w+h)/3)
     
-    @app.route("/manual")
+    @app.route("/Manual")
     def manual():
-        return render_template('manual.html')
+        p1 = f"img/circuit.png"
+        return render_template('manual.html', p1=p1)
         
     @app.teardown_appcontext             
     def close_connection(exception=None):
