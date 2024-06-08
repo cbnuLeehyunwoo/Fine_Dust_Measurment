@@ -1,8 +1,9 @@
 import unittest
-import scr
 from unittest.mock import patch, MagicMock
+from run import app
+import scr 
 
-class Testarduino(unittest.TestCase):
+class TestApp(unittest.TestCase):
     @patch('serial.Serial')
     def test_arduino_data_number(self, mock_serial):
         # mock 객체 설정
@@ -48,26 +49,6 @@ class Testarduino(unittest.TestCase):
         
         #self.assertEqual(scr.arduino_data, "포트 미연결 상태")
 
-
-    def test_naver(self):
-        scr.scrape_naver("청주")
-    def test_wea(self):
-        scr.weatheri(1)
-    def test_wheatheri(self):
-        scr.scrape_weatheri("청주")
-        scr.scrape_weatheri("괴산")
-        scr.scrape_weatheri("음성")
-        scr.scrape_weatheri("단양")
-        scr.scrape_weatheri("진천")
-        scr.scrape_weatheri("증평")
-        scr.scrape_weatheri("보은")
-        scr.scrape_weatheri("충주")
-        scr.scrape_weatheri("영동")
-        scr.scrape_weatheri("화성")
-        scr.scrape_weatheri("옥천")
-        scr.scrape_weatheri("제천")
-    def test_health(self):
-        scr.scrape_health("청주")
     def test_state(self):
         scr.state(20)
         scr.state(40)
@@ -75,13 +56,68 @@ class Testarduino(unittest.TestCase):
         scr.state(80)
         scr.state(100)
         scr.state(110)
+
     def test_suggest(self):
-        scr.arduino_data="No data"
-        scr.suggest(10,10,10)
         scr.arduino_data=10
         scr.suggest(10,1,1)
         scr.suggest(1,10,1)
         scr.suggest(1,1,10)
 
+    def setUp(self):
+        self.app = app.test_client()
+
+    def test_first_page(self):
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_cheongju_page(self):
+        response = self.app.get('/Cheongju')
+        self.assertEqual(response.status_code, 200)
+
+    def test_yeongdong_page(self):
+        response = self.app.get('/Yeongdong')
+        self.assertEqual(response.status_code, 200)
+
+    def test_okcheon_page(self):
+        response = self.app.get('/Okcheon')
+        self.assertEqual(response.status_code, 200)
+
+    def test_boeun_page(self):
+        response = self.app.get('/Boeun')
+        self.assertEqual(response.status_code, 200)
+
+    def test_goesan_page(self):
+        response = self.app.get('/Goesan')
+        self.assertEqual(response.status_code, 200)
+
+    def test_jincheon_page(self):
+        response = self.app.get('/Jincheon')
+        self.assertEqual(response.status_code, 200)
+
+    def test_eumseong_page(self):
+        response = self.app.get('/Eumseong')
+        self.assertEqual(response.status_code, 200)
+
+    def test_chungju_page(self):
+        response = self.app.get('/Chungju')
+        self.assertEqual(response.status_code, 200)
+
+    def test_jecheon_page(self):
+        response = self.app.get('/Jecheon')
+        self.assertEqual(response.status_code, 200)
+
+    def test_danyang_page(self):
+        response = self.app.get('/Danyang')
+        self.assertEqual(response.status_code, 200)
+
+    def test_jeungpyeong_page(self):
+        response = self.app.get('/Jeungpyeong')
+        self.assertEqual(response.status_code, 200)
+
+    def test_manual_page(self):
+        response = self.app.get('/Manual')
+        self.assertEqual(response.status_code, 200)
+
+ 
 if __name__ == '__main__':
     unittest.main()

@@ -23,12 +23,13 @@ body {
 }
 
 .title {
-    width:1500px;
+    width:1600px;
     margin:auto;
     display: flex;
     align-items: center;
     margin-top:30px;
     margin-bottom:20px;
+    padding: 10px;
     img{
         margin-right: 10px;
     }
@@ -91,7 +92,7 @@ body {
     display:flex;
     background: #fff;
     align-items : center;
-    margin-bottom:40px;
+    margin-bottom:30px;
 }
 
 .arduino, .suggest {
@@ -121,7 +122,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+    margin-bottom:30px;
 }
 .photo-item {
     background-color: #fff;

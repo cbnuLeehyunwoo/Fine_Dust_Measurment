@@ -107,13 +107,11 @@ def scrape_weatheri(location):
         weatheri(17)
         weatheri(33)
         value = int(sum/count)
-    elif "화성" in location:
-        weatheri(18)
-        value = sum
     elif "옥천" in location:
         weatheri(21)
         value = sum
     elif "제천" in location:
+        weatheri(18)
         weatheri(25)
         weatheri(30)
         value = int(sum/count)            
@@ -169,7 +167,7 @@ def state(value):
     return state
 
 def suggest(n,w,h):
-    if(arduino_data=="포트 미연결 상태") or (arduino_data=="No data"):
+    if(type(arduino_data) is str):
         return "아두이노 포트 미연결"
     ard=arduino_data
     site=""
