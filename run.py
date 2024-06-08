@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def first():
     p1 = f"img/scraping.png"
-    p2 = f"img/arduinoValue.jpg"
+    p2 = f"img/arduinoValue.png"
     p3 = f"img/howact.png"
     p4 = f"img/Cheongju.png"
     return render_template('site.html', p1=p1, p2=p2, p3=p3, p4=p4)
