@@ -2,48 +2,48 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-}
-
-.body{
     background-image:url("https://m.airkorea.or.kr/images/main/main_bg_spring.png");
     background-size:100%;
-    padding: 20px;
 }
 
 .header {
+    max-width: 1650px;
+    margin: auto;
     display: flex;
     align-items: center;
     padding: 20px;
     background-color: #4caf50;
     color: #fff;
-}
-
-.header .logo {
-    margin-right: 20px;
-}
-
-.header .city {
-    font-size: 1.7em;
+    img{
+        margin-right: 25px;
+    }
+    h1{
+        min-width:300px;
+    }
 }
 
 .title {
+    width:1600px;
+    margin:auto;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-}
-
-.title img {
-    margin-right: 10px;
-}
-
-.title strong {
-    font-size: 1.2em;
+    margin-top:30px;
+    margin-bottom:20px;
+    padding: 10px;
+    img{
+        margin-right: 10px;
+    }
+    strong{
+        font-size: 1.3em;
+    }
 }
 
 .box {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
+    width: 1300px;
+    margin:auto;
 }
 
 .site {
@@ -54,6 +54,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
     background: #fff;
+    
 }
 
 .site div {
@@ -86,10 +87,12 @@ body {
 }
 
 .bottom{
+    width:1400px;
+    margin:auto;
     display:flex;
     background: #fff;
     align-items : center;
-    margin-bottom:40px;
+    margin-bottom:30px;
 }
 
 .arduino, .suggest {
@@ -119,7 +122,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+    margin-bottom:30px;
 }
 .photo-item {
     background-color: #fff;

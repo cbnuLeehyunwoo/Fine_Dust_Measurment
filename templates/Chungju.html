@@ -12,8 +12,8 @@
 <body>
 
 <div class="header">
-<img class="logo" src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MjNfMzAw%2FMDAxNjAwODU5MTE4Mjky.FBFNucVvx0DBiLBOHi7tvn3B-KVpMo7WAFCLK4a4dxcg.VOK-l7zZ-2JjD7JCO6SDRSfXfKg2MTVpud-tzM-q_swg.JPEG.yozumc%2Fbandicam_2020-09-23_20-05-12-825.jpg&type=a340" width=5%;>
-<h2 class="city">충주시 미세먼지</h2>
+<img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MjNfMzAw%2FMDAxNjAwODU5MTE4Mjky.FBFNucVvx0DBiLBOHi7tvn3B-KVpMo7WAFCLK4a4dxcg.VOK-l7zZ-2JjD7JCO6SDRSfXfKg2MTVpud-tzM-q_swg.JPEG.yozumc%2Fbandicam_2020-09-23_20-05-12-825.jpg&type=a340" width=90px;>
+<h1>충주시 미세먼지</h1>
 </div>
 
 <div class="body">
@@ -76,13 +76,16 @@
 </div>
 <div class="button-container">
     <p class="help-text">아두이노 세팅에 도움이 필요하신가요?</p>
-    <button type="button" onclick="location.href='{{ url_for('manual') }}'">아두이노 세팅 A부터 Z까지</button>
+    <a href="/Manual">
+        <button type="button">아두이노 세팅 A부터 Z까지
+        </button>
+    </a>
 </div>
 <div class="title">
     <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
     <strong>행동요령</strong>
 </div>
-<div id="best_dust" data-number = 20></div>  
+<div id="best_dust" data-number = {{av}}></div>  
     <div class="photo-grid">
         <div class="photo-item" id="환기 가능">
             <img src=https://media1.tenor.com/m/JzCyICxAbYIAAAAC/open-fenster.gif alt="사진이 로드되지 않았습니다." class="fixed-size-img">
