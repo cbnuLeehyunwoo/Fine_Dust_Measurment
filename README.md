@@ -39,11 +39,16 @@
 3. 사이트 실행
 
 ## 🎬 실행 화면
+- 시작 화면
+![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/e45b2d9c-66bc-438f-9dc2-090d06195cbf)
+![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/5e836b81-2b56-4612-be6c-b0b3ff50086f)
+
 - 결과
 ![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/1eec51f7-e03c-456d-b2a7-235410e1744c)
 ![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/1e3bce3d-e1cc-43eb-a856-84a36fd558d4)
 
 - 아두이노 연결 방법
+![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/0a9bd44f-078a-4c06-b8f3-5e717b2c7b7c)
 ![image](https://github.com/cbnuLeehyunwoo/Fine_Dust_Measurment/assets/154347680/967e899c-7488-4000-aaba-5d01fa3c16ce)
 
 

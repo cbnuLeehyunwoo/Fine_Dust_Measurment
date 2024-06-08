@@ -14,7 +14,6 @@ def read_arduino():
                 numbers = re.findall(r'\d+\.?\d*', ard)
                 if numbers:
                     arduino_data = float(numbers[0])
-                    print(arduino_data)
                 else:
                     arduino_data = "값에 숫자가 없습니다."
     except serial.SerialException:
@@ -108,13 +107,11 @@ def scrape_weatheri(location):
         weatheri(17)
         weatheri(33)
         value = int(sum/count)
-    elif "화성" in location:
-        weatheri(18)
-        value = sum
     elif "옥천" in location:
         weatheri(21)
         value = sum
     elif "제천" in location:
+        weatheri(18)
         weatheri(25)
         weatheri(30)
         value = int(sum/count)            
@@ -139,9 +136,6 @@ def scrape_health(location): # 충청북도 보건환경연구원
                 value=dust[n].find_all("td")[2].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
                 value=value.replace(".0㎍/㎥", "")
                 count+=1
-                if(value in "점검중"): # 점검 중인 지역 제외 처리
-                    value=0
-                    count-=1
                 result+=int(value)
             else:
                 value=dust[n].find_all("td")[1].get_text().strip().replace("㎍/㎥ 이하", "") #미세먼지 값
@@ -173,19 +167,20 @@ def state(value):
     return state
 
 def suggest(n,w,h):
-    ard=arduino_data
-    if(ard=="포트 미연결 상태") or (ard=="No data"):
+    if(type(arduino_data) is str):
         return "아두이노 포트 미연결"
-    min=n-ard
+    ard=arduino_data
     site=""
-    if (w-ard<min):
-        min=w-ard
-    if (h-ard<min):
-        min=h-ard
-    if (n-ard==min):
-        site += "네이버 "
-    if (w-ard==min):
-        site += "웨더아이 "
-    if (h-ard==min):
-        site += "충북보건환경연구원"
+    min=abs(n-ard)
+    if (abs(w-ard)<min):
+        min=(w-ard)
+    if (abs(h-ard)<min):
+        min=(h-ard)
+
+    if(abs(n-ard)==min):
+        site+=" 네이버 "
+    if (abs(w-ard)==min):
+        site += " 웨더아이 "
+    if (abs(h-ard)==min):
+        site += " 충북보건환경연구원 "
     return site

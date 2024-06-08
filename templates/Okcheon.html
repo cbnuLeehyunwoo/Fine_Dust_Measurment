@@ -12,8 +12,8 @@
 <body>
 
 <div class="header">
-<img class="logo" src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2FOdHouyWfshveSqxkzxdTyuwCoPB2PTx1cBhYcPj3GKkF5lo3H5wPNypo-nbwOs9HPgU&type=a340" width=6%;>
-<h2 class="city">옥천군 미세먼지</h2>
+<img src = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fplay-lh.googleusercontent.com%2FOdHouyWfshveSqxkzxdTyuwCoPB2PTx1cBhYcPj3GKkF5lo3H5wPNypo-nbwOs9HPgU&type=a340" width=100px;>
+<h1>옥천군 미세먼지</h1>
 </div>
 
 <div class="body">
@@ -76,13 +76,16 @@
 </div>
 <div class="button-container">
     <p class="help-text">아두이노 세팅에 도움이 필요하신가요?</p>
-    <button type="button" onclick="location.href='{{ url_for('manual') }}'">아두이노 세팅 A부터 Z까지</button>
+    <a href="/Manual">
+        <button type="button">아두이노 세팅 A부터 Z까지
+        </button>
+    </a>
 </div>
 <div class="title">
     <img src="https://api3.weatheri.co.kr/web/images/ico_01.gif" width="30">
     <strong>행동요령</strong>
 </div>
-<div id="best_dust" data-number = 20></div>  
+<div id="best_dust" data-number = {{av}}></div>  
     <div class="photo-grid">
         <div class="photo-item" id="환기 가능">
             <img src=https://media1.tenor.com/m/JzCyICxAbYIAAAAC/open-fenster.gif alt="사진이 로드되지 않았습니다." class="fixed-size-img">

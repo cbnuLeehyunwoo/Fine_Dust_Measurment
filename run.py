@@ -137,4 +137,4 @@ def manual():
     p1 = f"img/circuit.png"
     return render_template('manual.html', p1=p1)
 
-app.run(debug=False)  #디버그 모드 비활성화
+app.run(debug=False)  #디버그 모드 임시 비활성화
